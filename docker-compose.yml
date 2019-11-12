@@ -1,0 +1,10 @@
+---
+version: "3.7"
+
+services:
+  app:
+    image: python:3.8-buster
+    depends_on:
+      - db
+  db:
+    image: redislabs/redisgraph:1.99.4
