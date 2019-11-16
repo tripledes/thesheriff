@@ -28,5 +28,5 @@ $ docker-compose up
 
 ```console
 ❯❯❯❯ curl localhost:5000
-"Welcome to The Sheriff!"
+{"email":"guest@example.com","user":"guest"}
 ```

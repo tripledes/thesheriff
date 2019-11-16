@@ -11,6 +11,11 @@ services:
       - db
     ports:
       - 5000:5000
+    environment:
+      DB_HOST: db
+      DB_NAME: thesheriffdb
+      DB_USER: sheriff
+      DB_PASSWD: sh3r1ff
   db:
     image: mariadb:10.4.10
     environment:

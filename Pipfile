@@ -10,6 +10,7 @@ autopep8 = "*"
 [packages]
 flask = "==1.1.1"
 flask-sqlalchemy = "*"
+pymysql = "==0.9.3"
 
 [requires]
 python_version = "3.8"
