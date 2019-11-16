@@ -7,4 +7,4 @@ services:
     depends_on:
       - db
   db:
-    image: redislabs/redisgraph:1.99.4
+    image: mariadb:10.4.10
