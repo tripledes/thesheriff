@@ -1,0 +1,13 @@
+FROM python:3.8.0-alpine
+
+WORKDIR /app
+
+COPY Pipfile* ./
+
+RUN pip3 install pipenv && pipenv install --skip-lock
+
+COPY thesheriff thesheriff
+
+ENV FLASK_APP=thesheriff
+
+ENTRYPOINT [ "pipenv", "run", "flask", "run", "--host", "app"]

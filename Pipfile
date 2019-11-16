@@ -5,10 +5,11 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
+autopep8 = "*"
 
 [packages]
 flask = "==1.1.1"
-redisgraph = "*"
+flask-sqlalchemy = "*"
 
 [requires]
 python_version = "3.8"
