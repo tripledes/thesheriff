@@ -24,3 +24,9 @@ $ docker-compose up
 * Arranca los servicios *app* y *db*
 * El nombre de host *db* se puede usar desde *app*
 * *app* se publicará en el puerto *5000* en *localhost*
+* Para acceder:
+
+```console
+❯❯❯❯ curl localhost:5000
+"Welcome to The Sheriff!"
+```

@@ -3,7 +3,10 @@ version: "3.7"
 
 services:
   app:
-    image: python:3.8-buster
+    image: thesheriff/thesheriff
+    build:
+      dockerfile: Dockerfile.thesheriff
+      context: .
     depends_on:
       - db
     ports:
