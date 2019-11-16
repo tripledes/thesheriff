@@ -6,5 +6,11 @@ services:
     image: python:3.8-buster
     depends_on:
       - db
+    ports: 5000:5000
   db:
     image: mariadb:10.4.10
+    environment:
+      MYSQL_ROOT_PASSWORD: s3cr3t
+      MYSQL_DATABASE: thesheriffdb
+      MYSQL_USER: sheriff
+      MYSQL_PASSWORD: sh3r1ff
