@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 autopep8 = "*"
+sphinx = "==2.2.0"
 
 [packages]
 flask = "==1.1.1"
