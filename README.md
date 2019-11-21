@@ -10,6 +10,7 @@
 
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 * [Flask SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
+* [Sphinx](https://pythonhosted.org/an_example_pypi_project/sphinx.html#full-code-example)
 
 ### Aplicación
 
