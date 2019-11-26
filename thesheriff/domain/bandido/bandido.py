@@ -1,9 +1,9 @@
 class Bandido:
-    def __init__(self, id, name, score, bandas, amigos, asaltos):
-        self.asaltos = asaltos
-        self.amigos = amigos
-        self.bandas = bandas
-        self.score = score
+    def __init__(self, id, name):
+        self.asaltos = []
+        self.amigos = []
+        self.bandas = []
+        self.score = 0
         self.name = name
         self.id = id
 
