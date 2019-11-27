@@ -5,5 +5,5 @@ class Puntuacion:
         self.servicio = servicio
         self.precio = precio
 
-    def execute(self):
+    def value(self):
         return (self.cantidadComida + self.calidadComida + self.servicio + self.precio) / 4

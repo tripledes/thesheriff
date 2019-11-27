@@ -1,18 +1,13 @@
+from thesheriff.domain.bandido.puntuacion import Puntuacion
+
 class PuntuarAsalto:
-    def __init__(self, sheriff):
-        self.scores = []
-        self.sheriff = sheriff
+    def __init__(self, asalto, bandidoRepository):
+        self.asalto = asalto
+        self.bandidoRepository = bandidoRepository
 
-    def puntuar(self, score):
-        self.scores.append(score)
+    def execute(self, bandido_id, puntuacion : Puntuacion):
+        bandido = self.bandidoRepository.of_id(bandido_id)
 
-    def execute(self):
-        scoreTotal = 0
-        scoresLength = self.scores.__len__()
-        if(scoresLength > 0):
-            for score in self.scores:
-                scoreTotal += score
+        if(bandido):
+            self.asalto.puntuar(puntuacion.value())
 
-            scoreTotal = scoreTotal / scoresLength
-
-        return scoreTotal

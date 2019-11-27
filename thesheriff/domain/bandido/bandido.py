@@ -9,6 +9,3 @@ class Bandido:
 
     def unirse_a_banda(self, banda):
         self.bandas.push(banda)
-
-    def puntuar_asalto(self, asalto, puntuacion):
-        asalto.puntuar(puntuacion.execute())
