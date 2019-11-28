@@ -3,7 +3,7 @@ class Bandido:
         self.asaltos = []
         self.amigos = []
         self.bandas = []
-        self.score = 0
+        self.puntos = 0
         self.name = name
         self.id = id
 

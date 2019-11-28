@@ -3,7 +3,6 @@ import abc
 from typing import NoReturn
 from thesheriff.domain.asalto import Asalto
 
-
 class AsaltoRepository(abc.ABC):
     @abc.abstractmethod
     def of_id(self, asalto_id: int) -> Asalto:

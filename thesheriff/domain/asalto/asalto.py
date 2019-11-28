@@ -1,11 +1,14 @@
+from thesheriff.domain.bandido.sheriff import Sheriff
+
+
 class Asalto:
 
-    def __init__(self, id, name, bandidos, sheriff):
+    def __init__(self, id, name, bandidos, sheriff: Sheriff):
         self.bandidos = bandidos
-        self.scores = []
+        self.notas = []
         self.name = name
         self.id = id
         self.sheriff = sheriff
 
-    def puntuar(self, score):
-        self.scores.append(score)
+    def nuevaPuntuacion(self, nota):
+        self.notas.append(nota)
