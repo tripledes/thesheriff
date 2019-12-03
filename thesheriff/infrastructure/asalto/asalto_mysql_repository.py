@@ -14,10 +14,8 @@ from sqlalchemy import (
     create_engine, MetaData, Table, Column, Integer, Text, DateTime,
     ForeignKey, insert
 )
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+from typing import NoReturn
 
 metadata = MetaData()
 
@@ -25,9 +23,7 @@ asalto = Table('asaltos', metadata,
                Column('id', Integer, primary_key=True, autoincrement=True),
                Column('sheriff_id', Text, nullable=False),
                Column('lugar', Text, nullable=False),
-               # Column('miembros', Integer, ForeignKey('bandidos.id')),
-               # FIXME(tripledes) here goes a relationship but no idea how to do it
-               # without sqlalchemy core (no ORM)
+               Column('miembros', ForeignKey('bandidos.id')),
                Column('fecha', DateTime, nullable=False))
 
 
@@ -38,7 +34,6 @@ class AsaltoMySQLRepository(AsaltoRepository):
     :type database_uri: str.
     :return: NoReturn.
     """
-
     def __init__(self, database_uri: str) -> NoReturn:
         engine = create_engine(database_uri)
         self.__connection = engine.connect()
