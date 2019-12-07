@@ -43,11 +43,11 @@
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </div>
-<div class="section" id="module-thesheriff.infrastructure.asalto">
-<span id="asalto-infrastructure"></span><h1>Asalto Infrastructure<a class="headerlink" href="#module-thesheriff.infrastructure.asalto" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-thesheriff.infrastructure">
+<span id="the-sheriff-infrastructure"></span><h1>The Sheriff Infrastructure<a class="headerlink" href="#module-thesheriff.infrastructure" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="thesheriff.infrastructure.asalto.AsaltoMySQLRepository">
-<em class="property">class </em><code class="sig-prename descclassname">thesheriff.infrastructure.asalto.</code><code class="sig-name descname">AsaltoMySQLRepository</code><span class="sig-paren">(</span><em class="sig-param">database_uri: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.infrastructure.asalto.AsaltoMySQLRepository" title="Permalink to this definition">¶</a></dt>
+<dt id="thesheriff.infrastructure.AsaltoMySQLRepository">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.infrastructure.</code><code class="sig-name descname">AsaltoMySQLRepository</code><span class="sig-paren">(</span><em class="sig-param">database_uri: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository" title="Permalink to this definition">¶</a></dt>
 <dd><p>AsaltoMySQLRepository implements persistence for Asalto on MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -58,8 +58,8 @@
 </dd>
 </dl>
 <dl class="method">
-<dt id="thesheriff.infrastructure.asalto.AsaltoMySQLRepository.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">nuevo_asalto: thesheriff.domain.asalto.asalto.Asalto</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.asalto.AsaltoMySQLRepository.add" title="Permalink to this definition">¶</a></dt>
+<dt id="thesheriff.infrastructure.AsaltoMySQLRepository.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">nuevo_asalto: thesheriff.domain.asalto.asalto.Asalto</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add persists a new Asalto to MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -72,8 +72,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="thesheriff.infrastructure.asalto.AsaltoMySQLRepository.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">asalto_id: int</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.asalto.AsaltoMySQLRepository.remove" title="Permalink to this definition">¶</a></dt>
+<dt id="thesheriff.infrastructure.AsaltoMySQLRepository.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">asalto_id: int</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove deletes existing Asaltos</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -86,8 +86,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="thesheriff.infrastructure.asalto.AsaltoMySQLRepository.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_asalto: thesheriff.domain.asalto.asalto.Asalto</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.asalto.AsaltoMySQLRepository.update" title="Permalink to this definition">¶</a></dt>
+<dt id="thesheriff.infrastructure.AsaltoMySQLRepository.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_asalto: thesheriff.domain.asalto.asalto.Asalto</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update modifies existing Asaltos</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -97,6 +97,61 @@
 <dd class="field-even"><p>NoReturn.</p>
 </dd>
 </dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="thesheriff.infrastructure.BandidoMySQLRepository">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.infrastructure.</code><code class="sig-name descname">BandidoMySQLRepository</code><span class="sig-paren">(</span><em class="sig-param">database_uri: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.infrastructure.BandidoMySQLRepository" title="Permalink to this definition">¶</a></dt>
+<dd><p>BandidoMySQLRepository implements persistence for Bandido on MySQL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>database_uri</strong> (<em>str.</em>) – URI for connecting to MySQL</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>NoReturn.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandidoMySQLRepository.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_bandido: thesheriff.domain.bandido.bandido.Bandido</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.BandidoMySQLRepository.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add persists a new Bandido to MySQL.
+:param new_bandido: Object with the Bandido information
+:type new_bandido: Bandido.
+:return: NoReturn.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandidoMySQLRepository.of_id">
+<code class="sig-name descname">of_id</code><span class="sig-paren">(</span><em class="sig-param">bandido_id: int</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.bandido.bandido.Bandido<a class="headerlink" href="#thesheriff.infrastructure.BandidoMySQLRepository.of_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>of_id searches for a Bandido matching bandido_id
+:param bandido_id: ID of the Bandido to be returned.
+:type bandido_id: int.
+:return: Bandido.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandidoMySQLRepository.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">bandido_id: int</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.BandidoMySQLRepository.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove deletes existing Bandido</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bandido_id</strong> (<em>int.</em>) – ID of the Bandido to be removed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>NoReturn.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandidoMySQLRepository.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_bandido: thesheriff.domain.bandido.bandido.Bandido</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.BandidoMySQLRepository.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update modifies existing Bandidos
+:param mod_bandido: Object with Bandido information to be updated.
+:type mod_bandido: Bandido.
+:return: NoReturn.</p>
 </dd></dl>
 
 </dd></dl>

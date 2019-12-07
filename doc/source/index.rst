@@ -20,8 +20,10 @@ Indices and tables
 * :ref:`search`
 
 
-Asalto Infrastructure
-======================
-.. automodule:: thesheriff.infrastructure.asalto
+The Sheriff Infrastructure
+==========================
+.. automodule:: thesheriff.infrastructure
 .. autoclass:: AsaltoMySQLRepository
+   :members:
+.. autoclass:: BandidoMySQLRepository
    :members:
