@@ -136,6 +136,70 @@
 
 </dd></dl>
 
+    <dl class="class">
+<dt id="thesheriff.infrastructure.BandaMySqlRepository">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.infrastructure.</code><code class="sig-name descname">BandaMySQLRepository</code><span class="sig-paren">(</span><em class="sig-param">database_uri: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.infrastructure.BandaMySQLRepository" title="Permalink to this definition">¶</a></dt>
+<dd><p>BandaMySQLRepository implements persistence for Banda on MySQL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>database_uri</strong> (<em>str.</em>) – URI for connecting to MySQL</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>NoReturn.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandaMySQLRepository.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_banda: thesheriff.domain.banda.banda.Banda</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.BandaMySQLRepository.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add persists a new Banda to MySQL.
+:param new_banda: Object with the Banda information
+:type new_bandido: Banda.
+:return: NoReturn.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandaMySQLRepository.of_id">
+<code class="sig-name descname">of_id</code><span class="sig-paren">(</span><em class="sig-param">banda_id: int</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.banda.banda.Banda<a class="headerlink" href="#thesheriff.infrastructure.BandaMySQLRepository.of_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>of_id searches for a Banda matching banda_id
+:param banda_id: ID of the Banda to be returned.
+:type banda_id: int.
+:return: Banda.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandaMySQLRepository.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">banda_id: int</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.BandaMySQLRepository.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove deletes existing Banda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>banda_id</strong> (<em>int.</em>) – ID of the Banda to be removed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>NoReturn.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandaMySQLRepository.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_bana: thesheriff.domain.banda.banda.Banda</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.BandaMySQLRepository.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update modifies existing Bandida
+:param mod_bandido: Object with Banda information to be updated.
+:type mod_banda: Banda.
+:return: NoReturn.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.infrastructure.BandaMySQLRepository.all">
+<code class="sig-name descname">all</code><span class="sig-paren">(</span><em class="sig-param">mod_bana: thesheriff.domain.banda.banda.Banda</em><span class="sig-paren">)</span> &#x2192; [Banda]<a class="headerlink" href="#thesheriff.infrastructure.BandaMySQLRepository.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>get all existing Banda</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[Banda].</p>
+</dd></dl>
+
+</dd></dl>
+
+
 </div>
 
 

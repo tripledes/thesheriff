@@ -27,3 +27,5 @@ The Sheriff Infrastructure
    :members:
 .. autoclass:: BandidoMySQLRepository
    :members:
+.. autoclass:: BandaMySQLRepository
+   :members:
