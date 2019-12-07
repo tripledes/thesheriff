@@ -48,55 +48,35 @@
 <dl class="class">
 <dt id="thesheriff.infrastructure.AsaltoMySQLRepository">
 <em class="property">class </em><code class="sig-prename descclassname">thesheriff.infrastructure.</code><code class="sig-name descname">AsaltoMySQLRepository</code><span class="sig-paren">(</span><em class="sig-param">database_uri: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository" title="Permalink to this definition">¶</a></dt>
-<dd><p>AsaltoMySQLRepository implements persistence for Asalto on MySQL.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>database_uri</strong> (<em>str.</em>) – URI for connecting to MySQL</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>NoReturn.</p>
-</dd>
-</dl>
+<dd><p>AsaltoMySQLRepository implements persistence for Asalto on MySQL.
+:param database_uri: URI for connecting to MySQL
+:type database_uri: str.
+:return: NoReturn.</p>
 <dl class="method">
 <dt id="thesheriff.infrastructure.AsaltoMySQLRepository.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">nuevo_asalto: thesheriff.domain.asalto.asalto.Asalto</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository.add" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add persists a new Asalto to MySQL.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>nuevo_asalto</strong> (<em>Asalto.</em>) – Object with the Asalto information</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>NoReturn.</p>
-</dd>
-</dl>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_asalto: thesheriff.domain.asalto.asalto.Asalto</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add persists a new Asalto to MySQL.
+:param new_asalto: Object with the Asalto information
+:type new_asalto: Asalto.
+:return: NoReturn.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="thesheriff.infrastructure.AsaltoMySQLRepository.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">asalto_id: int</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove deletes existing Asaltos</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>asalto_id</strong> (<em>int.</em>) – ID of the Asalto to be removed.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>NoReturn.</p>
-</dd>
-</dl>
+<dt id="thesheriff.infrastructure.AsaltoMySQLRepository.of_id">
+<code class="sig-name descname">of_id</code><span class="sig-paren">(</span><em class="sig-param">asalto_id: int</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.asalto.asalto.Asalto<a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository.of_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>of_id searches for an Asalto matching asalto_id
+:param asalto_id: ID of the Asalto to be returned.
+:type asalto_id: int.
+:return: Asalto.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="thesheriff.infrastructure.AsaltoMySQLRepository.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_asalto: thesheriff.domain.asalto.asalto.Asalto</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.AsaltoMySQLRepository.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update modifies existing Asaltos</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mod_asalto</strong> (<em>Asalto.</em>) – Object with Asalto information to be updated.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>NoReturn.</p>
-</dd>
-</dl>
+<dd><p>Update modifies existing Asaltos
+:param mod_asalto: Object with Asalto information to be updated.
+:type mod_asalto: Asalto.
+:return: NoReturn.</p>
 </dd></dl>
 
 </dd></dl>

@@ -2,17 +2,14 @@
 .. module:: asalto_mysql_repository
    :platform: Windows,Unix
    :synopsis: Asalto MySQL Repository
-
 .. moduleauthor:: The Sheriff Team <thesheriff@team.net>
-
-
 """
 from thesheriff.domain.asalto.asalto_repository import AsaltoRepository
 from thesheriff.domain.asalto import Asalto
 from typing import NoReturn
 from sqlalchemy import (
     create_engine, MetaData, Table, Column, Integer, Text, DateTime,
-    ForeignKey, insert
+    ForeignKey
 )
 
 from typing import NoReturn
@@ -29,42 +26,39 @@ asalto = Table('asaltos', metadata,
 
 class AsaltoMySQLRepository(AsaltoRepository):
     """AsaltoMySQLRepository implements persistence for Asalto on MySQL.
-
     :param database_uri: URI for connecting to MySQL
     :type database_uri: str.
     :return: NoReturn.
     """
+
     def __init__(self, database_uri: str) -> NoReturn:
         engine = create_engine(database_uri)
         self.__connection = engine.connect()
 
-    def add(self, nuevo_asalto: Asalto) -> NoReturn:
-        """Add persists a new Asalto to MySQL.
+    def of_id(self, asalto_id: int) -> Asalto:
+        """of_id searches for an Asalto matching asalto_id
+        :param asalto_id: ID of the Asalto to be returned.
+        :type asalto_id: int.
+        :return: Asalto.
+        """
+        query = asalto.select().where(asalto.c.id == asalto_id)
+        return self.__connection.execute(query)
 
-        :param nuevo_asalto: Object with the Asalto information
-        :type nuevo_asalto: Asalto.
+    def add(self, new_asalto: Asalto) -> NoReturn:
+        """Add persists a new Asalto to MySQL.
+        :param new_asalto: Object with the Asalto information
+        :type new_asalto: Asalto.
         :return: NoReturn.
         """
-        query = asalto.insert().value(**nuevo_asalto)
+        query = asalto.insert().value(**new_asalto)
         self.__connection.execute(query)
 
     def update(self, mod_asalto: Asalto) -> NoReturn:
         """Update modifies existing Asaltos
-
         :param mod_asalto: Object with Asalto information to be updated.
         :type mod_asalto: Asalto.
         :return: NoReturn.
         """
         query = asalto.update().where(
             asalto.c.id == mod_asalto.id).values(**mod_asalto)
-        self.__connection.execute(query)
-
-    def remove(self, asalto_id: int) -> NoReturn:
-        """Remove deletes existing Asaltos
-
-        :param asalto_id: ID of the Asalto to be removed.
-        :type asalto_id: int.
-        :return: NoReturn.
-        """
-        query = asalto.delete().where(asalto.c.id == asalto_id)
         self.__connection.execute(query)
