@@ -1,3 +1,4 @@
+from thesheriff.domain.banda.banda import Banda
 import abc
 
 from thesheriff.domain.banda.banda import Banda
