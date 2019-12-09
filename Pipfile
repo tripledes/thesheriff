@@ -13,6 +13,7 @@ pytest = "==5.3.1"
 flask = "==1.1.1"
 SQLAlchemy = "==1.3.11"
 pymysql = "==0.9.3"
+inject = "==4.0.0"
 
 [requires]
 python_version = "3.8"

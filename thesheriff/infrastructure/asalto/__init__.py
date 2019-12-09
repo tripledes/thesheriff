@@ -1,1 +1,2 @@
 from .asalto_mysql_repository import AsaltoMySQLRepository
+from .asalto_controller import asalto_blueprint
