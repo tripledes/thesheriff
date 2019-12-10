@@ -39,7 +39,7 @@ class PuntuarAsalto:
         :type puntuacion: Puntuacion.
         :return: NoReturn.
         """
-        bandido = self.bandidoRepository.of_id(bandido_id)
+        bandido = self.bandido_repository.of_id(bandido_id)
         asalto = self.asalto_repository.of_id(asalto_id)
 
         if(bandido):
