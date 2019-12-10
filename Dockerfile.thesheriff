@@ -2,17 +2,18 @@ FROM python:3.8.0-alpine
 
 WORKDIR /app
 
+COPY wait-for-mysql.sh ./
 COPY Pipfile* ./
 
 RUN apk update &&  apk add --virtual build-deps gcc \
     musl-dev && apk add --no-cache openssl-dev bash \
     libffi-dev libsodium-dev build-base \
-    mariadb-dev
+    mariadb-dev mariadb-client
 
 RUN pip3 install pipenv && pipenv install --skip-lock
 
 COPY thesheriff thesheriff
 
-ENV FLASK_APP=thesheriff
+ENV FLASK_APP=thesheriff.app:create_application
 
-ENTRYPOINT [ "pipenv", "run", "flask", "run", "--host", "app"]
+ENTRYPOINT ["./wait-for-mysql.sh", "pipenv", "run", "flask", "run", "--host", "app"]

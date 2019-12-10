@@ -7,15 +7,12 @@ services:
     build:
       dockerfile: Dockerfile.thesheriff
       context: .
-    depends_on:
-      - db
     ports:
       - 5000:5000
     environment:
-      DB_HOST: db
-      DB_NAME: thesheriffdb
-      DB_USER: sheriff
-      DB_PASSWD: sh3r1ff
+      DATABASE_URI: mysql+pymysql://sheriff:sh3r1ff@db/thesheriffdb
+    depends_on:
+      - "db"
   db:
     image: mariadb:10.4.10
     environment:
@@ -23,3 +20,9 @@ services:
       MYSQL_DATABASE: thesheriffdb
       MYSQL_USER: sheriff
       MYSQL_PASSWORD: sh3r1ff
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10

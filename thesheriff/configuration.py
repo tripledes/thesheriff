@@ -4,11 +4,11 @@ import inject
 from flask import Flask
 
 from thesheriff.infrastructure.asalto.asalto_mysql_repository import AsaltoMySQLRepository
-from thesheriff.infrastructure.asalto.banda_mysql_repository import BandaMySQLRepository
-from thesheriff.infrastructure.asalto.bandido_mysql_repository import BandidoMySQLRepository
+from thesheriff.infrastructure.banda.banda_mysql_repository import BandaMySQLRepository
+from thesheriff.infrastructure.bandido.bandido_mysql_repository import BandidoMySQLRepository
 from thesheriff.domain.asalto.asalto_repository import AsaltoRepository
-from thesheriff.domain.asalto.banda_repository import BandaRepository
-from thesheriff.domain.asalto.bandido_repository import BandidoRepository
+from thesheriff.domain.banda.banda_repository import BandaRepository
+from thesheriff.domain.bandido.bandido_repository import BandidoRepository
 
 
 def configure_application(application: Flask) -> None:

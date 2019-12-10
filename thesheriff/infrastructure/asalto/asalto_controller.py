@@ -8,14 +8,15 @@ import inject
 
 from flask import Blueprint, jsonify, Response, request
 from thesheriff.domain.asalto import Asalto
-from thesheriff.application.bandido.crear_asalto import CrearAsalto
+#from thesheriff.application.bandido.crear_asalto import CrearAsalto
 from thesheriff.application.bandido.puntuar_asalto import PuntuarAsalto
 from thesheriff.domain.bandido.puntuacion import Puntuacion
 
 
 @inject.autoparams()
-def asalto_blueprint(
-        crear_asalto: CrearAsalto, puntuar_asalto: PuntuarAsalto) -> Blueprint:
+def asalto_blueprint(puntuar_asalto: PuntuarAsalto) -> Blueprint:
+#def asalto_blueprint(
+#        crear_asalto: CrearAsalto, puntuar_asalto: PuntuarAsalto) -> Blueprint:
     """Create routes for entity Asalto
 
     :param crear_asalto: Object with asalto creation implementation.
@@ -24,19 +25,19 @@ def asalto_blueprint(
     """
     asalto_blueprint = Blueprint("asalto", __name__)
 
-    @asalto_blueprint.route("/asalto", methods=['POST'])
-    def create_asalto() -> Response:
-        """create_asalto registers an Asalto
-        :return: Response.
-        """
-        #FIXME(tripledes)
-        # CrearAsalto is still not implemented, this code will need to adapt
-        # to its signature (we'll probably require bandido ID)
-        new_asalto = request.json
-        asalto = crear_asalto.execute(**new_asalto)
-        return jsonify(asalto.to_dict())
+ #   @asalto_blueprint.route("/asalto", methods=['POST'])
+ #   def create_asalto() -> Response:
+ #       """create_asalto registers an Asalto
+ #       :return: Response.
+ #       """
+ #       #FIXME(tripledes)
+ #       # CrearAsalto is still not implemented, this code will need to adapt
+ #       # to its signature (we'll probably require bandido ID)
+ #       new_asalto = request.json
+ #       asalto = crear_asalto.execute(**new_asalto)
+ #       return jsonify(asalto.to_dict())
 
-    @asalto_blueprint.route("/asalto/rate/<int:asalto_id>", method=['POST'])
+    @asalto_blueprint.route("/asalto/rate/<int:asalto_id>", methods=['POST'])
     def rate_asalto(asalto_id: int) -> Response:
         """rate_asalto recives rates for an asalto an executes
            the Puntuar Asalto use case.

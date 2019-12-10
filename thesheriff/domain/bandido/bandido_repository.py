@@ -1,6 +1,6 @@
 import abc
 
-from thesheriff.domain.bandido import Bandido
+from .bandido import Bandido
 from typing import NoReturn
 
 

@@ -1,2 +1,0 @@
-from .asalto.asalto_mysql_repository import AsaltoMySQLRepository
-from .bandido.bandido_mysql_repository import BandidoMySQLRepository
