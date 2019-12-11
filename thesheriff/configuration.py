@@ -23,6 +23,6 @@ def configure_inject(application: Flask) -> None:
             application.config['DATABASE_URI']))
         binder.bind(BandaRepository, BandaMySQLRepository(
             application.config['DATABASE_URI']))
-        binder.bind(BandidoRepository, AsaltoMySQLRepository(
+        binder.bind(BandidoRepository, BandidoMySQLRepository(
             application.config['DATABASE_URI']))
     inject.configure(config)

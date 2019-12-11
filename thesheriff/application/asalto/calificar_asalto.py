@@ -4,19 +4,19 @@ from thesheriff.domain.bandido.bandido_repository import BandidoRepository
 
 class CalificarAsalto:
 
-    def __init__(self, asalto: Asalto, bandidoRepository : BandidoRepository):
+    def __init__(self, asalto: Asalto, bandido_repository: BandidoRepository):
         self.asalto = asalto
-        self.bandidoRepository = bandidoRepository
+        self.bandidoRepository = bandido_repository
 
     def execute(self):
-        notaFinal = 0
-        puntosCantidad = self.asalto.notas.__len__()
-        if(puntosCantidad > 0):
+        nota_final = 0
+        puntos_cantidad = self.asalto.notas.__len__()
+        if puntos_cantidad > 0:
             for nota in self.asalto.notas:
-                notaFinal += nota
+                nota_final += nota
 
-            notaFinal = notaFinal / puntosCantidad
-            self.asalto.sheriff.actualizarPuntos(notaFinal)
+            nota_final = nota_final / puntos_cantidad
+            self.asalto.sheriff.actualizar_puntos(nota_final)
             self.bandidoRepository.update(self.asalto.sheriff)
 
-        return notaFinal
+        return nota_final

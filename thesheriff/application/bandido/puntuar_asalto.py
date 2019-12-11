@@ -4,12 +4,13 @@
    :synopsis: Puntuar Asalto use case
 .. moduleauthor:: The Sheriff Team <thesheriff@team.net>
 """
+from typing import NoReturn
+
 import inject
-from thesheriff.domain.asalto import Asalto
+
 from thesheriff.domain.asalto.asalto_repository import AsaltoRepository
 from thesheriff.domain.bandido.bandido_repository import BandidoRepository
 from thesheriff.domain.bandido.puntuacion import Puntuacion
-from typing import NoReturn
 
 
 class PuntuarAsalto:
@@ -42,6 +43,6 @@ class PuntuarAsalto:
         bandido = self.bandido_repository.of_id(bandido_id)
         asalto = self.asalto_repository.of_id(asalto_id)
 
-        if(bandido):
-            asalto.nuevaPuntuacion(puntuacion.value())
+        if bandido:
+            asalto.nueva_puntuacion(puntuacion.value())
             self.asalto_repository.update(asalto)

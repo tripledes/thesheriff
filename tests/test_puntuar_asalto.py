@@ -4,7 +4,6 @@ from thesheriff.application.bandido.puntuar_asalto import PuntuarAsalto
 from thesheriff.domain.asalto.asalto import Asalto
 from thesheriff.domain.bandido.bandido import Bandido
 from thesheriff.domain.bandido.puntuacion import Puntuacion
-from thesheriff.domain.bandido.sheriff import Sheriff
 
 
 def test_puntuar_asalto():

@@ -4,6 +4,7 @@ import abc
 from thesheriff.domain.banda.banda import Banda
 from typing import NoReturn
 
+
 class BandaRepository(abc.ABC):
 
     @abc.abstractmethod

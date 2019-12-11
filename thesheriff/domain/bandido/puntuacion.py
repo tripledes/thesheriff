@@ -1,3 +1,6 @@
+NUMERO_CRITERIOS = 4
+
+
 class Puntuacion:
     """Puntuacion implements the score type for Asaltos.
     :param cantidad_comida: score for the amount of food
@@ -25,6 +28,6 @@ class Puntuacion:
         :return: float.
         """
         return (
-            self.cantidad_comida + self.calidad_comida + self.servicio +
-            self.precio
-        ) / 4
+                       self.cantidad_comida + self.calidad_comida + self.servicio +
+                       self.precio
+               ) / NUMERO_CRITERIOS

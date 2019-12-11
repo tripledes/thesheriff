@@ -1,9 +1,13 @@
-from thesheriff.domain.bandido import BandidoRepository, Bandido
+import inject
+
+from thesheriff.domain.bandido.bandido import Bandido
+from thesheriff.domain.bandido.bandido_repository import BandidoRepository
 from thesheriff.domain.bandido.bandido_factory import BandidoFactory
 
 
 class CrearBandido:
 
+    @inject.autoparams()
     def __init__(self, bandido_repository: BandidoRepository):
         self.bandido_repository = bandido_repository
 
