@@ -7,12 +7,11 @@
 
 
 """
-from thesheriff.domain.banda.banda_repository import BandaRepository
+from thesheriff.domain.banda.repository.banda_repository import BandaRepository
 from thesheriff.domain.banda.banda import Banda
-from typing import NoReturn
 from sqlalchemy import (
     create_engine, MetaData, Table, Column, Integer,
-    ForeignKey, insert
+    ForeignKey
 )
 
 from typing import NoReturn

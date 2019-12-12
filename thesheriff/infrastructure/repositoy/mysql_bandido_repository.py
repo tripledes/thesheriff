@@ -7,9 +7,8 @@
 
 
 """
-from thesheriff.domain.bandido.bandido_repository import BandidoRepository
+from thesheriff.domain.bandido.repository.bandido_repository import BandidoRepository
 from thesheriff.domain.bandido import Bandido
-from typing import NoReturn
 from sqlalchemy import (
     create_engine, MetaData, Table, Column, Integer, ForeignKey, Float
 )

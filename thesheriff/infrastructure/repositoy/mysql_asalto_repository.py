@@ -4,9 +4,8 @@
    :synopsis: Asalto MySQL Repository
 .. moduleauthor:: The Sheriff Team <thesheriff@team.net>
 """
-from thesheriff.domain.asalto.asalto_repository import AsaltoRepository
+from thesheriff.domain.asalto.repository.asalto_repository import AsaltoRepository
 from thesheriff.domain.asalto import Asalto
-from typing import NoReturn
 from sqlalchemy import (
     create_engine, MetaData, Table, Column, Integer, Text, DateTime,
     ForeignKey

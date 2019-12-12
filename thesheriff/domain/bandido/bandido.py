@@ -9,4 +9,4 @@ class Bandido:
         self.correo = correo
 
     def unirse_a_banda(self, banda):
-        self.bandas.push(banda)
+        self.bandas.append(banda)

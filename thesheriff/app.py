@@ -1,7 +1,7 @@
 from flask import Flask
 
 from thesheriff.configuration import configure_inject, configure_application
-from thesheriff.infrastructure.asalto.asalto_controller import asalto_blueprint
+from thesheriff.infrastructure.controllers.asalto_controller import asalto_blueprint
 
 
 def create_application() -> Flask:

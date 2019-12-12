@@ -8,8 +8,8 @@ from typing import NoReturn
 
 import inject
 
-from thesheriff.domain.asalto.asalto_repository import AsaltoRepository
-from thesheriff.domain.bandido.bandido_repository import BandidoRepository
+from thesheriff.domain.asalto.repository.asalto_repository import AsaltoRepository
+from thesheriff.domain.bandido.repository.bandido_repository import BandidoRepository
 from thesheriff.domain.bandido.puntuacion import Puntuacion
 
 

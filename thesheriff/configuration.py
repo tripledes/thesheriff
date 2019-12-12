@@ -3,13 +3,12 @@ import os
 import inject
 from flask import Flask
 
-from thesheriff.infrastructure.asalto.asalto_mysql_repository import AsaltoMySQLRepository
-from thesheriff.infrastructure.banda.banda_mysql_repository import BandaMySQLRepository
-from thesheriff.infrastructure.bandido.bandido_mysql_repository import BandidoMySQLRepository
-from thesheriff.domain.asalto.asalto_repository import AsaltoRepository
-from thesheriff.domain.banda.banda_repository import BandaRepository
-from thesheriff.domain.bandido.bandido_repository import BandidoRepository
-
+from thesheriff.domain.banda.repository.banda_repository import BandaRepository
+from thesheriff.domain.bandido import BandidoRepository
+from thesheriff.infrastructure import BandidoMySQLRepository
+from thesheriff.infrastructure.repositoy.mysql_asalto_repository import AsaltoMySQLRepository
+from thesheriff.domain.asalto.repository.asalto_repository import AsaltoRepository
+from thesheriff.infrastructure.repositoy.mysql_banda_repository import BandaMySQLRepository
 
 def configure_application(application: Flask) -> None:
     application.config.update(
