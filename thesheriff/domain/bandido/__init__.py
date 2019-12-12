@@ -1,3 +1,2 @@
-
 from .bandido import Bandido
-from thesheriff.domain.bandido.repository.bandido_repository import BandidoRepository
+from .repository.bandido_repository import BandidoRepository

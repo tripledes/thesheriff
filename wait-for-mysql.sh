@@ -7,7 +7,7 @@ cmd="$@"
 
 until mysqladmin ping -h db -u sheriff -psh3r1ff; do
   >&2 echo "MariaDB is unavailable - sleeping"
-  sleep 1
+  sleep 5
 done
 
 >&2 echo "MariaDB is up - executing command"

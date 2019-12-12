@@ -6,7 +6,7 @@ from thesheriff.domain.bandido.bandido import Bandido
 
 class Asalto:
 
-    def __init__(self, _id: int, name: str, bandidos: [Bandido], sheriff: Sheriff):
+    def __init__(self, _id: int, name: str, bandidos: [Bandido], sheriff: Sheriff, banda: Banda):
         self.bandidos = bandidos
         self.notas = []
         self.name = name

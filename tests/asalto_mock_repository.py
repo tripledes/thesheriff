@@ -1,5 +1,5 @@
 from thesheriff.domain.asalto import Asalto
-from thesheriff.domain.asalto.asalto_repository import AsaltoRepository
+from thesheriff.domain.asalto.repository.asalto_repository import AsaltoRepository
 
 
 class AsaltoMockRepository(AsaltoRepository):

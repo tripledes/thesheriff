@@ -1,7 +1,7 @@
 import inject
 
 from thesheriff.domain.bandido.bandido import Bandido
-from thesheriff.domain.bandido.bandido_repository import BandidoRepository
+from thesheriff.domain.bandido.repository.bandido_repository import BandidoRepository
 from thesheriff.domain.bandido.bandido_factory import BandidoFactory
 
 

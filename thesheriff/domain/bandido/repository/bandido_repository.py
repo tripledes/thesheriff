@@ -1,6 +1,6 @@
 import abc
 
-from .bandido import Bandido
+from ..bandido import Bandido
 from typing import NoReturn
 
 

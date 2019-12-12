@@ -12,7 +12,7 @@ def test_puntuar_asalto():
     bandido_repository.add(bandido)
 
     asalto_repository = AsaltoMockRepository()
-    asalto = Asalto(1, None, None, None)
+    asalto = Asalto(1, None, None, None, None)
     asalto_repository.add(asalto)
 
     puntuar_asalto = PuntuarAsalto(bandido_repository, asalto_repository)
