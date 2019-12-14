@@ -1,7 +1,8 @@
 import inject
 
-from thesheriff.domain.banda.repository.banda_repository import BandaRepository
 from thesheriff.domain.banda.banda_factory import BandaFactory
+from thesheriff.domain.banda.repository.banda_repository import BandaRepository
+
 
 class CrearBanda:
 

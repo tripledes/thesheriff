@@ -22,5 +22,5 @@ class BandidoRepository(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def lista_amigos(self, bandido_id: int)
+    def get_amigos(self, bandido_id: int) -> [Bandido]:
         pass

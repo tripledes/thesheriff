@@ -1,24 +1,32 @@
 import inject
+import json
 from flask import Blueprint, jsonify, Response
 from thesheriff.application.bandido.listar_amigos import ListarAmigos
-class BandidoController:
-    @inject.autoparams()
-    def listar_amigos_blueprint(listar_amigos: ListarAmigos) -> Blueprint:
-       """Create routes for entity Bandido
-        :param listar_amigos: Object with listar_amigos implementation.
-        :returns: Blueprint
-        """
-        listar_amigos_blueprint = Blueprint("listar_amigos", __name__)
+from thesheriff.application.bandido.listar_bandas import ListarBandas
 
-    @listar_amigos.route("/bandido/listar_amigos/<int:bandido_id>", methods=['GET'])
-    def listar_amigos(bandido_id: int) -> Response:
-        """listar_amigos receives the bandido_id that is wanted to print his friends
-        :param asalto_id: Id of the bandido
-        :type asalto_id: int.
-        :return: Response.
-        """
-        listar_amigos.execute(bandido_id)
-        message = {''} #To be filled
+
+@inject.autoparams()
+def bandido_blueprint(listar_amigos: ListarAmigos, listar_bandas: ListarBandas) -> Blueprint:
+    blueprint_bandido = Blueprint("bandio", __name__)
+
+    @blueprint_bandido.route("/bandido/<int:bandido_id>/amigos", methods=['GET'])
+    def get_amigos(bandido_id: int) -> Response:
+        amigos = listar_amigos.execute(bandido_id)
+
+        amigos_json = json.dump(amigos)
+
+        message = {'status': 200, 'amigos': amigos_json}
+
         return jsonify(message)
 
-    return listar_amigos_blueprint
+    @blueprint_bandido.route("/bandido/<int:bandido_id>/banda, methods=['GET']")
+    def get_bandas(bandido_id: int) -> Response:
+        bandas_del_bandido = listar_bandas.execute(bandido_id)
+
+        bandas_json = json.dump(bandas_del_bandido)
+
+        message = {'status': 200, 'bandas': bandas_json}
+
+        return jsonify(message)
+
+    return blueprint_bandido

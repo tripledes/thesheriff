@@ -2,10 +2,10 @@ EMPTY_ARRAY = []
 INIT_ZERO = 0
 NUM_ATRIBUTES_TO_LIST = 4
 
+
 class Bandido:
 
-
-    def __init__(self, id, name):
+    def __init__(self, _id: int, name: str, correo: str):
         self.asaltos = EMPTY_ARRAY
         self.amigos = EMPTY_ARRAY
         self.bandas = EMPTY_ARRAY
@@ -16,7 +16,6 @@ class Bandido:
 
     def unirse_a_banda(self, banda):
         self.bandas.append(banda)
-    
+
     def lista_amigos(self):
         return self.amigos
-

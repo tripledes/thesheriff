@@ -1,4 +1,4 @@
-from thesheriff.domain.bandido.bandido_repository import BandidoRepository
+from thesheriff.domain.bandido.repository.bandido_repository import BandidoRepository
 
 
 class ListarAmigos:
@@ -6,5 +6,5 @@ class ListarAmigos:
         self.bandidoRepository = bandido_repository
 
     def execute(self, bandido_id):
-        lista_amigos = self.bandidoRepository.lista_amigos(bandido_id)
+        lista_amigos = self.bandidoRepository.get_amigos(bandido_id)
         return lista_amigos

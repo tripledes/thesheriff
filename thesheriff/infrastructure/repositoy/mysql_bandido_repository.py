@@ -74,7 +74,7 @@ class BandidoMySQLRepository(BandidoRepository):
         query = bandido.delete().where(bandido.c.id == bandido_id)
         self.__connection.execute(query)
 
-    def lista_amigos(self, bandido_id: int) ->list<Bandido>:
+    def get_amigos(self, bandido_id: int) -> [Bandido]:
         """Lists bandido's friends
 
                 :param bandido_id: ID of the Bandido to list his friends
