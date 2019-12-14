@@ -20,3 +20,7 @@ class BandidoRepository(abc.ABC):
     @abc.abstractmethod
     def remove(self, bandido_id: int) -> NoReturn:
         pass
+
+    @abc.abstractmethod
+    def lista_amigos(self, bandido_id: int)
+        pass
