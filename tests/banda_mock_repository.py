@@ -20,9 +20,9 @@ class BandaMockRepository(BandaRepository):
         pass
 
     def all(self) -> [Banda]:
-        banda1 = Banda("Banda1")
-        banda2 = Banda("Banda2")
-        banda3 = Banda("Banda3")
+        banda1 = Banda(1, "Banda1")
+        banda2 = Banda(2, "Banda2")
+        banda3 = Banda(3, "Banda3")
 
         bandido1 = Bandido(1, "B1", "b1@yopmail.com")
         bandido2 = Bandido(2, "B2", "b2@yopmail.com")

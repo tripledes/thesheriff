@@ -3,6 +3,7 @@ from flask import Flask
 from thesheriff.configuration import configure_inject, configure_application
 from thesheriff.infrastructure.controllers.asalto_controller import asalto_blueprint
 from thesheriff.infrastructure.controllers.bandido_controller import bandido_blueprint
+from thesheriff.infrastructure.controllers.banda_controller import banda_blueprint
 
 
 def create_application() -> Flask:
@@ -12,5 +13,6 @@ def create_application() -> Flask:
 
     application.register_blueprint(asalto_blueprint(), url_prefix="/api/v1")
     application.register_blueprint(bandido_blueprint(), url_prefix="/api/v1")
+    application.register_blueprint(banda_blueprint(), url_prefix="/api/v1")
 
     return application
