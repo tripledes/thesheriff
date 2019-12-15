@@ -1,3 +1,5 @@
+from typing import NoReturn
+
 EMPTY_ARRAY = []
 INIT_ZERO = 0
 NUM_ATRIBUTES_TO_LIST = 4
@@ -14,7 +16,7 @@ class Bandido:
         self.id = _id
         self.correo = correo
 
-    def unirse_a_banda(self, banda):
+    def unirse_a_banda(self, banda) -> NoReturn:
         self.bandas.append(banda)
 
     def lista_amigos(self):

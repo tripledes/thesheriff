@@ -7,9 +7,7 @@ from thesheriff.domain.banda.repository.banda_repository import BandaRepository
 class ListarBandas:
 
     @inject.autoparams()
-    def __init__(
-            self, banda_repository: BandaRepository
-    ):
+    def __init__(self, banda_repository: BandaRepository):
         self.banda_repository = banda_repository
 
     def execute(self, bandido_id: int) -> [Banda]:

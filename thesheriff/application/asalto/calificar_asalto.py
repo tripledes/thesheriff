@@ -7,7 +7,7 @@ class CalificarAsalto:
     def __init__(self, bandido_repository : BandidoRepository):
         self.bandido_repository = bandido_repository
 
-    def execute(self, asalto: Asalto):
+    def execute(self, asalto: Asalto) -> float:
         nota_final = 0
         puntos_cantidad = asalto.notas.__len__()
         if puntos_cantidad > 0:

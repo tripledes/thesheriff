@@ -10,6 +10,7 @@ from thesheriff.infrastructure.repositoy.mysql_asalto_repository import AsaltoMy
 from thesheriff.domain.asalto.repository.asalto_repository import AsaltoRepository
 from thesheriff.infrastructure.repositoy.mysql_banda_repository import BandaMySQLRepository
 
+
 def configure_application(application: Flask) -> None:
     application.config.update(
         DATABASE_URI=os.getenv('DATABASE_URI')
@@ -24,4 +25,5 @@ def configure_inject(application: Flask) -> None:
             application.config['DATABASE_URI']))
         binder.bind(BandidoRepository, BandidoMySQLRepository(
             application.config['DATABASE_URI']))
+
     inject.configure(config)

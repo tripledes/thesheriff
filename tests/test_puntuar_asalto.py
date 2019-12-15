@@ -19,6 +19,6 @@ def test_puntuar_asalto():
     puntuar_asalto.execute(asalto.id, bandido.id, Puntuacion(5, 6, 7, 5.5))
     puntuar_asalto.execute(asalto.id, bandido.id, Puntuacion(7, 8.5, 8, 9))
 
-    assert 2 == asalto.notas.__len__()
+    assert 2 == len(asalto.notas)
     assert 5.875 == asalto.notas[0]
     assert 8.125 == asalto.notas[1]

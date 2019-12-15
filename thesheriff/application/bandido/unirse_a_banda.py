@@ -1,7 +1,9 @@
+from typing import NoReturn
+
 import inject
 
-from thesheriff.domain.banda.banda_repository import BandaRepository
-from thesheriff.domain.bandido.bandido_repository import BandidoRepository
+from thesheriff.domain.banda.repository.banda_repository import BandaRepository
+from thesheriff.domain.bandido.repository.bandido_repository import BandidoRepository
 
 
 class UnirseABanda:
@@ -11,7 +13,7 @@ class UnirseABanda:
         self.bandido_repository = bandido_repository
         self.banda_repository = banda_repository
 
-    def execute(self, id_banda: int, id_bandido: int):
+    def execute(self, id_banda: int, id_bandido: int) -> NoReturn:
         banda = self.banda_repository.of_id(id_banda)
         bandido = self.bandido_repository.of_id(id_bandido)
         bandido.unirse_a_banda(banda)

@@ -1,3 +1,5 @@
+from typing import NoReturn
+
 from thesheriff.domain.banda.banda import Banda
 from thesheriff.domain.bandido import Bandido
 from thesheriff.domain.bandido.sheriff import Sheriff
@@ -14,8 +16,8 @@ class Asalto:
         self.sheriff = sheriff
         self.banda = banda
 
-    def nueva_puntuacion(self, nota):
+    def nueva_puntuacion(self, nota) -> NoReturn:
         self.notas.append(nota)
 
-    def puedeFinalizar(self):
-        return self.notas.__len__() == self.bandidos.__len__()
+    def puede_finalizar(self) -> bool:
+        return len(self.notas) == len(self.bandidos)
