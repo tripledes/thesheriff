@@ -17,4 +17,4 @@ class OutlawFactory(Outlaw):
         :type email: String.
         :returns: Outlaw -- The produced Outlaw.
         """
-        return Outlaw(name, email)
+        return Outlaw(None, name, email)

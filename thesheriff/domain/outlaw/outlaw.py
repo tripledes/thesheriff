@@ -14,8 +14,8 @@ class Outlaw:
     :type score: Integer.
     """
 
-    def __init__(self, name: str, email: str):
-        self.id = None
+    def __init__(self, _id: int, name: str, email: str):
+        self.id = _id
         self.name = name
         self.email = email
         self.raids = list()

@@ -22,9 +22,9 @@ class MockOutlawRepository(OutlawRepository):
         self.outlaw = None
 
     def get_friends(self, outlaw_id: int) -> List[Outlaw]:
-        outlaw_1 = Outlaw("Outlaw1", "b1@yopmail.com")
-        outlaw_2 = Outlaw("Outlaw2", "b2@yopmail.com")
-        outlaw_3 = Outlaw("Outlaw3", "b3@yopmail.com")
+        outlaw_1 = Outlaw(1, "Outlaw1", "b1@yopmail.com")
+        outlaw_2 = Outlaw(2, "Outlaw2", "b2@yopmail.com")
+        outlaw_3 = Outlaw(3, "Outlaw3", "b3@yopmail.com")
 
         return [outlaw_1, outlaw_2, outlaw_3]
 

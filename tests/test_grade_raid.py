@@ -6,7 +6,7 @@ from thesheriff.domain.outlaw.sheriff import Sheriff
 
 
 def test_grade_raid():
-    sheriff = Sheriff(Outlaw("the sheriff", "sheriff@yopmail.com"))
+    sheriff = Sheriff(Outlaw(1, "the sheriff", "sheriff@yopmail.com"))
     sheriff.update_score(22)
 
     raid = Raid("very nice restaurant", None, sheriff, None, None)
@@ -19,4 +19,4 @@ def test_grade_raid():
     result = GradeRaid(MockOutlawRepository()).execute(raid)
 
     assert 8.5 == result
-    assert 30.5 == sheriff.score
+    assert 30.5 == sheriff.get_score()

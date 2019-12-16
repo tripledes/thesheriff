@@ -8,7 +8,7 @@ from thesheriff.domain.outlaw.score import Score
 
 def test_rate_raid():
     outlaw_repository = MockOutlawRepository()
-    outlaw = Outlaw(None, None)
+    outlaw = Outlaw(1, None, None)
     outlaw_repository.add(outlaw)
 
     raid_repository = MockRaidRepository()
