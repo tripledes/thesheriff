@@ -1,0 +1,1 @@
+#from .asalto import Asalto
