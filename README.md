@@ -1,5 +1,7 @@
 # The Sheriff
 
+[![Build Status](https://travis-ci.org/tripledes/thesheriff.svg?branch=master)](https://travis-ci.org/tripledes/thesheriff)
+
 ## Development
 
 ### Tools
