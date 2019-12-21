@@ -20,7 +20,7 @@
 ### Start the app
 
 ```console
-$ docker-compose up
+$ make run
 ```
 
 * Starts both services, *app* and *db*
@@ -29,15 +29,15 @@ $ docker-compose up
 * Access it by `curl`:
 
 ```console
-❯❯❯❯ curl localhost:5000
-{"email":"guest@example.com","user":"guest"}
+$ curl localhost:5000/api/v1/outlaw/ -X POST --data @examples/json/create_outlaw.json -H 'Content-Type: application/json'
+{"message":"Outlaw added successfully","status":201}
 ```
 
 ### Generate Documentation
 
 * Documentation uses [Sphinx formatting](https://pythonhosted.org/an_example_pypi_project/sphinx.html)
-* Take [AsaltoMySQLRespository](thesheriff/infrastructure/asalto/asalto_mysql_repository.py) as example
-* If adding a new module, you'll need to add it to [index.rst](thesheriff/doc/index.rst) so it's added to the proper sections
+* Take [MySQLRaidRespository](thesheriff/infrastructure/repository/mysql_raid_repository.py) as example
+* If adding a new module, you'll need to add it to [index.rst](thesheriff/doc/source/index.rst) so it's added to the proper sections
 * Generate new HTML contents
   ```console
   $ cd doc
