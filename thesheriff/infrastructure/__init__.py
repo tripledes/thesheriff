@@ -1,2 +1,0 @@
-from thesheriff.infrastructure.repositoy.mysql_asalto_repository import AsaltoMySQLRepository
-from thesheriff.infrastructure.repositoy.mysql_bandido_repository import BandidoMySQLRepository

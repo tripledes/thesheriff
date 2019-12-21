@@ -1,7 +1,8 @@
 import inject
 from typing import NoReturn
 from thesheriff.domain.raid.repository.raid_repository import RaidRepository
-from thesheriff.domain.outlaw.repository.outlaw_repository import OutlawRepository
+from thesheriff.domain.outlaw.repository.outlaw_repository import \
+    OutlawRepository
 from thesheriff.domain.outlaw.score import Score
 
 
@@ -40,6 +41,8 @@ class RateRaid:
             raid.add_rate(score.value())
             # TODO(all): do we really want to persist the score? I guess we do.
             # If so, we'd need to re-add the update method and arrive to
-            # consensus on how to really make the update, e.g.: raid_id, dict({'score': value})
-            # Something like the above example would make the update way easier to handle.
+            # consensus on how to really make the update, e.g.: raid_id,
+            # dict({'score': value})
+            # Something like the above example would make the update way
+            # easier to handle.
             self.__raid_repository.update(raid)

@@ -37,13 +37,15 @@ def outlaw_blueprint(
 
     @blueprint_outlaw.route('/outlaw/', methods=['POST'])
     def create_outlaw_endpoint() -> Response:
-        data = request.json
+        data = request.get_json()
+        # TODO(all): if outlaw is None we should return an HTTP error
+        new_outlaw = data.get('outlaw')
 
         create_outlaw.execute(CreateOutlawRequest(
-            data.get('name'), data.get('email')))
+            new_outlaw.get('name'), new_outlaw.get('email')))
 
         message = {'status': 201, 'message': 'Outlaw added successfully'}
 
         return jsonify(message)
 
-    return blueprint_bandido
+    return blueprint_outlaw

@@ -1,5 +1,6 @@
 import inject
-from thesheriff.domain.outlaw.repository.outlaw_repository import OutlawRepository
+from thesheriff.domain.outlaw.repository.outlaw_repository import \
+    OutlawRepository
 from thesheriff.domain.outlaw.outlaw import Outlaw
 from typing import List
 

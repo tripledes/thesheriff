@@ -1,7 +1,8 @@
 import inject
 import json
 from flask import Blueprint, jsonify, Response, request
-from thesheriff.application.gang.request.join_gang_request import JoinGangRequest
+from thesheriff.application.gang.request.join_gang_request import \
+    JoinGangRequest
 from thesheriff.application.outlaw.join_gang import JoinGang
 from thesheriff.application.outlaw.create_gang import CreateGang
 

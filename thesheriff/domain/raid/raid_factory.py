@@ -3,6 +3,7 @@ from thesheriff.domain.raid.raid import Raid
 from thesheriff.domain.gang.gang import Gang
 from thesheriff.domain.outlaw.outlaw import Outlaw
 from thesheriff.domain.outlaw.sheriff import Sheriff
+from typing import List, Optional
 
 
 class RaidFactory(Raid):

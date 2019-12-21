@@ -1,5 +1,6 @@
 from thesheriff.domain.raid.raid import Raid
-from thesheriff.domain.outlaw.repository.outlaw_repository import OutlawRepository
+from thesheriff.domain.outlaw.repository.outlaw_repository import \
+    OutlawRepository
 
 
 class GradeRaid:

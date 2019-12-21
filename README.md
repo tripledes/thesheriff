@@ -26,7 +26,10 @@ $ make run
 * Starts both services, *app* and *db*
 * The *db* hostname can be used from the *app* for connecting to the database
 * *app* is published on port *5000* in *localhost*
-* Access it by `curl`:
+
+### Use the application
+
+#### Create an Outlaw
 
 ```console
 $ curl localhost:5000/api/v1/outlaw/ -X POST --data @examples/json/create_outlaw.json -H 'Content-Type: application/json'
