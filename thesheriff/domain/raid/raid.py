@@ -1,5 +1,6 @@
 from datetime import datetime
 from thesheriff.domain.gang.gang import Gang
+from thesheriff.domain.outlaw.outlaw import Outlaw
 from thesheriff.domain.outlaw.sheriff import Sheriff
 from typing import NoReturn, Optional, List
 
@@ -47,3 +48,6 @@ class Raid:
         :returns: Bool -- If each member has rated the Raid.
         """
         return len(self.rates) == len(self.outlaws)
+
+    def join(self, outlaw: Outlaw):
+        self.outlaws.append(outlaw)
