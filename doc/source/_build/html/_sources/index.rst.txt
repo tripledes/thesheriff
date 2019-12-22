@@ -11,6 +11,15 @@ Welcome to The Sheriff's documentation!
    :caption: Contents:
 
 
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+
 Application usage
 -----------------
 
@@ -19,8 +28,8 @@ Here's all you need to run and test The Sheriff application.
 .. toctree::
     usage
 
-The API Documentation
----------------------
+The API Documentation / Guide
+-----------------------------
 
 If you are looking for information on a specific function, class, or method,
 this part of the documentation is for you.

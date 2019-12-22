@@ -1,3 +1,10 @@
+"""
+thesheriff.infrastructure.controllers.outlaw_controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This module implements the RESTful part of the Outlaw use cases.
+
+"""
 import json
 import inject
 from flask import Blueprint, jsonify, Response, request
@@ -11,10 +18,99 @@ from thesheriff.domain.outlaw.score import Score
 
 
 @inject.autoparams()
-def outlaw_blueprint(
+def outlaw_controller(
         create_outlaw: CreateOutlaw, list_friends: ListFriends,
-        list_gangs: ListGangs, rate_raid: RateRaid
+        list_gangs: ListGangs
 ) -> Blueprint:
+    """outlaw_controller holds the blueprint for all outlaw routes.
+
+    :param create_outlaw: Create Outlaw use case implementation.
+    :type create_outlaw: CreateOutlaw
+    :param list_friends: List Friends use case implementation.
+    :type list_friends: ListFriends
+    :param list_gangs: List Gangs use case implementation.
+    :type list_gangs: ListGangs
+    :return: Flask Blueprint.
+    :rtype: Blueprint
+
+    Implements the following routes:
+
+    * */<prefix>/outlaw/* (POST)
+
+      **Request Example:**
+
+      .. code-block:: console
+
+         $ curl localhost:5000/api/<version>/outlaw/ \\
+            -X POST --data @examples/json/create_outlaw.json \\
+            -H 'Content-Type: application/json'
+
+      **Response Example:**
+
+      .. code-block:: json
+
+         {
+             "message": "Outlaw added successfully",
+             "status": 201
+         }
+
+    * */<prefix>/outlaw/<int:outlaw_id>/friends* (GET)
+
+      **Request Example:**
+
+      .. code-block:: console
+
+         $ curl localhost:5000/api/<version>/outlaw/1/friends
+
+      **Response Example:**
+
+      .. code-block:: json
+
+         {
+             "status": 200,
+             "friends": {
+                 "friend1": {},
+                 "friend2": {}
+             }
+         }
+    * */<prefix>/outlaw/<int:outlaw_id>/gangs* (GET)
+
+      **Request Example:**
+
+      .. code-block:: console
+
+         $ curl localhost:5000/api/<version>/outlaw/1/gangs
+
+      **Response Example:**
+
+      .. code-block:: json
+
+         {
+             "status": 200,
+             "gangs": {
+                 "gang1": {},
+                 "gang2": {}
+             }
+         }
+    * */<prefix>/outlaw/<int:outlaw_id>/raid/<int:raid_id>/* (POST)
+
+      **Request Example:**
+
+      .. code-block:: console
+
+         $ curl localhost:5000/api/<version>/outlaw/1/raid/1 \\
+             -X POST --data @examples/json/rate_raid.json \\
+             -H 'Content-Type: application/json'
+
+      **Response Example:**
+
+      .. code-block:: json
+
+         {
+             "status": 201,
+             "message": "raid rated successfully"
+         }
+    """
     blueprint_outlaw = Blueprint('outlaw', __name__)
 
     @blueprint_outlaw.route('/outlaw/<int:outlaw_id>/friends', methods=['GET'])
@@ -65,7 +161,7 @@ def outlaw_blueprint(
         rate = data.get('rate')
         score = Score(**rate)
         rate_raid.execute(outlaw_id, raid_id, score)
-        message = {'raid_id': raid_id, 'message': 'rated successfully'}
+        message = {'status': 201, 'message': 'rated successfully'}
         return jsonify(message)
 
     return blueprint_outlaw

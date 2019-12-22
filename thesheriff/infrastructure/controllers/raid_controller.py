@@ -1,3 +1,9 @@
+"""
+thesheriff.infrastructure.controllers.raid_controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This module implements the RESTful part of the Raid use cases.
+"""
 import inject
 from flask import Blueprint, jsonify, Response, request
 from thesheriff.domain.outlaw.outlaw import Outlaw
@@ -7,14 +13,25 @@ from thesheriff.domain.outlaw.score import Score
 
 
 @inject.autoparams()
-def raid_blueprint(rate_raid: RateRaid) -> Blueprint:
+def raid_controller(rate_raid: RateRaid) -> Blueprint:
+    """raid_controller holds the blueprint for all raid routes.
+
+    :param rate_raid: RateRaid use case implementation.
+    :type rate_raid: RateRaid
+    :return: Flask Blueprint.
+    :rtype: Blueprint
+
+    Implements the following routes:
+
+    """
     # def asalto_blueprint(
     # crear_asalto: CrearAsalto, puntuar_asalto: PuntuarAsalto) -> Blueprint:
-    """Create routes for entity Asalto
-    :param crear_asalto: Object with asalto creation implementation.
-    :param puntuar_asalto: Object with asalto rating implementation.
-    :returns: Blueprint
-    """
+    # """Create routes for entity Raid
+    # :param create_raid: Object with raid creation implementation.
+    # :param rate_raid: Object with raid rating implementation.
+    # :return: The Raid Blueprint.
+    # :rtype: Blueprint.
+    # """
     blueprint_raid = Blueprint('raid', __name__)
 
     # @asalto_blueprint.route("/asalto", methods=['POST'])
@@ -28,3 +45,5 @@ def raid_blueprint(rate_raid: RateRaid) -> Blueprint:
     #     new_asalto = request.json
     #     asalto = crear_asalto.execute(**new_asalto)
     #     return jsonify(asalto.to_dict())
+
+    return blueprint_raid

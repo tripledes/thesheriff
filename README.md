@@ -1,6 +1,6 @@
 # The Sheriff
 
-[![Build Status](https://travis-ci.org/tripledes/thesheriff.svg?branch=master)](https://travis-ci.org/tripledes/thesheriff)
+[![Build Status](https://travis-ci.org/tripledes/thesheriff.svg?branch=master)](https://travis-ci.org/tripledes/thesheriff) [![Documentation Status](https://readthedocs.org/projects/thesheriff/badge/?version=latest)](https://thesheriff.readthedocs.io/en/latest/?badge=latest)
 
 ## Development
 

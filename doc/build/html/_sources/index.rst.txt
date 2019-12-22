@@ -11,21 +11,21 @@ Welcome to The Sheriff's documentation!
    :caption: Contents:
 
 
+Application usage
+-----------------
 
-Indices and tables
-==================
+Here's all you need to run and test The Sheriff application.
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+    usage
 
+The API Documentation
+---------------------
 
-The Sheriff Infrastructure
-==========================
-.. automodule:: thesheriff.infrastructure
-.. autoclass:: AsaltoMySQLRepository
-   :members:
-.. autoclass:: BandidoMySQLRepository
-   :members:
-.. autoclass:: BandaMySQLRepository
-   :members:
+If you are looking for information on a specific function, class, or method,
+this part of the documentation is for you.
+
+.. toctree::
+   :maxdepth: 2
+
+   infrastructure

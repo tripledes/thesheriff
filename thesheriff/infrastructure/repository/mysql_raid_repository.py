@@ -1,3 +1,9 @@
+"""
+thesheriff.infrastructure.repository.mysql_raid_respository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This module implements Raid MySQL Repository.
+"""
 from typing import List, NoReturn
 from thesheriff.domain.outlaw.outlaw import Outlaw
 from thesheriff.domain.raid.raid import Raid
@@ -13,8 +19,9 @@ from sqlalchemy import create_engine, MetaData, Table
 
 class MySQLRaidRepository(RaidRepository):
     """MySQLRaidRepository implements persistence for Raid on MySQL.
+
     :param database_uri: URI for connecting to MySQL
-    :type database_uri: str.
+    :type database_uri: String
     """
 
     def __init__(self, database_uri: str, meta: MetaData, raid_table: Table):
@@ -23,11 +30,13 @@ class MySQLRaidRepository(RaidRepository):
         self.__raid_table = raid_table
         meta.create_all(self.__connection)
 
-    def of_id(self, raid_id: int) -> Raid:
-        """Method of_id searches for an Raid matching raid_id
+    def of_id(self, raid_id: int) -> Outlaw:
+        """Method of_id searches for an Raid matching raid_id.
+
         :param raid_id: Id of the Raid to be returned.
-        :type raid_id: Integer.
-        :returns: Raid -- The Raid matching raid_id.
+        :type raid_id: Integer
+        :return: The Raid matching raid_id.
+        :rtype: Raid
         """
         # FIXME(tripledes)
         # Use GangFactory and OutlawFactory for both gang and members.
@@ -48,10 +57,13 @@ class MySQLRaidRepository(RaidRepository):
 
     def add(self, new_raid: Raid) -> NoReturn:
         """Method add persists a new Outlaw to MySQL.
-        :param new_raid: Object with the Raid information
-        :type new_raid: Raid.
-        :return: NoReturn.
+
+        :param new_outlaw: Object with the Outlaw information.
+        :type new_outlaw: Outlaw
+        :return: No returned value.
+        :rtype: NoReturn
         """
+
         outlaws_ids = self.__find_outlaws_ids()
         query = self.__raid_table.insert().values(
             sheriff_id=new_raid.sheriff.id,

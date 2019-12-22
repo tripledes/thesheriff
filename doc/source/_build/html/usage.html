@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Sheriff Usage &#8212; The Sheriff 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Sheriff Infrastructure" href="infrastructure.html" />
+    <link rel="prev" title="Welcome to The Sheriff’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="the-sheriff-usage">
+<h1>The Sheriff Usage<a class="headerlink" href="#the-sheriff-usage" title="Permalink to this headline">¶</a></h1>
+<p>The project includes a <em>Makefile</em> with the following targets:</p>
+<ul class="simple">
+<li><p><strong>run</strong>: cleans previously built images and runs the stack,
+the application and the DB.</p></li>
+<li><p><strong>lint</strong>: runs <em>pycodestyle</em> over the <em>thesheriff</em> directory
+and reports any linting problems on the code.</p></li>
+<li><p><strong>tests</strong>: runs <em>pytest</em> and reports the results
+of the unit tests.</p></li>
+</ul>
+<div class="section" id="runtime-requirements">
+<h2>Runtime Requirements<a class="headerlink" href="#runtime-requirements" title="Permalink to this headline">¶</a></h2>
+<p>To run and validate the application locally, the following tools are required:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a></p></li>
+<li><p><a class="reference external" href="https://curl.haxx.se/">Curl</a></p></li>
+</ul>
+</div>
+<div class="section" id="validating-use-cases">
+<h2>Validating use cases<a class="headerlink" href="#validating-use-cases" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Create an Outlaw</p></li>
+</ul>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/outlaw/ -X POST <span class="se">\</span>
+     --data @examples/json/create_outlaw.json -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<span class="go">{&quot;message&quot;:&quot;Outlaw added successfully&quot;,&quot;status&quot;:201}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="development-requirements">
+<h2>Development Requirements<a class="headerlink" href="#development-requirements" title="Permalink to this headline">¶</a></h2>
+<p>To hack on the application, the following tools are required:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org">Python &gt;= 3.8</a></p></li>
+<li><p><a class="reference external" href="https://pipenv.readthedocs.io/en/latest/">pipenv</a></p></li>
+<li><p><a class="reference external" href="https://www.gnu.org/software/make/">GNU make</a></p></li>
+<li><p><a class="reference external" href="https://git-scm.com/">Git</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">The Sheriff</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Sheriff Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#runtime-requirements">Runtime Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validating-use-cases">Validating use cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-requirements">Development Requirements</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://github.com/tripledes/thesheriff">🚀 Github</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to The Sheriff’s documentation!</a></li>
+      <li>Next: <a href="infrastructure.html" title="next chapter">The Sheriff Infrastructure</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, The Sheriff Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/usage.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

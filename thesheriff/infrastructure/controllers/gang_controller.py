@@ -8,7 +8,56 @@ from thesheriff.application.outlaw.create_gang import CreateGang
 
 
 @inject.autoparams()
-def gang_blueprint(join_gang: JoinGang, create_gang: CreateGang) -> Blueprint:
+def gang_controller(join_gang: JoinGang, create_gang: CreateGang) -> Blueprint:
+    """gang_controller holds the blueprint for all gang routes.
+
+    :param join_gang: Join Gang use case implementation.
+    :type join_gang: JoinGang
+    :param create_gang: Create Gang use case implementation.
+    :type create_gang: CreateGang
+    :return: Flask Blueprint.
+    :rtype: Blueprint
+
+    Implements the following routes:
+
+    * */<prefix>/gang* (POST)
+
+      **Request Example:**
+
+      .. code-block:: console
+
+         $ curl localhost:5000/api/<version>/gang \\
+             -X POST --data @examples/json/create_gang.json \\
+             -H 'Content-Type: application/json'
+
+      **Response Example:**
+
+      .. code-block:: json
+
+         {
+             "status": 201,
+             "gang": {}
+         }
+    * */<prefix>/gang/<int:gang_id>/join* (PUT)
+
+      **Request Example:**
+
+      .. code-block:: console
+
+         $ curl localhost:5000/api/<version>/gang/1/join \\
+            -X PUT --data @examples/json/join_gang.json \\
+            -H 'Content-Type: application/json'
+
+      **Response Example:**
+
+      .. code-block:: json
+
+         {
+             "status": 204,
+             "message": "Gang updated"
+         }
+    """
+
     blueprint_gang = Blueprint('gang', __name__)
 
     @blueprint_gang.route('/gang/<int:gang_id>/join', methods=['PUT'])
@@ -19,7 +68,7 @@ def gang_blueprint(join_gang: JoinGang, create_gang: CreateGang) -> Blueprint:
 
         join_gang.execute(JoinGangRequest(gang_id, outlaw_id))
 
-        message = {'status': 204, 'message': 'Banda updated'}
+        message = {'status': 204, 'message': 'Gang updated'}
 
         return jsonify(message)
 
