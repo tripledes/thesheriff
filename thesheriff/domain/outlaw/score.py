@@ -1,4 +1,4 @@
-NUMERO_CRITERIOS = 4
+CRITERIAS = 4
 
 
 class Score:
@@ -29,4 +29,4 @@ class Score:
         return (
             self.__food_quantity + self.__food_quality +
             self.__service_quality + self.__price
-        ) / NUMERO_CRITERIOS
+        ) / CRITERIAS

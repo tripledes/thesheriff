@@ -19,13 +19,14 @@ class Raid:
     :type gang: Gang.
     :param date: Date and time when the raid happens.
     :type date: datetime.datetime.
-    :param id: Optional, Raid Id.
-    :type id: Integer.
+    :param raid_id: Optional, Raid Id.
+    :type raid_id: Integer.
     """
 
     def __init__(
         self, name: str, location: str,
-        sheriff: Sheriff, gang: Gang, date: datetime
+        sheriff: Sheriff, gang: Gang, date: datetime,
+            raid_id: Optional[int] = None
     ):
         self.name = name
         self.outlaws = list()
@@ -33,7 +34,7 @@ class Raid:
         self.sheriff = sheriff
         self.gang = gang
         self.rates = []
-        self.__id = None
+        self.id = raid_id
 
     def add_rate(self, rate: float) -> NoReturn:
         """Method add_rate, adds a new rate for the Raid.

@@ -16,7 +16,7 @@ def test_end_raid():
     outlaws = [outlaw1, outlaw2]
     gang.add_members(outlaws)
     raid = Raid("amazing raid", "street 1, 05", Sheriff(outlaw1), gang,
-                date=datetime.now())
+                date=datetime.now(), raid_id=None)
 
     raid.join(outlaw=outlaw1)
     raid.join(outlaw=outlaw2)
@@ -32,6 +32,7 @@ def test_end_raid():
 
     assert result == "Gang's score: 0. Sheriff's score on raid 'amazing raid': 100"
 
+
 def test_raid_can_not_be_ended_throws_exception():
     raid_repository = MockRaidRepository()
     gang = Gang(1, "Gang")
@@ -40,7 +41,7 @@ def test_raid_can_not_be_ended_throws_exception():
     outlaws = [outlaw1, outlaw2]
     gang.add_members(outlaws)
     raid = Raid("amazing raid", "street 1, 05", Sheriff(outlaw1), gang,
-                date=datetime.now())
+                date=datetime.now(), raid_id=None)
 
     raid.join(outlaw=outlaw1)
     raid.join(outlaw=outlaw2)

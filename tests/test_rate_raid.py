@@ -1,6 +1,10 @@
+from datetime import datetime
+
 from tests.mock_raid_repository import MockRaidRepository
 from tests.mock_outlaw_repository import MockOutlawRepository
 from thesheriff.application.outlaw.rate_raid import RateRaid
+from thesheriff.domain.gang.gang import Gang
+from thesheriff.domain.outlaw.sheriff import Sheriff
 from thesheriff.domain.raid.raid import Raid
 from thesheriff.domain.outlaw.outlaw import Outlaw
 from thesheriff.domain.outlaw.score import Score
@@ -8,11 +12,14 @@ from thesheriff.domain.outlaw.score import Score
 
 def test_rate_raid():
     outlaw_repository = MockOutlawRepository()
-    outlaw = Outlaw(1, None, None)
+    outlaw = Outlaw(1, "MockedOutLaw", "iam_a_mocked_outlaw@thesheriff.corp")
     outlaw_repository.add(outlaw)
 
+    gang = Gang(2, "The Gang")
+    sheriff = Sheriff(Outlaw(2, "Sheriff", "iam_thesheriff_gang2@thesheriff.corp"))
+
     raid_repository = MockRaidRepository()
-    raid = Raid("very nice restaurant", None, None, None, None)
+    raid = Raid("very nice restaurant", "None", sheriff, gang, datetime.now(), None)
     raid_repository.add(raid)
 
     rate_raid = RateRaid(outlaw_repository, raid_repository)

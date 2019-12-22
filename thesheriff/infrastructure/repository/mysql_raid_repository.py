@@ -23,7 +23,7 @@ class MySQLRaidRepository(RaidRepository):
         self.__raid_table = raid_table
         meta.create_all(self.__connection)
 
-    def of_id(self, raid_id: int) -> Outlaw:
+    def of_id(self, raid_id: int) -> Raid:
         """Method of_id searches for an Raid matching raid_id
         :param raid_id: Id of the Raid to be returned.
         :type raid_id: Integer.
@@ -43,12 +43,13 @@ class MySQLRaidRepository(RaidRepository):
             outlaws=outlaws,
             sheriff=result.get('sheriff_id'),
             gang=result.get('gang_id'),
+            location=result.get('location'),
             date=result.get('date'))
 
-    def add(self, new_outlaw: Outlaw) -> NoReturn:
+    def add(self, new_raid: Raid) -> NoReturn:
         """Method add persists a new Outlaw to MySQL.
-        :param new_outlaw: Object with the Outlaw information
-        :type new_outlaw: Outlaw.
+        :param new_raid: Object with the Raid information
+        :type new_raid: Raid.
         :return: NoReturn.
         """
         outlaws_ids = self.__find_outlaws_ids()
@@ -58,6 +59,16 @@ class MySQLRaidRepository(RaidRepository):
             name=new_raid.name,
             members=outlaws_ids,
         )
+        self.__connection.execute(query)
+
+    def update(self, mod_raid: Raid) -> NoReturn:
+        """Method update updates an existing Raid.
+        :param mod_raid: Object with the Raid information
+        :type mod_raid: Raid.
+        :return: NoReturn.
+        """
+        query = self.__raid_table.update().where(
+            self.__raid_table.c.id == mod_raid.id).values(**mod_raid)
         self.__connection.execute(query)
 
     def __join_bandidos_ids(self):

@@ -28,19 +28,3 @@ def raid_blueprint(rate_raid: RateRaid) -> Blueprint:
     #     new_asalto = request.json
     #     asalto = crear_asalto.execute(**new_asalto)
     #     return jsonify(asalto.to_dict())
-    @blueprint_raid.route("/raid/<int:asalto_id>/rate", methods=['POST'])
-    def rate_raid_endpoint(raid_id: int) -> Response:
-        """rate_raid_endpoint recives rates for a Raid an executes
-           the Rate Raid use case.
-        :param raid_id: Id of the Asalto to be rated
-        :type raid_id: Integer.
-        :returns: Response -- Flask Response.
-        """
-        data = request.json
-        outlaw_id = data.get('outlaw_id')
-        rate = data.get('rate')
-        score = Score(**rate)
-        rate_raid.execute(outlaw_id, score)
-        message = {'raid_id': raid_id, 'message': 'rated successfully'}
-        return jsonify(message)
-    return blueprint_raid

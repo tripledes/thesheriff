@@ -15,3 +15,7 @@ class RaidRepository(abc.ABC):
     @abc.abstractmethod
     def add(self, new_raid: Raid) -> NoReturn:
         pass
+
+    @abc.abstractmethod
+    def update(self, mod_raid: Raid) -> NoReturn:
+        pass

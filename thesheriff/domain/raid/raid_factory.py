@@ -12,8 +12,8 @@ class RaidFactory(Raid):
 
     @staticmethod
     def create(
-        id: Optional[int], name: str, outlaws: List[Outlaw], location: str,
-        sheriff: Sheriff, gang: Gang, date: datetime
+        id: Optional[int], name: str, outlaws: List[Outlaw],
+        sheriff: Sheriff, gang: Gang, location: str, date: datetime
     ) -> Raid:
         """Method create, produces a Raid instance.
         :param id: Optional, Raid's Id.
