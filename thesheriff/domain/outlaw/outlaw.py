@@ -23,18 +23,9 @@ class Outlaw:
         self.score = 0
         self.gangs = list()
 
-    def join_band(self, gang: Gang) -> NoReturn:
+    def join_gang(self, gang: Gang) -> NoReturn:
         """Method join_banda
         :param gang: The Gang instance to which to join
         :type gang: Gang
         """
         self.gangs.append(gang)
-
-    def list_friends(self) -> list:
-        """Method list_friends
-        :returns: list -- The actual list of friends instances.
-        """
-        # TODO(all):
-        # using List[Outlaw] as a return type produces a circular dependency
-        # are we sure this method belongs here?
-        return self.friends
