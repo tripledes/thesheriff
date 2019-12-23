@@ -2,3 +2,4 @@ flask==1.1.*
 SQLAlchemy==1.3.*
 pymysql==0.9.*
 inject==4.0.*
+Sphinx==2.2.0
