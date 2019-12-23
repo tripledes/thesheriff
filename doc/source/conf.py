@@ -65,4 +65,4 @@ html_theme_options = {
     }
 }
 autoclass_content = 'both'
-master_doc = 'contents'
+master_doc = 'index'
