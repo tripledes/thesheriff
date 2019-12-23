@@ -1,16 +1,19 @@
 import inject
 import json
-from flask import Blueprint, jsonify, Response, request
+from flask import Blueprint, jsonify, Response, request, make_response
+
+from thesheriff.application.gang.request.create_gang_request import \
+    CreateGangRequest
 from thesheriff.application.gang.request.join_gang_request import \
     JoinGangRequest
 from thesheriff.application.outlaw.join_gang import JoinGang
-from thesheriff.application.outlaw.create_gang import CreateGang
 from thesheriff.application.gang.list_gangs import ListGangs
+from thesheriff.application.outlaw.create_gang import CreateGang
 
 
 @inject.autoparams()
 def gang_controller(
-    join_gang: JoinGang, create_gang: CreateGang, list_gangs: ListGangs
+        join_gang: JoinGang, create_gang: CreateGang, list_gangs: ListGangs
 ) -> Blueprint:
     """gang_controller holds the blueprint for all gang routes.
 
@@ -104,16 +107,14 @@ def gang_controller(
             return jsonify(message)
 
         data = request.json
+        new_gang = data.get('gang')
 
-        outlaw_id = data.get('owner_id')
-        name = data.get('name')
+        gang_request = CreateGangRequest(new_gang.get('owner_id'),
+                                         new_gang.get('name'))
+        gang = create_gang.execute(gang_request)
 
-        gang = create_gang.execute(outlaw_id, name)
-
-        gang_json = json.dumps(gang)
-
-        message = {'status': 201, 'gang': gang_json}
-
-        return jsonify(message)
+        gang_json = json.dumps(gang.__dict__)
+        resp = make_response(gang_json, 201)
+        return resp
 
     return blueprint_gang

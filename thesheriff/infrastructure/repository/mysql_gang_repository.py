@@ -56,7 +56,8 @@ class MySQLGangRepository(GangRepository):
         :return: No returned value.
         :rtype: NoReturn
         """
-        query = self.__gang_table.insert().value(**new_gang)
+        query = self.__gang_table.insert()\
+            .values(owner_id=new_gang.owner_id, name=new_gang.name)
         self.__connection.execute(query)
 
     def update(self, mod_gang: Gang) -> NoReturn:

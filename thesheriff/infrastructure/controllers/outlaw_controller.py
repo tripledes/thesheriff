@@ -8,6 +8,8 @@ This module implements the RESTful part of the Outlaw use cases.
 import json
 import inject
 from flask import Blueprint, jsonify, Response, request
+
+from thesheriff.application.outlaw import rate_raid
 from thesheriff.application.outlaw.create_outlaw import CreateOutlaw
 from thesheriff.application.outlaw.list_friends import ListFriends
 from thesheriff.application.outlaw.list_gangs import ListGangs
@@ -172,7 +174,7 @@ def outlaw_controller(
         :returns: Blueprint
         """
 
-    @invite_friend.route("/outlaw/invite_friend/", methods=['POST'])
+    @blueprint_outlaw.route("/outlaw/invite_friend/", methods=['POST'])
     def invite_friend(receiver_mail_address: str) -> Response:
         """Invite friend will receive a mail from a json payload and will send
         to him an invitation mail to join the app

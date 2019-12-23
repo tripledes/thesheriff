@@ -12,14 +12,12 @@ class Gang:
 
     def __init__(self, owner_id: int, name: str):
         # TODO(all)
-        # It would seem only logical that the owner is also a member.
-        # Should owner_id be an actual Outlaw instance?
+        # Verify owner_id is of an existing outlaw
         self.name = name
         self.members = list()
         self.created_raids = 0
         self.owner_id = owner_id
         self.id = None
-
         if self.name is None:
             raise Exception('Gang name required')
 
@@ -41,4 +39,5 @@ class Gang:
         """
         # TODO(all)
         # Should this be singular? add_member.
+        # It depends, if its a list, add_members is correct
         self.members = members

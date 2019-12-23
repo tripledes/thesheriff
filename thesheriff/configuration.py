@@ -29,7 +29,9 @@ outlaw_table = Table('outlaws', METADATA,
 
 gang_table = Table('gangs', METADATA,
                    Column('id', Integer, primary_key=True, autoincrement=True),
-                   Column('score', Integer, nullable=False),
+                   Column('score', Integer, nullable=False, default=0.0),
+                   Column('owner_id', Integer, nullable=False),
+                   Column('name', Text, nullable=False),
                    Column('members', ForeignKey('outlaws.id')))
 
 raid_table = Table('raids', METADATA,
