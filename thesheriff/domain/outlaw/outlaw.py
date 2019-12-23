@@ -33,3 +33,6 @@ class Outlaw:
         :rtype: NoReturn
         """
         self.gangs.append(gang)
+
+    def get_email(self):
+        return self.email

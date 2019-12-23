@@ -15,6 +15,7 @@ from thesheriff.application.outlaw.rate_raid import RateRaid
 from thesheriff.application.outlaw.request.create_outlaw_request import \
     CreateOutlawRequest
 from thesheriff.domain.outlaw.score import Score
+from thesheriff.application.outlaw.invite_friend import InviteFriend
 
 
 @inject.autoparams()
@@ -162,6 +163,26 @@ def outlaw_controller(
         score = Score(**rate)
         rate_raid.execute(outlaw_id, raid_id, score)
         message = {'status': 201, 'message': 'rated successfully'}
+        return jsonify(message)
+
+    @inject.autoparams()
+    def invite_friend_blueprint(invite_friend: InviteFriend) -> Blueprint:
+        """Sends an email to the receiver
+        :param invitar_amigo: Object to invite the receiver
+        :returns: Blueprint
+        """
+
+    @invite_friend.route("/outlaw/invite_friend/", methods=['POST'])
+    def invite_friend(receiver_mail_address: str) -> Response:
+        """Invite friend will receive a mail from a json payload and will send
+        to him an invitation mail to join the app
+        :param
+        :type :
+        :return: Response.
+        """
+        invite_friend.execute(receiver_mail_address)
+        # TODO: Fill json response
+        message = {''}
         return jsonify(message)
 
     return blueprint_outlaw
