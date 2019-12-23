@@ -6,8 +6,11 @@ from thesheriff.domain.outlaw.outlaw import Outlaw
 
 class MockGangRepository(GangRepository):
 
+    def __init__(self):
+        self.gang = None
+
     def of_id(self, gang_id: int) -> Gang:
-        pass
+        return self.gang
 
     def add(self, new_gang: Gang) -> NoReturn:
         pass

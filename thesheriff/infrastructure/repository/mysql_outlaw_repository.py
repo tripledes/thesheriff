@@ -83,3 +83,6 @@ class MySQLOutlawRepository(OutlawRepository):
         query = self.__outlaw_table.select().where(
             self.__outlaw_table.c.id == outlaw_id)
         return self.__connection.execute(query)
+
+    def all(self) -> [Outlaw]:
+        raise Exception('to implement')

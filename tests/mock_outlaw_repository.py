@@ -28,3 +28,9 @@ class MockOutlawRepository(OutlawRepository):
 
         return [outlaw_1, outlaw_2, outlaw_3]
 
+    def all(self) -> [Outlaw]:
+        return [
+            Outlaw(1, "Outlaw1", "b1@yopmail.com"),
+            Outlaw(2, "Outlaw2", "b2@yopmail.com"),
+            Outlaw(3, "Outlaw3", "b3@yopmail.com")
+        ]

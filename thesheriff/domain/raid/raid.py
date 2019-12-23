@@ -4,6 +4,8 @@ from thesheriff.domain.outlaw.outlaw import Outlaw
 from thesheriff.domain.outlaw.sheriff import Sheriff
 from typing import NoReturn, Optional, List
 
+DEFAULT_DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
+
 
 class Raid:
     """Class Raid represents the Raid entity.
@@ -25,17 +27,23 @@ class Raid:
     """
 
     def __init__(
-        self, name: str, location: str,
-        sheriff: Sheriff, gang: Gang, date: datetime,
-            raid_id: Optional[int] = None
+            self,
+            name: str,
+            location: str,
+            sheriff: Sheriff,
+            gang: Gang,
+            date: datetime,
+            raid_id: Optional[int] = None,
+            outlaws: Optional[Outlaw] = []
     ):
         self.name = name
-        self.outlaws = list()
         self.location = location
         self.sheriff = sheriff
         self.gang = gang
+        self.date = date
         self.rates = []
         self.id = raid_id
+        self.outlaws = outlaws
 
     def add_rate(self, rate: float) -> NoReturn:
         """Method add_rate, adds a new rate for the Raid.

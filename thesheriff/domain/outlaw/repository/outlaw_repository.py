@@ -23,3 +23,7 @@ class OutlawRepository(abc.ABC):
     @abc.abstractmethod
     def remove(self, outlaw_id: int) -> NoReturn:
         pass
+
+    @abc.abstractmethod
+    def all(self) -> [Outlaw]:
+        pass
