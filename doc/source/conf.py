@@ -64,4 +64,5 @@ html_theme_options = {
         "🚀 Github": "https://github.com/tripledes/thesheriff",
     }
 }
-autoclass_content = "both"
+autoclass_content = 'both'
+master_doc = 'contents'

@@ -145,7 +145,7 @@ thesheriff.infrastructure module.</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>/outlaw/&lt;int:outlaw_id&gt;/gangs</em> (GET)</p>
+<li><p><em>/&lt;prefix&gt;/outlaw/&lt;int:outlaw_id&gt;/gangs</em> (GET)</p>
 <p><strong>Request Example:</strong></p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/gangs
 </pre></div>
@@ -157,6 +157,21 @@ thesheriff.infrastructure module.</p>
         <span class="nt">&quot;gang1&quot;</span><span class="p">:</span> <span class="p">{},</span>
         <span class="nt">&quot;gang2&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><em>/&lt;prefix&gt;/outlaw/&lt;int:outlaw_id&gt;/raid/&lt;int:raid_id&gt;/</em> (POST)</p>
+<p><strong>Request Example:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/raid/1 <span class="se">\</span>
+    -X POST --data @examples/json/rate_raid.json <span class="se">\</span>
+    -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</pre></div>
+</div>
+<p><strong>Response Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;raid rated successfully&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -184,23 +199,6 @@ thesheriff.infrastructure module.</p>
 </dd>
 </dl>
 <p>Implements the following routes:</p>
-<ul>
-<li><p><em>/&lt;prefix&gt;/raid/&lt;int:raid_id&gt;/rate</em> (POST)</p>
-<p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/raid/1/rate <span class="se">\</span>
-    -X POST --data @examples/json/rate_raid.json <span class="se">\</span>
-    -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
-</pre></div>
-</div>
-<p><strong>Response Example:</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;raid rated successfully&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</li>
-</ul>
 </dd></dl>
 
 </div>
@@ -407,7 +405,7 @@ thesheriff.infrastructure module.</p>
 </dl>
 <dl class="method">
 <dt id="thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_outlaw: thesheriff.domain.outlaw.outlaw.Outlaw</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.add" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_raid: thesheriff.domain.raid.raid.Raid</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method add persists a new Outlaw to MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -439,6 +437,15 @@ thesheriff.infrastructure module.</p>
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_raid: thesheriff.domain.raid.raid.Raid</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method update updates an existing Raid.
+:param mod_raid: Object with the Raid information
+:type mod_raid: Raid.
+:return: NoReturn.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -451,10 +458,10 @@ thesheriff.infrastructure module.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
+            <p class="logo"><a href="contents.html">
               <img class="logo" src="_static/logo.png" alt="Logo"/>
             </a></p>
-<h1 class="logo"><a href="index.html">The Sheriff</a></h1>
+<h1 class="logo"><a href="contents.html">The Sheriff</a></h1>
 
 
 
@@ -485,7 +492,7 @@ thesheriff.infrastructure module.</p>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="contents.html">Documentation overview</a><ul>
       <li>Previous: <a href="usage.html" title="previous chapter">The Sheriff Usage</a></li>
   </ul></li>
 </ul>
