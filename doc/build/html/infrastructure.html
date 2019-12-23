@@ -39,13 +39,14 @@ thesheriff.infrastructure module.</p>
 <h2>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="module-thesheriff.infrastructure.controllers.gang_controller"><span id="gang-controller"></span></span><dl class="function">
 <dt id="thesheriff.infrastructure.controllers.gang_controller.gang_controller">
-<code class="sig-prename descclassname">thesheriff.infrastructure.controllers.gang_controller.</code><code class="sig-name descname">gang_controller</code><span class="sig-paren">(</span><em class="sig-param">join_gang: thesheriff.application.outlaw.join_gang.JoinGang</em>, <em class="sig-param">create_gang: thesheriff.application.outlaw.create_gang.CreateGang</em><span class="sig-paren">)</span> &#x2192; flask.blueprints.Blueprint<a class="headerlink" href="#thesheriff.infrastructure.controllers.gang_controller.gang_controller" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">thesheriff.infrastructure.controllers.gang_controller.</code><code class="sig-name descname">gang_controller</code><span class="sig-paren">(</span><em class="sig-param">join_gang: thesheriff.application.outlaw.join_gang.JoinGang</em>, <em class="sig-param">create_gang: thesheriff.application.outlaw.create_gang.CreateGang</em>, <em class="sig-param">list_gangs: thesheriff.application.gang.list_gangs.ListGangs</em><span class="sig-paren">)</span> &#x2192; flask.blueprints.Blueprint<a class="headerlink" href="#thesheriff.infrastructure.controllers.gang_controller.gang_controller" title="Permalink to this definition">¶</a></dt>
 <dd><p>gang_controller holds the blueprint for all gang routes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>join_gang</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.join_gang.JoinGang" title="thesheriff.application.outlaw.join_gang.JoinGang"><em>JoinGang</em></a>) – Join Gang use case implementation.</p></li>
 <li><p><strong>create_gang</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.create_gang.CreateGang" title="thesheriff.application.outlaw.create_gang.CreateGang"><em>CreateGang</em></a>) – Create Gang use case implementation.</p></li>
+<li><p><strong>list_gangs</strong> (<a class="reference internal" href="application.html#thesheriff.application.gang.list_gangs.ListGangs" title="thesheriff.application.gang.list_gangs.ListGangs"><em>ListGangs</em></a>) – List Gangs use case implementation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -87,6 +88,22 @@ thesheriff.infrastructure module.</p>
 </pre></div>
 </div>
 </li>
+<li><p><em>/&lt;prefix&gt;/gang</em> (GET)</p>
+<p><strong>Request Example:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/gang
+</pre></div>
+</div>
+<p><strong>Response Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+    <span class="nt">&quot;gangs&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;gang1&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="nt">&quot;gang2&quot;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </dd></dl>
 
@@ -102,7 +119,7 @@ thesheriff.infrastructure module.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>create_outlaw</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.create_outlaw.CreateOutlaw" title="thesheriff.application.outlaw.create_outlaw.CreateOutlaw"><em>CreateOutlaw</em></a>) – Create Outlaw use case implementation.</p></li>
 <li><p><strong>list_friends</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.list_friends.ListFriends" title="thesheriff.application.outlaw.list_friends.ListFriends"><em>ListFriends</em></a>) – List Friends use case implementation.</p></li>
-<li><p><strong>list_gangs</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.list_gangs.ListGangs" title="thesheriff.application.outlaw.list_gangs.ListGangs"><em>ListGangs</em></a>) – List Gangs use case implementation.</p></li>
+<li><p><strong>list_gangs</strong> (<a class="reference internal" href="application.html#thesheriff.application.gang.list_gangs.ListGangs" title="thesheriff.application.gang.list_gangs.ListGangs"><em>ListGangs</em></a>) – List Gangs use case implementation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

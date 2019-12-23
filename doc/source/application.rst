@@ -14,6 +14,10 @@ Gang
 .. module:: thesheriff.application.gang.request.join_gang_request
 .. autoclass:: JoinGangRequest
    :members:
+.. _gang_list_gangs:
+.. module:: thesheriff.application.gang.list_gangs
+.. autoclass:: ListGangs
+   :members:
 
 Outlaw
 ------
@@ -34,7 +38,7 @@ Outlaw
 .. module:: thesheriff.application.outlaw.list_friends
 .. autoclass:: ListFriends
    :members:
-.. _list_gangs:
+.. _outlaw_list_gangs:
 .. module:: thesheriff.application.outlaw.list_gangs
 .. autoclass:: ListGangs
    :members:
