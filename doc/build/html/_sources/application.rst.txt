@@ -42,10 +42,15 @@ Outlaw
 .. module:: thesheriff.application.outlaw.rate_raid
 .. autoclass:: RateRaid
    :members:
+.. _invite_friend:
+.. module:: thesheriff.application.outlaw.invite_friend
+.. autoclass:: InviteFriend
+   :members:
 .. _create_outlaw_request:
 .. module:: thesheriff.application.outlaw.request.create_outlaw_request
 .. autoclass:: CreateOutlawRequest
    :members:
+
 
 Raid
 ----
