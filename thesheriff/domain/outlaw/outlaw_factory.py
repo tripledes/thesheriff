@@ -11,10 +11,12 @@ class OutlawFactory(Outlaw):
     @staticmethod
     def create(name: str, email: str) -> Outlaw:
         """Method create, produces a Outlaw instance.
+
         :param name: Outlaw's given name.
-        :type name: String.
+        :type name: String
         :param email: Outlaw's email.
-        :type email: String.
-        :returns: Outlaw -- The produced Outlaw.
+        :type email: String
+        :return: The produced Outlaw.
+        :rtype: Outlaw
         """
         return Outlaw(None, name, email)

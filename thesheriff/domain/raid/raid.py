@@ -6,21 +6,22 @@ from typing import NoReturn, Optional, List
 
 
 class Raid:
-    """Class Raid represents the Asalto entity.
+    """Class Raid represents the Raid entity.
+
     :param name: The Raid given name.
-    :type name: String.
+    :type name: String
     :param outlaws: List of Outlaws invited to the Raid.
-    :type outlaws: List[Outlaw].
+    :type outlaws: List[Outlaw]
     :param location: Restaurant location.
-    :type location: String.
+    :type location: String
     :param sheriff: The Raid organizer.
-    :type sheriff: Sheriff.
+    :type sheriff: Sheriff
     :param gang: Gang where the raid is organized.
-    :type gang: Gang.
+    :type gang: Gang
     :param date: Date and time when the raid happens.
-    :type date: datetime.datetime.
+    :type date: datetime.datetime
     :param raid_id: Optional, Raid Id.
-    :type raid_id: Integer.
+    :type raid_id: Integer
     """
 
     def __init__(
@@ -38,17 +39,28 @@ class Raid:
 
     def add_rate(self, rate: float) -> NoReturn:
         """Method add_rate, adds a new rate for the Raid.
+
         :param rate: The rate to be added.
-        :type rate: Float.
-        :returns: NoReturn -- no value returned.
+        :type rate: Float
+        :return: No value returned.
+        :rtype: NoReturn
         """
         self.rates.append(rate)
 
     def could_finish(self) -> bool:
         """Method could_finish.
-        :returns: Bool -- If each member has rated the Raid.
+
+        :return: If each member has rated the Raid.
+        :rtype: Bool
         """
         return len(self.rates) == len(self.outlaws)
 
-    def join(self, outlaw: Outlaw):
+    def join(self, outlaw: Outlaw) -> NoReturn:
+        """Method join, joins an Outlaw into a Gang.
+
+        :param outlaw: The Outlaw joining this Gang.
+        :type outlaw: Outlaw
+        :return: No value returned.
+        :rtype: NoReturn
+        """
         self.outlaws.append(outlaw)

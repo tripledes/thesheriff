@@ -16,21 +16,23 @@ class RaidFactory(Raid):
         sheriff: Sheriff, gang: Gang, location: str, date: datetime
     ) -> Raid:
         """Method create, produces a Raid instance.
+
         :param id: Optional, Raid's Id.
-        :type id: Integer.
+        :type id: Integer
         :param name: Outlaw's given name.
-        :type name: String.
+        :type name: String
         :param outlaws: Outlaws invited to raid.
-        :type outlaws: List[Outlaw].
+        :type outlaws: List[Outlaw]
         :param location: Location of the raid.
-        :type location: String.
+        :type location: String
         :param sheriff: The Outlaw organizing the Raid.
-        :type sheriff: Sheriff.
+        :type sheriff: Sheriff
         :param gang: Gang this Raid is organized for.
-        :type gang: Gang.
+        :type gang: Gang
         :param date: Raid's date and time.
-        :type date: datetime.datetime.
-        :returns: Outlaw -- The produced Outlaw.
+        :type date: datetime.datetime
+        :return: The produced Raid.
+        :rtype: Raid
         """
         return Raid(
             name, outlaws, location, sheriff, gang, date, id)

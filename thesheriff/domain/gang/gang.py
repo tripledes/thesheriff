@@ -1,12 +1,13 @@
-from typing import List, NoReturn
+from typing import NoReturn
 
 
 class Gang:
     """Class Gang, the Gang domain entity class.
+
     :param owner_id: Outlaw's Id, owner of the new Gang.
-    :type owner_id: Integer.
+    :type owner_id: Integer
     :param name: Given name of the Gang.
-    :type name: String.
+    :type name: String
     """
 
     def __init__(self, owner_id: int, name: str):
@@ -24,15 +25,19 @@ class Gang:
 
     def members(self) -> list:
         """Method members.
-        :returns: List[Outlaw] -- the list of Outlaws, members of the Gang.
+
+        :return: The list of Outlaws, members of the Gang.
+        :rtype: list
         """
         return self.members
 
     def add_members(self, members: list) -> NoReturn:
         """Method add_members.
+
         :param members: List of Outlaws on the Gang.
-        :type members: list
-        :returns: NoReturn -- no value returned.
+        :type members: List
+        :return: No value returned.
+        :rtype: NoReturn
         """
         # TODO(all)
         # Should this be singular? add_member.
