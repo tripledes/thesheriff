@@ -6,8 +6,9 @@ from typing import List
 
 class ListGangs:
     """Class ListGangs implements the list gangs use case.
+
     :param gang_repository: Repository managing the Gang domain entities.
-    :type gang_repository: GangRepository.
+    :type gang_repository: GangRepository
     """
 
     @inject.autoparams()
@@ -16,9 +17,11 @@ class ListGangs:
 
     def execute(self, outlaw_id: int) -> List[Gang]:
         """execute is the actual action of the List Gangs use case.
+
         :param outlaw_id: ID of the Outlaw performing the action.
-        :type outlaw_id: int.
-        :returns: List[Gang] -- the list of gangs.
+        :type outlaw_id: Integer
+        :return: The list of gangs.
+        :rtype: List[Gang]
         """
 
         gangs = list()

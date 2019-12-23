@@ -6,8 +6,9 @@ from thesheriff.domain.gang.gang import Gang
 
 class CreateGang:
     """Class CreateGang implements the gang creation use case.
+
     :param gang_repository: Repository managing Gang domain entities.
-    :type gang_repository: GangRepository.
+    :type gang_repository: GangRepository
     """
 
     @inject.autoparams()
@@ -16,11 +17,13 @@ class CreateGang:
 
     def execute(self, owner_id: int, name: str) -> Gang:
         """execute is the actual action of the Raid rating use case.
+
         :param owner_id: ID of the Outlaw creating the Gang.
         :type owner_id: Integer.
         :param name: Given name of the Gang.
         :type name: String.
-        :returns: Gang -- The created Gang.
+        :return: The created Gang.
+        :rtype: Gang
         """
         gang = GangFactory.create(owner_id, name)
         self.__gang_repository.add(gang)

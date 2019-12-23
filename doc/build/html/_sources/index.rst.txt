@@ -28,5 +28,6 @@ this part of the documentation is for you.
 .. toctree::
    :maxdepth: 2
 
+   application
    domain
    infrastructure

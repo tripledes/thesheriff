@@ -5,6 +5,7 @@ from thesheriff.domain.outlaw.repository.outlaw_repository import \
 
 class GradeRaid:
     """Class GradeRaid implements the Grade Raids use case.
+
     :param outlaw_repository: Repository managing Outlaw domain entities.
     :type outlaw_repository: OutlawRepository
     """
@@ -14,9 +15,11 @@ class GradeRaid:
 
     def execute(self, raid: Raid) -> float:
         """execute is the actual action of the Grade Raid use case.
+
         :param raid: The Raid entity to be graded.
-        :type raid: Raid.
-        :returns: float -- the raid grade.
+        :type raid: Raid
+        :return: The raid grade.
+        :rtype: Float
         """
         grade = 0
         total = 0

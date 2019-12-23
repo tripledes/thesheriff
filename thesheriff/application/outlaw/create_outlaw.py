@@ -9,8 +9,9 @@ from thesheriff.application.outlaw.request.create_outlaw_request import \
 
 class CreateOutlaw:
     """Class CreateOutlaw implements the Outlaw creation use case.
+
     :param outlaw_repository: Repository managing Outlaw domain entities.
-    :type outlaw_repository: OutlawRepository.
+    :type outlaw_repository: OutlawRepository
     """
 
     @inject.autoparams()
@@ -19,9 +20,11 @@ class CreateOutlaw:
 
     def execute(self, request: CreateOutlawRequest) -> Outlaw:
         """execute is the actual action of the Raid rating use case.
+
         :param request: Request holding the new Outlaw details.
-        :type request: CreateOutlawRequest.
-        :returns: Outlaw -- The newly created Outlaw.
+        :type request: CreateOutlawRequest
+        :return: The newly created Outlaw.
+        :rtype: Outlaw
         """
         new_outlaw = OutlawFactory.create(request.name, request.email)
         self.__outlaw_repository.add(new_outlaw)

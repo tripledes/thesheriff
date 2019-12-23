@@ -8,10 +8,11 @@ from thesheriff.domain.outlaw.score import Score
 
 class RateRaid:
     """Class RateRaid implements the Raid rating use case.
+
     :param outlaw_repository: Repository managing Outlaw domain entities.
-    :type outlaw_repository: OutlawRepository.
+    :type outlaw_repository: OutlawRepository
     :param raid_repository: Repository managing Raid domain entities.
-    :type raid_repository: RaidRepository.
+    :type raid_repository: RaidRepository
     """
 
     @inject.autoparams()
@@ -26,13 +27,15 @@ class RateRaid:
             self, raid_id: int, outlaw_id: int, score: Score
     ) -> NoReturn:
         """execute is the actual action of the Raid rating use case.
+
         :param raid_id: ID of the Raid to be rated
-        :type raid_id: Integer.
+        :type raid_id: Integer
         :param outlaw_id: ID of the Outlaw performing the action.
-        :type outlaw_id: Integer.
+        :type outlaw_id: Integer
         :param score: Raid's score.
-        :type score: Score.
-        :returns: NoReturn -- no value returned.
+        :type score: Score
+        :return: No value returned.
+        :rtype: NoReturn
         """
         outlaw = self.__outlaw_repository.of_id(outlaw_id)
         raid = self.__raid_repository.of_id(raid_id)

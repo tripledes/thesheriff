@@ -1,9 +1,10 @@
 class CreateOutlawRequest:
     """Class CreateOutlawRequest holds data required to create an Outlaw.
+
     :param name: Outlaw's given name.
-    :type name: String.
+    :type name: String
     :param email: Outlaw's email.
-    :type email: String.
+    :type email: String
     """
 
     def __init__(self, name: str, email: str):

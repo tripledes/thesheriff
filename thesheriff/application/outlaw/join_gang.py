@@ -9,10 +9,11 @@ from typing import NoReturn
 
 class JoinGang:
     """JoinGang class implements the Join Gang use case.
+
     :param outlaw_repository: Repository for managing Outlaw entities.
-    :type outlaw_repository: OutlawRepository.
+    :type outlaw_repository: OutlawRepository
     :param gang_repository: Repository for managing Gang entities.
-    :type gang_repository: GangRepository.
+    :type gang_repository: GangRepository
     """
 
     @inject.autoparams()
@@ -25,9 +26,11 @@ class JoinGang:
 
     def execute(self, request: JoinGangRequest) -> NoReturn:
         """execute is the actual action of the Join Gang use case.
+
         :param request: Request holding for joining a Gang.
-        :type request: JoinGangRequest.
-        :returns: NoReturn -- no value returned.
+        :type request: JoinGangRequest
+        :return: No value returned.
+        :rtype: NoReturn
         """
         gang = self.__gang_repository.of_id(request.gang_id)
         outlaw = self.__outlaw_repository.of_id(request.outlaw_id)
