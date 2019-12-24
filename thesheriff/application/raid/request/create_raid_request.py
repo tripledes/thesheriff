@@ -3,9 +3,9 @@ from typing import List
 
 
 class CreateRaidRequest:
-    """Class CreateOutlawRequest holds data required to create an Outlaw.
+    """Class CreateRaidRequest holds data required to create a Raid.
 
-    :param name: Outlaw's given name.
+    :param name: Raid's given name.
     :type name: String
     :param date: Date and time for the Raid.
     :type date: datetime.datetime
