@@ -4,9 +4,8 @@
     "name": "Asalto 1",
     "date": "2019-12-31 23:59:00",
     "location": "Barcelona",
-    "gang": {},
-    "sheriff": {},
-    "outlaws": [],
-    "rates": []
+    "gang_id": 1,
+    "sheriff_id": 1,
+    "outlaws_id": [1, 2, 3]
   }
 }

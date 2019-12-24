@@ -178,21 +178,6 @@ thesheriff.infrastructure module.</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>/&lt;prefix&gt;/outlaw/&lt;int:outlaw_id&gt;/raid/&lt;int:raid_id&gt;/</em> (POST)</p>
-<p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/raid/1 <span class="se">\</span>
-    -X POST --data @examples/json/rate_raid.json <span class="se">\</span>
-    -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
-</pre></div>
-</div>
-<p><strong>Response Example:</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;raid rated successfully&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</li>
 </ul>
 </dd></dl>
 
@@ -202,11 +187,14 @@ thesheriff.infrastructure module.</p>
 <p>This module implements the RESTful part of the Raid use cases.</p>
 <dl class="function">
 <dt id="thesheriff.infrastructure.controllers.raid_controller.raid_controller">
-<code class="sig-prename descclassname">thesheriff.infrastructure.controllers.raid_controller.</code><code class="sig-name descname">raid_controller</code><span class="sig-paren">(</span><em class="sig-param">rate_raid: thesheriff.application.outlaw.rate_raid.RateRaid</em><span class="sig-paren">)</span> &#x2192; flask.blueprints.Blueprint<a class="headerlink" href="#thesheriff.infrastructure.controllers.raid_controller.raid_controller" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">thesheriff.infrastructure.controllers.raid_controller.</code><code class="sig-name descname">raid_controller</code><span class="sig-paren">(</span><em class="sig-param">create_raid: thesheriff.application.raid.create_raid.CreateRaid</em>, <em class="sig-param">rate_raid: thesheriff.application.outlaw.rate_raid.RateRaid</em><span class="sig-paren">)</span> &#x2192; flask.blueprints.Blueprint<a class="headerlink" href="#thesheriff.infrastructure.controllers.raid_controller.raid_controller" title="Permalink to this definition">¶</a></dt>
 <dd><p>raid_controller holds the blueprint for all raid routes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rate_raid</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.rate_raid.RateRaid" title="thesheriff.application.outlaw.rate_raid.RateRaid"><em>RateRaid</em></a>) – RateRaid use case implementation.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>create_raid</strong> (<em>CreateRaid</em>) – CreateRaid use case implementation.</p></li>
+<li><p><strong>rate_raid</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.rate_raid.RateRaid" title="thesheriff.application.outlaw.rate_raid.RateRaid"><em>RateRaid</em></a>) – RateRaid use case implementation.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Flask Blueprint.</p>
@@ -216,6 +204,38 @@ thesheriff.infrastructure module.</p>
 </dd>
 </dl>
 <p>Implements the following routes:</p>
+<ul>
+<li><p><em>/&lt;prefix&gt;/raid/</em> (POST)</p>
+<p><strong>Request Example:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/raid/ <span class="se">\</span>
+   -X POST --data @examples/json/create_raid.json <span class="se">\</span>
+   -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</pre></div>
+</div>
+<p><strong>Response Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Raid added successfully&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><em>/&lt;prefix&gt;/outlaw/&lt;int:outlaw_id&gt;/raid/&lt;int:raid_id&gt;/</em> (PUT)</p>
+<p><strong>Request Example:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/raid/1 <span class="se">\</span>
+    -X PUT --data @examples/json/rate_raid.json <span class="se">\</span>
+    -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</pre></div>
+</div>
+<p><strong>Response Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;raid rated successfully&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </dd></dl>
 
 </div>
