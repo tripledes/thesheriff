@@ -36,6 +36,22 @@ Validating use cases
        -H 'Content-Type: application/json'
      {"message":"Outlaw added successfully","status":201}
 
+- Create a Gang
+
+  .. code-block:: console
+
+     $ curl localhost:5000/api/v1/gang/ -X POST \
+       --data @examples/json/create_gang.json \
+       -H 'Content-Type: application/json'
+     {"name": "The best gang", "members": [], "created_raids": 0, "owner_id": 1, "id": 1}
+
+- List all Gangs
+
+  .. code-block:: console
+
+     $ curl localhost:5000/api/v1/gang
+     {"gangs":[{"id":1,"name":"The best gang"},{"id":2,"name":"The best gang"}],"status":201}
+
 Development Requirements
 ------------------------
 

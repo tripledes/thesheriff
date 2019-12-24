@@ -1,3 +1,4 @@
+import inject
 from thesheriff.domain.gang.gang import Gang
 from thesheriff.domain.gang.repository.gang_repository import GangRepository
 from typing import List
@@ -10,6 +11,7 @@ class ListGangs:
     :type gang_repository: GangRepository
     """
 
+    @inject.autoparams()
     def __init__(self, gang_repository: GangRepository):
         self.__gang_repository = gang_repository
 

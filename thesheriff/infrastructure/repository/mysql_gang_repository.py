@@ -1,12 +1,13 @@
 """
-thesheriff.infrastructure.repository.mysql_gang_respository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+thesheriff.infrastructure.repository.mysql_gang_repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements Gang MySQL Repository.
 """
 from typing import NoReturn, List
 from sqlalchemy import create_engine, MetaData, Table
 from thesheriff.domain.gang.gang import Gang
+from thesheriff.domain.gang.gang_factory import GangFactory
 from thesheriff.domain.gang.repository.gang_repository import GangRepository
 
 
@@ -46,7 +47,12 @@ class MySQLGangRepository(GangRepository):
         # GangFactory, return GangCollection (TBI)
         query = self.__gang_table.select()
 
-        return self.__connection.execute(query)
+        rows = self.__connection.execute(query)
+        gangs = list()
+        for row in rows:
+            gang = GangFactory.create(row.owner_id, row.name, row.id)
+            gangs.append(gang)
+        return gangs
 
     def add(self, new_gang: Gang) -> NoReturn:
         """Method add persists a new Gang to MySQL.

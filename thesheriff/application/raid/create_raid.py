@@ -1,5 +1,5 @@
+import inject
 from datetime import datetime
-
 from thesheriff.application.raid.create_raid_request import CreateRaidRequest
 from thesheriff.domain.gang.gang import Gang
 from thesheriff.domain.gang.repository.gang_repository import GangRepository
@@ -12,6 +12,8 @@ from thesheriff.domain.raid.repository.raid_repository import RaidRepository
 
 
 class CreateRaid:
+
+    @inject.autoparams()
     def __init__(
             self,
             outlaw_repository: OutlawRepository,

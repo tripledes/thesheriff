@@ -28,6 +28,25 @@ def gang_controller(
 
     Implements the following routes:
 
+    * */<prefix>/gang* (GET)
+
+      **Request Example:**
+
+      .. code-block:: console
+
+         $ curl localhost:5000/api/<version>/gang
+
+      **Response Example:**
+
+      .. code-block:: json
+
+         {
+             "status": 201,
+             "gangs": {
+                 "gang1": {},
+                 "gang2": {}
+             }
+         }
     * */<prefix>/gang* (POST)
 
       **Request Example:**
@@ -64,25 +83,6 @@ def gang_controller(
              "status": 204,
              "message": "Gang updated"
          }
-    * */<prefix>/gang* (GET)
-
-      **Request Example:**
-
-      .. code-block:: console
-
-         $ curl localhost:5000/api/<version>/gang
-
-      **Response Example:**
-
-      .. code-block:: json
-
-         {
-             "status": 201,
-             "gangs": {
-                 "gang1": {},
-                 "gang2": {}
-             }
-         }
     """
 
     blueprint_gang = Blueprint('gang', __name__)
@@ -102,7 +102,10 @@ def gang_controller(
     @blueprint_gang.route('/gang', methods=['GET', 'POST'])
     def create_gang_endpoint() -> Response:
         if request.method == 'GET':
-            gangs = list_gangs.execute()
+            results = list_gangs.execute()
+            gangs = list()
+            for res in results:
+                gangs.append(dict({'id': res.id, 'name': res.name}))
             message = {'status': 201, 'gangs': gangs}
             return jsonify(message)
 

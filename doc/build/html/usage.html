@@ -67,6 +67,20 @@ of the unit tests.</p></li>
 </pre></div>
 </div>
 </li>
+<li><p>Create a Gang</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang/ -X POST <span class="se">\</span>
+  --data @examples/json/create_gang.json <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<span class="go">{&quot;name&quot;: &quot;The best gang&quot;, &quot;members&quot;: [], &quot;created_raids&quot;: 0, &quot;owner_id&quot;: 1, &quot;id&quot;: 1}</span>
+</pre></div>
+</div>
+</li>
+<li><p>List all Gangs</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang
+<span class="go">{&quot;gangs&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;The best gang&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;The best gang&quot;}],&quot;status&quot;:201}</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </div>
 <div class="section" id="development-requirements">

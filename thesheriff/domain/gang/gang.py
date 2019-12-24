@@ -1,4 +1,4 @@
-from typing import NoReturn
+from typing import NoReturn, Optional
 
 
 class Gang:
@@ -10,14 +10,20 @@ class Gang:
     :type name: String
     """
 
-    def __init__(self, owner_id: int, name: str):
+    def __init__(
+        self, owner_id: int, name: str, id: Optional[int] = None
+    ):
         # TODO(all)
         # Verify owner_id is of an existing outlaw
         self.name = name
         self.members = list()
         self.created_raids = 0
         self.owner_id = owner_id
-        self.id = None
+        if not id:
+            self.id = None
+        else:
+            self.id = id
+
         if self.name is None:
             raise Exception('Gang name required')
 

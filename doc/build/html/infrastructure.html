@@ -58,6 +58,22 @@ thesheriff.infrastructure module.</p>
 </dl>
 <p>Implements the following routes:</p>
 <ul>
+<li><p><em>/&lt;prefix&gt;/gang</em> (GET)</p>
+<p><strong>Request Example:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/gang
+</pre></div>
+</div>
+<p><strong>Response Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+    <span class="nt">&quot;gangs&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;gang1&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="nt">&quot;gang2&quot;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
 <li><p><em>/&lt;prefix&gt;/gang</em> (POST)</p>
 <p><strong>Request Example:</strong></p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/gang <span class="se">\</span>
@@ -84,22 +100,6 @@ thesheriff.infrastructure module.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
     <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Gang updated&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</li>
-<li><p><em>/&lt;prefix&gt;/gang</em> (GET)</p>
-<p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/gang
-</pre></div>
-</div>
-<p><strong>Response Example:</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-    <span class="nt">&quot;gangs&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;gang1&quot;</span><span class="p">:</span> <span class="p">{},</span>
-        <span class="nt">&quot;gang2&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
