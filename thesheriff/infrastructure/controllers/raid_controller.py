@@ -11,7 +11,8 @@ from flask import Blueprint, Response, request, make_response
 
 from thesheriff.application.outlaw.rate_raid import RateRaid
 from thesheriff.application.raid.create_raid import CreateRaid
-from thesheriff.application.raid.create_raid_request import CreateRaidRequest
+from thesheriff.application.raid.request.create_raid_request import \
+    CreateRaidRequest
 from thesheriff.domain.outlaw.score import Score
 
 

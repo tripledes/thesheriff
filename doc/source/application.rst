@@ -10,14 +10,19 @@ thesheriff.application module.
 Gang
 ----
 
-.. _join_gang_request:
-.. module:: thesheriff.application.gang.request.join_gang_request
-.. autoclass:: JoinGangRequest
-   :members:
 .. _gang_list_gangs:
 .. module:: thesheriff.application.gang.list_gangs
 .. autoclass:: ListGangs
    :members:
+.. _create_gang_request:
+.. module:: thesheriff.application.gang.request.create_gang_request
+.. autoclass:: CreateGangRequest
+   :members:
+.. _join_gang_request:
+.. module:: thesheriff.application.gang.request.join_gang_request
+.. autoclass:: JoinGangRequest
+   :members:
+
 
 Outlaw
 ------
@@ -29,6 +34,10 @@ Outlaw
 .. _create_outlaw:
 .. module:: thesheriff.application.outlaw.create_outlaw
 .. autoclass:: CreateOutlaw
+   :members:
+.. _invite_friend:
+.. module:: thesheriff.application.outlaw.invite_friend
+.. autoclass:: InviteFriend
    :members:
 .. _join_gang:
 .. module:: thesheriff.application.outlaw.join_gang
@@ -46,10 +55,6 @@ Outlaw
 .. module:: thesheriff.application.outlaw.rate_raid
 .. autoclass:: RateRaid
    :members:
-.. _invite_friend:
-.. module:: thesheriff.application.outlaw.invite_friend
-.. autoclass:: InviteFriend
-   :members:
 .. _create_outlaw_request:
 .. module:: thesheriff.application.outlaw.request.create_outlaw_request
 .. autoclass:: CreateOutlawRequest
@@ -66,4 +71,8 @@ Raid
 .. _grade_raid:
 .. module:: thesheriff.application.raid.grade_raid
 .. autoclass:: GradeRaid
+   :members:
+.. _create_raid_request:
+.. module:: thesheriff.application.raid.request.create_raid_request
+.. autoclass:: CreateRaidRequest
    :members:
