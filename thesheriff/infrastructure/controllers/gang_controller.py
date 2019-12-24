@@ -1,14 +1,15 @@
-import inject
 import json
+
+import inject
 from flask import Blueprint, jsonify, Response, request, make_response
 
+from thesheriff.application.gang.list_gangs import ListGangs
 from thesheriff.application.gang.request.create_gang_request import \
     CreateGangRequest
 from thesheriff.application.gang.request.join_gang_request import \
     JoinGangRequest
-from thesheriff.application.outlaw.join_gang import JoinGang
-from thesheriff.application.gang.list_gangs import ListGangs
 from thesheriff.application.outlaw.create_gang import CreateGang
+from thesheriff.application.outlaw.join_gang import JoinGang
 
 
 @inject.autoparams()
@@ -41,7 +42,7 @@ def gang_controller(
       .. code-block:: json
 
          {
-             "status": 201,
+             "status": 200,
              "gangs": {
                  "gang1": {},
                  "gang2": {}
@@ -106,7 +107,7 @@ def gang_controller(
             gangs = list()
             for res in results:
                 gangs.append(dict({'id': res.id, 'name': res.name}))
-            message = {'status': 201, 'gangs': gangs}
+            message = {'status': 200, 'gangs': gangs}
             return jsonify(message)
 
         data = request.json

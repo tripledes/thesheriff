@@ -11,6 +11,7 @@ import inject
 from flask import Blueprint, jsonify, Response, request
 
 from thesheriff.application.outlaw.create_outlaw import CreateOutlaw
+from thesheriff.application.outlaw.invite_friend import InviteFriend
 from thesheriff.application.outlaw.list_friends import ListFriends
 from thesheriff.application.outlaw.list_gangs import ListGangs
 from thesheriff.application.outlaw.request.create_outlaw_request import \
@@ -20,7 +21,7 @@ from thesheriff.application.outlaw.request.create_outlaw_request import \
 @inject.autoparams()
 def outlaw_controller(
         create_outlaw: CreateOutlaw, list_friends: ListFriends,
-        list_gangs: ListGangs
+        list_gangs: ListGangs, invite_friend: InviteFriend
 ) -> Blueprint:
     """outlaw_controller holds the blueprint for all outlaw routes.
 
@@ -30,6 +31,8 @@ def outlaw_controller(
     :type list_friends: ListFriends
     :param list_gangs: List Gangs use case implementation.
     :type list_gangs: ListGangs
+    :param invite_friend: InviteFiend use case implementation.
+    :type invite_friend: InviteFriend
     :return: Flask Blueprint.
     :rtype: Blueprint
 
@@ -92,6 +95,25 @@ def outlaw_controller(
                  "gang2": {}
              }
          }
+
+    * */<prefix>/outlaw/invite_friend/* (POST)
+
+      **Request Example:**
+
+      .. code-block:: console
+
+         $ curl localhost:5000/api/<version>/outlaw/invite_friend/ \\
+            -X POST --data @examples/json/invite_friend.json \\
+            -H 'Content-Type: application/json'
+
+      **Response Example:**
+
+      .. code-block:: json
+
+         {
+             "message": "Invitation sent",
+             "status": 201
+         }
     """
     blueprint_outlaw = Blueprint('outlaw', __name__)
 
@@ -129,16 +151,11 @@ def outlaw_controller(
         return jsonify(message)
 
     @blueprint_outlaw.route("/outlaw/invite_friend/", methods=['POST'])
-    def invite_friend(receiver_mail_address: str) -> Response:
-        """Invite friend will receive a mail from a json payload and will send
-        to him an invitation mail to join the app
-        :param
-        :type :
-        :return: Response.
-        """
-        invite_friend.execute(receiver_mail_address)
-        # TODO: Fill json response
-        message = {''}
+    def invite_friend_endpoint() -> Response:
+        data = request.get_json()
+        mail_address = data.get('receiver_mail_address')
+        invite_friend.execute(mail_address)
+        message = {'status': 201, 'message': 'Invitation sent'}
         return jsonify(message)
 
     return blueprint_outlaw

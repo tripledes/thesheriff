@@ -65,7 +65,7 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
     <span class="nt">&quot;gangs&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;gang1&quot;</span><span class="p">:</span> <span class="p">{},</span>
         <span class="nt">&quot;gang2&quot;</span><span class="p">:</span> <span class="p">{}</span>
@@ -112,7 +112,7 @@ thesheriff.infrastructure module.</p>
 <p>This module implements the RESTful part of the Outlaw use cases.</p>
 <dl class="function">
 <dt id="thesheriff.infrastructure.controllers.outlaw_controller.outlaw_controller">
-<code class="sig-prename descclassname">thesheriff.infrastructure.controllers.outlaw_controller.</code><code class="sig-name descname">outlaw_controller</code><span class="sig-paren">(</span><em class="sig-param">create_outlaw: thesheriff.application.outlaw.create_outlaw.CreateOutlaw</em>, <em class="sig-param">list_friends: thesheriff.application.outlaw.list_friends.ListFriends</em>, <em class="sig-param">list_gangs: thesheriff.application.outlaw.list_gangs.ListGangs</em><span class="sig-paren">)</span> &#x2192; flask.blueprints.Blueprint<a class="headerlink" href="#thesheriff.infrastructure.controllers.outlaw_controller.outlaw_controller" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">thesheriff.infrastructure.controllers.outlaw_controller.</code><code class="sig-name descname">outlaw_controller</code><span class="sig-paren">(</span><em class="sig-param">create_outlaw: thesheriff.application.outlaw.create_outlaw.CreateOutlaw</em>, <em class="sig-param">list_friends: thesheriff.application.outlaw.list_friends.ListFriends</em>, <em class="sig-param">list_gangs: thesheriff.application.outlaw.list_gangs.ListGangs</em>, <em class="sig-param">invite_friend: thesheriff.application.outlaw.invite_friend.InviteFriend</em><span class="sig-paren">)</span> &#x2192; flask.blueprints.Blueprint<a class="headerlink" href="#thesheriff.infrastructure.controllers.outlaw_controller.outlaw_controller" title="Permalink to this definition">¶</a></dt>
 <dd><p>outlaw_controller holds the blueprint for all outlaw routes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -120,6 +120,7 @@ thesheriff.infrastructure module.</p>
 <li><p><strong>create_outlaw</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.create_outlaw.CreateOutlaw" title="thesheriff.application.outlaw.create_outlaw.CreateOutlaw"><em>CreateOutlaw</em></a>) – Create Outlaw use case implementation.</p></li>
 <li><p><strong>list_friends</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.list_friends.ListFriends" title="thesheriff.application.outlaw.list_friends.ListFriends"><em>ListFriends</em></a>) – List Friends use case implementation.</p></li>
 <li><p><strong>list_gangs</strong> (<a class="reference internal" href="application.html#thesheriff.application.gang.list_gangs.ListGangs" title="thesheriff.application.gang.list_gangs.ListGangs"><em>ListGangs</em></a>) – List Gangs use case implementation.</p></li>
+<li><p><strong>invite_friend</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.invite_friend.InviteFriend" title="thesheriff.application.outlaw.invite_friend.InviteFriend"><em>InviteFriend</em></a>) – InviteFiend use case implementation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -174,6 +175,21 @@ thesheriff.infrastructure module.</p>
         <span class="nt">&quot;gang1&quot;</span><span class="p">:</span> <span class="p">{},</span>
         <span class="nt">&quot;gang2&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><em>/&lt;prefix&gt;/outlaw/invite_friend/</em> (POST)</p>
+<p><strong>Request Example:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/invite_friend/ <span class="se">\</span>
+   -X POST --data @examples/json/invite_friend.json <span class="se">\</span>
+   -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</pre></div>
+</div>
+<p><strong>Response Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation sent&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span>
 <span class="p">}</span>
 </pre></div>
 </div>
