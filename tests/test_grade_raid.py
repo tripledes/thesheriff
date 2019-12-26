@@ -9,12 +9,15 @@ from thesheriff.domain.outlaw.sheriff import Sheriff
 
 
 def test_grade_raid():
-    sheriff = Sheriff(Outlaw(1, "the sheriff", "sheriff@yopmail.com"))
+    sheriff = Sheriff("the sheriff", "sheriff@yopmail.com", 1)
     sheriff.update_score(22)
 
     gang = Gang(2, "The Gang")
 
-    raid = Raid("very nice restaurant", "Fake ST 123", sheriff, gang, datetime.now(), None)
+    raid = Raid(
+        "very nice restaurant", [], sheriff,
+        gang, "Fake ST 123", datetime.now()
+    )
 
     raid.add_rate(10)
     raid.add_rate(9)

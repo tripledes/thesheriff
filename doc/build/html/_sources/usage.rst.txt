@@ -45,6 +45,15 @@ Validating use cases
        -H 'Content-Type: application/json'
      {"name": "The best gang", "members": [], "created_raids": 0, "owner_id": 1, "id": 1}
 
+- Create a Raid
+
+  .. code-block:: console
+
+    $ curl http://localhost:5000/api/v1/raid -X POST \
+      -H 'Content-Type: application/json' \
+      --data @examples/json/create_raid.json
+      {"message":"Raid created successfully","raid":{"id":1,"name":"Asalto 1"}}
+
 - List all Gangs
 
   .. code-block:: console

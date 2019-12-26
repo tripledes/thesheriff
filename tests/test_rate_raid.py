@@ -12,14 +12,17 @@ from thesheriff.domain.outlaw.score import Score
 
 def test_rate_raid():
     outlaw_repository = MockOutlawRepository()
-    outlaw = Outlaw(1, "MockedOutLaw", "iam_a_mocked_outlaw@thesheriff.corp")
+    outlaw = Outlaw("MockedOutLaw", "iam_a_mocked_outlaw@thesheriff.corp", 1)
     outlaw_repository.add(outlaw)
 
     gang = Gang(2, "The Gang")
-    sheriff = Sheriff(Outlaw(2, "Sheriff", "iam_thesheriff_gang2@thesheriff.corp"))
+    sheriff = Sheriff("Sheriff", "iam_thesheriff_gang2@thesheriff.corp", 2)
 
     raid_repository = MockRaidRepository()
-    raid = Raid("very nice restaurant", "None", sheriff, gang, datetime.now(), None)
+    raid = Raid(
+        "very nice restaurant", [],
+        sheriff, gang, "Barcelona", datetime.now()
+    )
     raid_repository.add(raid)
 
     rate_raid = RateRaid(outlaw_repository, raid_repository)

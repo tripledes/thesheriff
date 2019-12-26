@@ -2,7 +2,8 @@ from tests.mocks.mock_gang_repository import MockGangRepository
 from tests.mocks.mock_outlaw_repository import MockOutlawRepository
 from tests.mocks.mock_raid_repository import MockRaidRepository
 from thesheriff.application.raid.create_raid import CreateRaid
-from thesheriff.application.raid.request.create_raid_request import CreateRaidRequest
+from thesheriff.application.raid.request.create_raid_request import \
+    CreateRaidRequest
 from thesheriff.domain.outlaw.outlaw import Outlaw
 
 
@@ -18,7 +19,7 @@ def test_create_raid():
         name, date, location, gang_id, sheriff_id, outlaw_ids)
 
     outlaw_repository = MockOutlawRepository()
-    outlaw_repository.outlaw = Outlaw(3, 'Sheriff', 'sheriff@banda.com')
+    outlaw_repository.outlaw = Outlaw('Sheriff', 'sheriff@banda.com', 3)
 
     gang_repository = MockGangRepository()
     gang_repository.gang = gang_repository.all()[0]

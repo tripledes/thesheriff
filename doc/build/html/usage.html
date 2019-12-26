@@ -75,6 +75,14 @@ of the unit tests.</p></li>
 </pre></div>
 </div>
 </li>
+<li><p>Create a Raid</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl http://localhost:5000/api/v1/raid -X POST <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+  --data @examples/json/create_raid.json
+<span class="go">  {&quot;message&quot;:&quot;Raid created successfully&quot;,&quot;raid&quot;:{&quot;id&quot;:1,&quot;name&quot;:&quot;Asalto 1&quot;}}</span>
+</pre></div>
+</div>
+</li>
 <li><p>List all Gangs</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang
 <span class="go">{&quot;gangs&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;The best gang&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;The best gang&quot;}],&quot;status&quot;:201}</span>

@@ -47,6 +47,7 @@ thesheriff.domain module.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>owner_id</strong> (<em>Integer</em>) – Outlaw’s Id, owner of the new Gang.</p></li>
 <li><p><strong>name</strong> (<em>String</em>) – Given name of the Gang.</p></li>
+<li><p><strong>id</strong> (<em>Integer</em>) – Optional, Gang Id.</p></li>
 </ul>
 </dd>
 </dl>
@@ -122,7 +123,7 @@ implementations will behave.</p>
 <h2>Outlaw<a class="headerlink" href="#outlaw" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="module-thesheriff.domain.outlaw.outlaw"><span id="id2"></span></span><dl class="class">
 <dt id="thesheriff.domain.outlaw.outlaw.Outlaw">
-<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.outlaw.outlaw.</code><code class="sig-name descname">Outlaw</code><span class="sig-paren">(</span><em class="sig-param">_id: int</em>, <em class="sig-param">name: str</em>, <em class="sig-param">email: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.outlaw.outlaw.</code><code class="sig-name descname">Outlaw</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">email: str</em>, <em class="sig-param">id: Optional[int] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class Outlaw represents the Outlaw domain entity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -130,7 +131,6 @@ implementations will behave.</p>
 <li><p><strong>id</strong> (<em>Integer</em>) – Optional, Outlaw Id.</p></li>
 <li><p><strong>name</strong> (<em>String</em>) – Outlaw’s given name.</p></li>
 <li><p><strong>email</strong> (<em>String</em>) – Outlaw’s email address.</p></li>
-<li><p><strong>score</strong> (<em>Integer</em>) – Optional, Outlaw’s general score.</p></li>
 </ul>
 </dd>
 </dl>
@@ -155,11 +155,11 @@ implementations will behave.</p>
 
 <span class="target" id="module-thesheriff.domain.outlaw.outlaw_factory"><span id="outlaw-factory"></span></span><dl class="class">
 <dt id="thesheriff.domain.outlaw.outlaw_factory.OutlawFactory">
-<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.outlaw.outlaw_factory.</code><code class="sig-name descname">OutlawFactory</code><span class="sig-paren">(</span><em class="sig-param">_id: int</em>, <em class="sig-param">name: str</em>, <em class="sig-param">email: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.outlaw.outlaw_factory.OutlawFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.outlaw.outlaw_factory.</code><code class="sig-name descname">OutlawFactory</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">email: str</em>, <em class="sig-param">id: Optional[int] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.outlaw.outlaw_factory.OutlawFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class OutlawFactory produces Outlaws.</p>
 <dl class="method">
 <dt id="thesheriff.domain.outlaw.outlaw_factory.OutlawFactory.create">
-<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">email: str</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.outlaw.outlaw.Outlaw<a class="headerlink" href="#thesheriff.domain.outlaw.outlaw_factory.OutlawFactory.create" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">email: str</em>, <em class="sig-param">id: Optional[int] = None</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.outlaw.outlaw.Outlaw<a class="headerlink" href="#thesheriff.domain.outlaw.outlaw_factory.OutlawFactory.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method create, produces a Outlaw instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -191,18 +191,18 @@ implementations will behave.</p>
 <h2>Raid<a class="headerlink" href="#raid" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="module-thesheriff.domain.raid.raid"><span id="id3"></span></span><dl class="class">
 <dt id="thesheriff.domain.raid.raid.Raid">
-<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.raid.raid.</code><code class="sig-name descname">Raid</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">location: str</em>, <em class="sig-param">sheriff: thesheriff.domain.outlaw.sheriff.Sheriff</em>, <em class="sig-param">gang: thesheriff.domain.gang.gang.Gang</em>, <em class="sig-param">date: datetime.datetime</em>, <em class="sig-param">raid_id: Optional[int] = None</em>, <em class="sig-param">outlaws: Optional[thesheriff.domain.outlaw.outlaw.Outlaw] = []</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.raid.raid.Raid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.raid.raid.</code><code class="sig-name descname">Raid</code><span class="sig-paren">(</span><em class="sig-param">name: str, members: List[thesheriff.domain.outlaw.outlaw.Outlaw], sheriff: thesheriff.domain.outlaw.sheriff.Sheriff, gang: thesheriff.domain.gang.gang.Gang, location: str, date: datetime.datetime, id: Optional[int] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.raid.raid.Raid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class Raid represents the Raid entity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>String</em>) – The Raid given name.</p></li>
-<li><p><strong>outlaws</strong> (<em>List</em><em>[</em><a class="reference internal" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a><em>]</em>) – List of Outlaws invited to the Raid.</p></li>
-<li><p><strong>location</strong> (<em>String</em>) – Restaurant location.</p></li>
+<li><p><strong>members</strong> (<em>List</em><em>[</em><a class="reference internal" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a><em>]</em>) – List of Outlaws invited to the Raid.</p></li>
 <li><p><strong>sheriff</strong> (<em>Sheriff</em>) – The Raid organizer.</p></li>
 <li><p><strong>gang</strong> (<a class="reference internal" href="#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang"><em>Gang</em></a>) – Gang where the raid is organized.</p></li>
+<li><p><strong>location</strong> (<em>String</em>) – Restaurant location.</p></li>
 <li><p><strong>date</strong> (<em>datetime.datetime</em>) – Date and time when the raid happens.</p></li>
-<li><p><strong>raid_id</strong> (<em>Integer</em>) – Optional, Raid Id.</p></li>
+<li><p><strong>id</strong> (<em>Integer</em>) – Optional, Raid Id.</p></li>
 </ul>
 </dd>
 </dl>
@@ -258,22 +258,22 @@ implementations will behave.</p>
 
 <span class="target" id="module-thesheriff.domain.raid.raid_factory"><span id="raid-factory"></span></span><dl class="class">
 <dt id="thesheriff.domain.raid.raid_factory.RaidFactory">
-<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.raid.raid_factory.</code><code class="sig-name descname">RaidFactory</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">location: str</em>, <em class="sig-param">sheriff: thesheriff.domain.outlaw.sheriff.Sheriff</em>, <em class="sig-param">gang: thesheriff.domain.gang.gang.Gang</em>, <em class="sig-param">date: datetime.datetime</em>, <em class="sig-param">raid_id: Optional[int] = None</em>, <em class="sig-param">outlaws: Optional[thesheriff.domain.outlaw.outlaw.Outlaw] = []</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.raid.raid_factory.RaidFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.raid.raid_factory.</code><code class="sig-name descname">RaidFactory</code><span class="sig-paren">(</span><em class="sig-param">name: str, members: List[thesheriff.domain.outlaw.outlaw.Outlaw], sheriff: thesheriff.domain.outlaw.sheriff.Sheriff, gang: thesheriff.domain.gang.gang.Gang, location: str, date: datetime.datetime, id: Optional[int] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.raid.raid_factory.RaidFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class RaidFactory produces Raids.</p>
 <dl class="method">
 <dt id="thesheriff.domain.raid.raid_factory.RaidFactory.create">
-<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">id: Optional[int], name: str, outlaws: List[thesheriff.domain.outlaw.outlaw.Outlaw], sheriff: thesheriff.domain.outlaw.sheriff.Sheriff, gang: thesheriff.domain.gang.gang.Gang, location: str, date: datetime.datetime</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.domain.raid.raid_factory.RaidFactory.create" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name: str, members: List[thesheriff.domain.outlaw.outlaw.Outlaw], sheriff: thesheriff.domain.outlaw.sheriff.Sheriff, gang: thesheriff.domain.gang.gang.Gang, location: str, date: datetime.datetime, id: Optional[int] = None</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.domain.raid.raid_factory.RaidFactory.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method create, produces a Raid instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Integer</em>) – Optional, Raid’s Id.</p></li>
 <li><p><strong>name</strong> (<em>String</em>) – Outlaw’s given name.</p></li>
-<li><p><strong>outlaws</strong> (<em>List</em><em>[</em><a class="reference internal" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a><em>]</em>) – Outlaws invited to raid.</p></li>
-<li><p><strong>location</strong> (<em>String</em>) – Location of the raid.</p></li>
+<li><p><strong>members</strong> (<em>List</em><em>[</em><a class="reference internal" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a><em>]</em>) – Outlaws invited to raid.</p></li>
 <li><p><strong>sheriff</strong> (<em>Sheriff</em>) – The Outlaw organizing the Raid.</p></li>
 <li><p><strong>gang</strong> (<a class="reference internal" href="#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang"><em>Gang</em></a>) – Gang this Raid is organized for.</p></li>
+<li><p><strong>location</strong> (<em>String</em>) – Location of the raid.</p></li>
 <li><p><strong>date</strong> (<em>datetime.datetime</em>) – Raid’s date and time.</p></li>
+<li><p><strong>id</strong> (<em>Integer</em>) – Optional, Raid’s Id.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

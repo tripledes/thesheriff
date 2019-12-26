@@ -16,10 +16,14 @@ class MySQLGangRepository(GangRepository):
 
     :param database_uri: URI for connecting to MySQL.
     :type database_uri: String
+    :param meta: MetaData object shared across all MySQL repositories.
+    :type meta: sqlalchemy.MetaData
+    :param gang_table: Table object, represents the Gangs table in MySQL.
+    :type gang_table: sqlalchemy.Table
     """
 
     def __init__(self, database_uri: str, meta: MetaData, gang_table: Table):
-        engine = create_engine(database_uri)
+        engine = create_engine(database_uri, pool_pre_ping=True)
         self.__connection = engine.connect()
         self.__gang_table = gang_table
         meta.create_all(self.__connection)
@@ -35,7 +39,14 @@ class MySQLGangRepository(GangRepository):
         query = self.__gang_table.select().where(
             self.__gang_table.c.id == gang_id)
 
-        return self.__connection.execute(query)
+        result = self.__connection.execute(query)
+        row = result.fetchone()
+
+        return GangFactory.create(
+            row.owner_id,
+            row.name,
+            row.id
+        )
 
     def all(self) -> List[Gang]:
         """all returns all Gangs stored on MySQL.
@@ -43,8 +54,7 @@ class MySQLGangRepository(GangRepository):
         :return: List Gang objects.
         :rtype: List[Gang]
         """
-        # TODO(all): iterate on the returned rows and call
-        # GangFactory, return GangCollection (TBI)
+        # TODO(all): return GangCollection (TBI)
         query = self.__gang_table.select()
 
         rows = self.__connection.execute(query)
@@ -62,6 +72,7 @@ class MySQLGangRepository(GangRepository):
         :return: No returned value.
         :rtype: NoReturn
         """
+        # FIXME(all): Use GangFactory to return the new Gang
         query = self.__gang_table.insert()\
             .values(owner_id=new_gang.owner_id, name=new_gang.name)
         result = self.__connection.execute(query)

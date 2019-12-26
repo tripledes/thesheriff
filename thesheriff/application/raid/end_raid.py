@@ -28,7 +28,7 @@ class EndRaid:
                 'Raid can not be finished until all outlaws have ranked it.')
 
         score_gang = 0
-        for outlaw in raid.outlaws:
+        for outlaw in raid.members:
             score_gang += outlaw.score
 
         # FIXME: send email with gang updated score

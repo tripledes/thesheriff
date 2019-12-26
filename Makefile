@@ -9,7 +9,7 @@ run: clean build
 	docker-compose up
 
 lint:
-	pipenv run pycodestyle thesheriff
+	pipenv run pycodestyle thesheriff tests
 
 tests:
 	pipenv run pytest

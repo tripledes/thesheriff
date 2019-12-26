@@ -1,11 +1,15 @@
 {
   "raid": {
     "id": 1,
-    "name": "Asalto 1",
+    "name": "Raid 1",
     "date": "2019-12-31 23:59:00",
     "location": "Barcelona",
     "gang_id": 1,
     "sheriff_id": 1,
-    "outlaws_id": [1, 2, 3]
+    "outlaw_ids": [
+      1,
+      2,
+      3
+    ]
   }
 }

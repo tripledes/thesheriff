@@ -19,4 +19,4 @@ class GangFactory(Gang):
         :return: The created Gang.
         :rtype: Gang
         """
-        return Gang(owner_id, name)
+        return Gang(owner_id, name, id)

@@ -8,6 +8,8 @@ class Gang:
     :type owner_id: Integer
     :param name: Given name of the Gang.
     :type name: String
+    :param id: Optional, Gang Id.
+    :type id: Integer
     """
 
     def __init__(

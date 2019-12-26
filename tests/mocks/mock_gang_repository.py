@@ -26,9 +26,9 @@ class MockGangRepository(GangRepository):
         gang2 = Gang(2, "Gang2")
         gang3 = Gang(3, "Gang3")
 
-        outlaw1 = Outlaw(1, "B1", "b1@yopmail.com")
-        outlaw2 = Outlaw(2, "B2", "b2@yopmail.com")
-        outlaw3 = Outlaw(3, "B3", "b3@yopmail.com")
+        outlaw1 = Outlaw("B1", "b1@yopmail.com", 1)
+        outlaw2 = Outlaw("B2", "b2@yopmail.com", 2)
+        outlaw3 = Outlaw("B3", "b3@yopmail.com", 3)
 
         members_gang1 = [outlaw1, outlaw2]
         members_gang2 = [outlaw2, outlaw3]

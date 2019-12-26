@@ -264,7 +264,11 @@ thesheriff.infrastructure module.</p>
 <dd><p>MySQLGangRepository implements persistence for Gang on MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>database_uri</strong> (<em>String</em>) – URI for connecting to MySQL.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>database_uri</strong> (<em>String</em>) – URI for connecting to MySQL.</p></li>
+<li><p><strong>meta</strong> (<em>sqlalchemy.MetaData</em>) – MetaData object shared across all MySQL repositories.</p></li>
+<li><p><strong>gang_table</strong> (<em>sqlalchemy.Table</em>) – Table object, represents the Gangs table in MySQL.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="method">
@@ -357,12 +361,16 @@ thesheriff.infrastructure module.</p>
 <dd><p>MySQLOutlawRepository implements persistence for Outlaw on MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>database_uri</strong> (<em>String</em>) – URI for connecting to MySQL</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>database_uri</strong> (<em>String</em>) – URI for connecting to MySQL</p></li>
+<li><p><strong>meta</strong> (<em>sqlalchemy.MetaData</em>) – MetaData object shared across all MySQL repositories.</p></li>
+<li><p><strong>outlaw_table</strong> (<em>sqlalchemy.Table</em>) – Table object, represents the Outlaw table in MySQL.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="method">
 <dt id="thesheriff.infrastructure.repository.mysql_outlaw_repository.MySQLOutlawRepository.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_outlaw: thesheriff.domain.outlaw.outlaw.Outlaw</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_outlaw_repository.MySQLOutlawRepository.add" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_outlaw: thesheriff.domain.outlaw.outlaw.Outlaw</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_outlaw_repository.MySQLOutlawRepository.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method add persists a new Outlaw to MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -373,6 +381,20 @@ thesheriff.infrastructure module.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>NoReturn</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.infrastructure.repository.mysql_outlaw_repository.MySQLOutlawRepository.all">
+<code class="sig-name descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List[thesheriff.domain.outlaw.outlaw.Outlaw]<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_outlaw_repository.MySQLOutlawRepository.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>all returns all Outlaws stored on MySQL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List Outlaw objects.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw">Outlaw</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -458,17 +480,17 @@ thesheriff.infrastructure module.</p>
 </dl>
 <dl class="method">
 <dt id="thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_raid: thesheriff.domain.raid.raid.Raid</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.add" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method add persists a new Outlaw to MySQL.</p>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_raid: thesheriff.domain.raid.raid.Raid</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method add persists a new Raid to MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>new_outlaw</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a>) – Object with the Outlaw information.</p>
+<dd class="field-odd"><p><strong>new_raid</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.raid.raid.Raid" title="thesheriff.domain.raid.raid.Raid"><em>Raid</em></a>) – Object with the Raid information.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>No returned value.</p>
+<dd class="field-even"><p>The inserted Raid with informed id attribute.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>NoReturn</p>
+<dd class="field-odd"><p><a class="reference internal" href="domain.html#thesheriff.domain.raid.raid.Raid" title="thesheriff.domain.raid.raid.Raid">Raid</a></p>
 </dd>
 </dl>
 </dd></dl>

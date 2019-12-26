@@ -69,7 +69,7 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid) -> Blueprint:
     blueprint_raid = Blueprint('raid', __name__)
 
     @blueprint_raid.route("/raid", methods=['POST'])
-    def create_raid() -> Response:
+    def create_raid_endpoint() -> Response:
         #     """create_raid registers a Raid
         #     :return: Response.
         #     """
@@ -84,26 +84,25 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid) -> Blueprint:
 
         raid = create_raid.execute(raid_request)
 
-        result = dict({'id': raid.id, 'name': raid.name, 'date': raid.date,
-                       'location': raid.location, 'gang_id': raid.gang.id,
-                       'sheriff_id': raid.sheriff.id, 'outlaws': raid.outlaws})
-
-        message = {'status': 201, 'gang created': result}
-
+        message = {
+            'message': 'Raid created successfully',
+            'raid': {'id': raid.id, 'name': raid.name}
+        }
         return jsonify(message)
 
-    @blueprint_raid.route("/outlaw/<int:outlaw_id>/raid/<int:raid_id>/",
+    @blueprint_raid.route("/raid/<int:raid_id>/rate",
                           methods=['PUT'])
-    def rate_raid(outlaw_id: int, raid_id: int) -> Response:
-        """rate_raid recives rates for a Raid an executes
+    def rate_raid_endpoint(raid_id: int) -> Response:
+        """rate_raid_endpoint recives rates for a Raid an executes
            the Rate Raid use case.
+
         :param raid_id: Id of the Raid to be rated
-        :type raid_id: Integer.
-        :param outlaw_id: Id of the Outlaw performing the rata
-        :type outlaw_id: Integer.
-        :returns: Response -- Flask Response.
+        :type raid_id: Integer
+        :return: Flask Response.
+        :rtype: Response
         """
         data = request.json
+        outlaw_id = data.get('outlaw_id')
         rate = data.get('rate')
         score = Score(**rate)
         rate_raid.execute(outlaw_id, raid_id, score)

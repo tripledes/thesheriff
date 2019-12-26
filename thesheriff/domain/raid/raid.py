@@ -12,29 +12,29 @@ class Raid:
 
     :param name: The Raid given name.
     :type name: String
-    :param outlaws: List of Outlaws invited to the Raid.
-    :type outlaws: List[Outlaw]
-    :param location: Restaurant location.
-    :type location: String
+    :param members: List of Outlaws invited to the Raid.
+    :type members: List[Outlaw]
     :param sheriff: The Raid organizer.
     :type sheriff: Sheriff
     :param gang: Gang where the raid is organized.
     :type gang: Gang
+    :param location: Restaurant location.
+    :type location: String
     :param date: Date and time when the raid happens.
     :type date: datetime.datetime
-    :param raid_id: Optional, Raid Id.
-    :type raid_id: Integer
+    :param id: Optional, Raid Id.
+    :type id: Integer
     """
 
     def __init__(
             self,
             name: str,
-            location: str,
+            members: List[Outlaw],
             sheriff: Sheriff,
             gang: Gang,
+            location: str,
             date: datetime,
-            raid_id: Optional[int] = None,
-            outlaws: Optional[Outlaw] = []
+            id: Optional[int] = None
     ):
         self.name = name
         self.location = location
@@ -42,8 +42,8 @@ class Raid:
         self.gang = gang
         self.date = date
         self.rates = []
-        self.id = raid_id
-        self.outlaws = outlaws
+        self.id = id
+        self.members = members
 
     def add_rate(self, rate: float) -> NoReturn:
         """Method add_rate, adds a new rate for the Raid.
@@ -61,7 +61,7 @@ class Raid:
         :return: If each member has rated the Raid.
         :rtype: Bool
         """
-        return len(self.rates) == len(self.outlaws)
+        return len(self.rates) == len(self.members)
 
     def join(self, outlaw: Outlaw) -> NoReturn:
         """Method join, joins an Outlaw into a Gang.
@@ -71,4 +71,5 @@ class Raid:
         :return: No value returned.
         :rtype: NoReturn
         """
-        self.outlaws.append(outlaw)
+        # TODO(all): consider if this method is needed
+        self.members.append(outlaw)

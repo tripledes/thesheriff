@@ -1,6 +1,7 @@
 from tests.mocks.mock_outlaw_repository import MockOutlawRepository
 from thesheriff.application.outlaw.create_outlaw import CreateOutlaw
-from thesheriff.application.outlaw.request.create_outlaw_request import CreateOutlawRequest
+from thesheriff.application.outlaw.request.create_outlaw_request import \
+    CreateOutlawRequest
 
 
 def test_create_outlaw():

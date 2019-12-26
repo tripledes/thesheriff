@@ -1,5 +1,6 @@
 from tests.mocks.mock_gang_repository import MockGangRepository
-from thesheriff.application.gang.request.create_gang_request import CreateGangRequest
+from thesheriff.application.gang.request.create_gang_request import \
+    CreateGangRequest
 from thesheriff.application.outlaw.create_gang import CreateGang
 
 

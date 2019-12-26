@@ -9,7 +9,7 @@ class OutlawFactory(Outlaw):
     """
 
     @staticmethod
-    def create(name: str, email: str) -> Outlaw:
+    def create(name: str, email: str, id: Optional[int] = None) -> Outlaw:
         """Method create, produces a Outlaw instance.
 
         :param name: Outlaw's given name.
@@ -19,4 +19,4 @@ class OutlawFactory(Outlaw):
         :return: The produced Outlaw.
         :rtype: Outlaw
         """
-        return Outlaw(None, name, email)
+        return Outlaw(name, email, id)

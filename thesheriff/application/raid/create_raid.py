@@ -10,6 +10,7 @@ from thesheriff.domain.outlaw.repository.outlaw_repository \
 from thesheriff.domain.outlaw.sheriff import Sheriff
 from thesheriff.domain.raid.raid import Raid, DEFAULT_DATETIME_FORMAT
 from thesheriff.domain.raid.repository.raid_repository import RaidRepository
+from typing import List
 
 
 class CreateRaid:
@@ -45,44 +46,44 @@ class CreateRaid:
         sheriff = self.__get_sheriff_or_fail(request)
         gang = self.__get_gang_or_fail(request)
         outlaws = self.__get_outlaws_or_fail(request)
-
         date = datetime.strptime(request.date, DEFAULT_DATETIME_FORMAT)
-        raid_id = 0
 
         raid = Raid(
             request.name,
-            request.location,
+            outlaws,
             sheriff,
             gang,
-            date,
-            raid_id,
-            outlaws
+            request.location,
+            date
         )
 
-        self.__raid_repository.add(raid)
-
-        return raid
+        gang.created_raids += 1
+        print("Raid:", raid.__dict__)
+        return self.__raid_repository.add(raid)
 
     def __get_sheriff_or_fail(self, request: CreateRaidRequest) -> Sheriff:
-        sheriff = self.__outlaw_repository.of_id(request.sheriff_id)
-        if sheriff is None:
+        outlaw = self.__outlaw_repository.of_id(request.sheriff_id)
+        if not outlaw:
             raise Exception('Sheriff with id: {0} does not exist.'
                             .format(request.sheriff_id))
-        sheriff = Sheriff(sheriff)
+        sheriff = Sheriff(outlaw.name, outlaw.email, outlaw.id)
         return sheriff
 
     def __get_gang_or_fail(self, request: CreateRaidRequest) -> Gang:
         gang = self.__gang_repository.of_id(request.gang_id)
-        if gang is None:
+        if not gang:
             raise Exception('Gang with id: {0} does not exist.'
                             .format(request.gang_id))
         return gang
 
-    def __get_outlaws_or_fail(self, request: CreateRaidRequest) -> [Outlaw]:
-        outlaws = []
+    def __get_outlaws_or_fail(
+        self, request: CreateRaidRequest
+    ) -> List[Outlaw]:
+
+        outlaws = list()
         all_outlaws = self.__outlaw_repository.all()
-        if outlaws is None or len(all_outlaws) < 1:
-            raise Exception('Outlaws does not exist')
+        if len(all_outlaws) == 0:
+            raise Exception('No Outlaws found')
 
         for outlaw in all_outlaws:
             if outlaw.id in request.outlaw_ids:
