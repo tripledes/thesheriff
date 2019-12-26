@@ -1,4 +1,4 @@
-from tests.mock_outlaw_repository import MockOutlawRepository
+from tests.mocks.mock_outlaw_repository import MockOutlawRepository
 from thesheriff.application.outlaw.list_friends import ListFriends
 
 

@@ -13,7 +13,7 @@ class OutlawRepository(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def add(self, new_outlaw: Outlaw) -> NoReturn:
+    def add(self, new_outlaw: Outlaw) -> int:
         pass
 
     @abc.abstractmethod

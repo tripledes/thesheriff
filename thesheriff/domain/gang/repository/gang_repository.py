@@ -13,7 +13,7 @@ class GangRepository(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def add(self, new_gang: Gang) -> NoReturn:
+    def add(self, new_gang: Gang) -> int:
         pass
 
     @abc.abstractmethod

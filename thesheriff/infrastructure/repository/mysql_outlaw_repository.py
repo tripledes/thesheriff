@@ -36,7 +36,7 @@ class MySQLOutlawRepository(OutlawRepository):
             self.__outlaw_table.c.id == outlaw_id)
         return self.__connection.execute(query)
 
-    def add(self, new_outlaw: Outlaw) -> NoReturn:
+    def add(self, new_outlaw: Outlaw) -> int:
         """Method add persists a new Outlaw to MySQL.
 
         :param new_outlaw: Object with the new Outlaw details
@@ -46,7 +46,10 @@ class MySQLOutlawRepository(OutlawRepository):
         """
         query = self.__outlaw_table.insert().values(
             name=new_outlaw.name, email=new_outlaw.email)
-        self.__connection.execute(query)
+        result = self.__connection.execute(query)
+        id = result.lastrowid
+        new_outlaw.id = id
+        return id
 
     def update(self, mod_outlaw: Outlaw) -> NoReturn:
         """Method update modifies existing Outlaw.

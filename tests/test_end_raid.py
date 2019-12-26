@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from tests.mock_raid_repository import MockRaidRepository
+from tests.mocks.mock_raid_repository import MockRaidRepository
 from thesheriff.application.raid.end_raid import EndRaid
 from thesheriff.domain.gang.gang import Gang
 from thesheriff.domain.outlaw.outlaw import Outlaw

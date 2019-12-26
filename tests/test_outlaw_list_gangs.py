@@ -1,4 +1,4 @@
-from tests.mock_gang_repository import MockGangRepository
+from tests.mocks.mock_gang_repository import MockGangRepository
 from thesheriff.application.outlaw.list_gangs import ListGangs
 
 

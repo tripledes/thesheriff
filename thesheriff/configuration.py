@@ -6,6 +6,7 @@ from sqlalchemy import (
     Column, DateTime, Float, ForeignKey, Integer,  MetaData, Table, Text
 )
 from thesheriff.domain.gang.repository.gang_repository import GangRepository
+from thesheriff.domain.mail.notifier.mail_notifier import MailNotifier
 from thesheriff.domain.outlaw.repository.outlaw_repository import \
     OutlawRepository
 from thesheriff.domain.raid.repository.raid_repository import RaidRepository
@@ -15,6 +16,7 @@ from thesheriff.infrastructure.repository.mysql_outlaw_repository import \
     MySQLOutlawRepository
 from thesheriff.infrastructure.repository.mysql_raid_repository import \
     MySQLRaidRepository
+from thesheriff.infrastructure.mail.smtp_mail_notifier import SMTPMailNotifier
 
 METADATA = MetaData()
 
@@ -76,5 +78,6 @@ def configure_inject(application: Flask) -> None:
             application.config['DATABASE_URI'],
             application.config['METADATA'],
             application.config['OUTLAW_TABLE']))
+        binder.bind(MailNotifier, SMTPMailNotifier)
 
     inject.configure(config)

@@ -1,10 +1,10 @@
 import smtplib
 import ssl
-from thesheriff.domain.mail.repository.mail_notification \
-    import MailNotification
+
+from thesheriff.domain.mail.notifier.mail_notifier import MailNotifier
 
 
-class SMTPMailRepository:
+class SMTPMailNotifier(MailNotifier):
     global port  # For SSL
     global context
     global password
@@ -14,9 +14,6 @@ class SMTPMailRepository:
     context = ssl.create_default_context()
     # TODO(all): read the password from an environment variable
     password = "thesheriff123"
-
-    def __init__(self, mail_repository: MailNotification):
-        self.mail_repository = mail_repository
 
     def send(self, mail):
         with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) \

@@ -64,7 +64,10 @@ class MySQLGangRepository(GangRepository):
         """
         query = self.__gang_table.insert()\
             .values(owner_id=new_gang.owner_id, name=new_gang.name)
-        self.__connection.execute(query)
+        result = self.__connection.execute(query)
+        id = result.lastrowid
+        new_gang.id = id
+        return id
 
     def update(self, mod_gang: Gang) -> NoReturn:
         """Method update modifies existing Gang.

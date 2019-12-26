@@ -1,7 +1,7 @@
 import json
 
 import inject
-from flask import Blueprint, jsonify, Response, request, make_response
+from flask import Blueprint, jsonify, Response, request
 
 from thesheriff.application.gang.list_gangs import ListGangs
 from thesheriff.application.gang.request.create_gang_request import \
@@ -117,8 +117,11 @@ def gang_controller(
                                          new_gang.get('name'))
         gang = create_gang.execute(gang_request)
 
-        gang_json = json.dumps(gang.__dict__)
-        resp = make_response(gang_json, 201)
-        return resp
+        result = dict({'id': gang.id, 'name': gang.name,
+                       'owner_id': gang.owner_id})
+
+        message = {'status': 201, 'gang created': result}
+
+        return jsonify(message)
 
     return blueprint_gang

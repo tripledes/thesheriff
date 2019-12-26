@@ -143,10 +143,13 @@ def outlaw_controller(
         # TODO(all): if outlaw is None we should return an HTTP error
         new_outlaw = data.get('outlaw')
 
-        create_outlaw.execute(CreateOutlawRequest(
+        outlaw = create_outlaw.execute(CreateOutlawRequest(
             new_outlaw.get('name'), new_outlaw.get('email')))
 
-        message = {'status': 201, 'message': 'Outlaw added successfully'}
+        result = dict({'id': outlaw.id, 'name': outlaw.name,
+                       'email': outlaw.email})
+
+        message = {'status': 201, 'outlaw created': result}
 
         return jsonify(message)
 

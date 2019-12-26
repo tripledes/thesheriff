@@ -12,7 +12,7 @@ class MockGangRepository(GangRepository):
     def of_id(self, gang_id: int) -> Gang:
         return self.gang
 
-    def add(self, new_gang: Gang) -> NoReturn:
+    def add(self, new_gang: Gang) -> int:
         pass
 
     def update(self, mod_gang: Gang) -> NoReturn:

@@ -4,10 +4,9 @@ thesheriff.infrastructure.controllers.raid_controller
 
 This module implements the RESTful part of the Raid use cases.
 """
-import json
 
 import inject
-from flask import Blueprint, Response, request, make_response
+from flask import Blueprint, Response, request, jsonify
 
 from thesheriff.application.outlaw.rate_raid import RateRaid
 from thesheriff.application.raid.create_raid import CreateRaid
@@ -85,9 +84,13 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid) -> Blueprint:
 
         raid = create_raid.execute(raid_request)
 
-        raid_json = json.dumps(raid.__dict__)
-        resp = make_response(raid_json, 201)
-        return resp
+        result = dict({'id': raid.id, 'name': raid.name, 'date': raid.date,
+                       'location': raid.location, 'gang_id': raid.gang.id,
+                       'sheriff_id': raid.sheriff.id, 'outlaws': raid.outlaws})
+
+        message = {'status': 201, 'gang created': result}
+
+        return jsonify(message)
 
     @blueprint_raid.route("/outlaw/<int:outlaw_id>/raid/<int:raid_id>/",
                           methods=['PUT'])
@@ -104,7 +107,9 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid) -> Blueprint:
         rate = data.get('rate')
         score = Score(**rate)
         rate_raid.execute(outlaw_id, raid_id, score)
-        message = {'message': 'rated successfully'}
-        return make_response(message, 204)
+
+        message = {'status': 204, 'message': 'rated successfully'}
+
+        return jsonify(message)
 
     return blueprint_raid

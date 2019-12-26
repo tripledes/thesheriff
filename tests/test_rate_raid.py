@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from tests.mock_raid_repository import MockRaidRepository
-from tests.mock_outlaw_repository import MockOutlawRepository
+from tests.mocks.mock_raid_repository import MockRaidRepository
+from tests.mocks.mock_outlaw_repository import MockOutlawRepository
 from thesheriff.application.outlaw.rate_raid import RateRaid
 from thesheriff.domain.gang.gang import Gang
 from thesheriff.domain.outlaw.sheriff import Sheriff

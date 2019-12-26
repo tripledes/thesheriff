@@ -12,8 +12,9 @@ class MockOutlawRepository(OutlawRepository):
     def of_id(self, outlaw_id) -> Outlaw:
         return self.outlaw
 
-    def add(self, new_outlaw: Outlaw) -> NoReturn:
+    def add(self, new_outlaw: Outlaw) -> int:
         self.outlaw = new_outlaw
+        return 1
 
     def update(self, mod_outlaw: Outlaw) -> NoReturn:
         self.outlaw = mod_outlaw
