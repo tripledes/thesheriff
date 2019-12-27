@@ -116,6 +116,31 @@ thesheriff.domain module.</p>
 <em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.gang.repository.gang_repository.</code><code class="sig-name descname">GangRepository</code><a class="headerlink" href="#thesheriff.domain.gang.repository.gang_repository.GangRepository" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface GangRepository, defines how all gang repository
 implementations will behave.</p>
+<dl class="method">
+<dt id="thesheriff.domain.gang.repository.gang_repository.GangRepository.add">
+<em class="property">abstract </em><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_gang: thesheriff.domain.gang.gang.Gang</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.gang.gang.Gang<a class="headerlink" href="#thesheriff.domain.gang.repository.gang_repository.GangRepository.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.gang.repository.gang_repository.GangRepository.all">
+<em class="property">abstract </em><code class="sig-name descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List[thesheriff.domain.gang.gang.Gang]<a class="headerlink" href="#thesheriff.domain.gang.repository.gang_repository.GangRepository.all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.gang.repository.gang_repository.GangRepository.of_id">
+<em class="property">abstract </em><code class="sig-name descname">of_id</code><span class="sig-paren">(</span><em class="sig-param">gang_id: int</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.gang.gang.Gang<a class="headerlink" href="#thesheriff.domain.gang.repository.gang_repository.GangRepository.of_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.gang.repository.gang_repository.GangRepository.remove">
+<em class="property">abstract </em><code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">gang_id: int</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.gang.repository.gang_repository.GangRepository.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.gang.repository.gang_repository.GangRepository.update">
+<em class="property">abstract </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_gang: thesheriff.domain.gang.gang.Gang</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.gang.repository.gang_repository.GangRepository.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -128,12 +153,26 @@ implementations will behave.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Integer</em>) – Optional, Outlaw Id.</p></li>
 <li><p><strong>name</strong> (<em>String</em>) – Outlaw’s given name.</p></li>
 <li><p><strong>email</strong> (<em>String</em>) – Outlaw’s email address.</p></li>
+<li><p><strong>id</strong> (<em>Integer</em>) – Optional, Outlaw Id.</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.outlaw.Outlaw.get_email">
+<code class="sig-name descname">get_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#thesheriff.domain.outlaw.outlaw.Outlaw.get_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method get_email, returns Outlaw’s email address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The email address.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>String</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="method">
 <dt id="thesheriff.domain.outlaw.outlaw.Outlaw.join_gang">
 <code class="sig-name descname">join_gang</code><span class="sig-paren">(</span><em class="sig-param">gang: thesheriff.domain.gang.gang.Gang</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.outlaw.outlaw.Outlaw.join_gang" title="Permalink to this definition">¶</a></dt>
@@ -153,6 +192,72 @@ implementations will behave.</p>
 
 </dd></dl>
 
+<span class="target" id="module-thesheriff.domain.outlaw.sheriff"><span id="sheriff"></span></span><dl class="class">
+<dt id="thesheriff.domain.outlaw.sheriff.Sheriff">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.outlaw.sheriff.</code><code class="sig-name descname">Sheriff</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">email: str</em>, <em class="sig-param">id: Optional[int] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.outlaw.sheriff.Sheriff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="thesheriff.domain.outlaw.sheriff.Sheriff.get_score">
+<code class="sig-name descname">get_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#thesheriff.domain.outlaw.sheriff.Sheriff.get_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method get_score access to the current Sheriff’s score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current score.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.sheriff.Sheriff.update_score">
+<code class="sig-name descname">update_score</code><span class="sig-paren">(</span><em class="sig-param">score: float</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.outlaw.sheriff.Sheriff.update_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method update_score updates the Sheriff’s score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>score</strong> (<em>Float</em>) – New score to be added up.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No returned value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>NoReturn.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.domain.outlaw.score"><span id="score"></span></span><dl class="class">
+<dt id="thesheriff.domain.outlaw.score.Score">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.outlaw.score.</code><code class="sig-name descname">Score</code><span class="sig-paren">(</span><em class="sig-param">food_quantity: float</em>, <em class="sig-param">food_quality: float</em>, <em class="sig-param">service_quality: float</em>, <em class="sig-param">price: float</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.outlaw.score.Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Score implements the score type for Raids.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>food_quantity</strong> (<em>float.</em>) – score for the amount of food</p></li>
+<li><p><strong>food_quality</strong> (<em>float.</em>) – score for the quality of food</p></li>
+<li><p><strong>service_quality</strong> (<em>float.</em>) – score for the service</p></li>
+<li><p><strong>price</strong> (<em>float.</em>) – score for the price</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.score.Score.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#thesheriff.domain.outlaw.score.Score.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>value calculates the average score for a Raid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The actual score.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <span class="target" id="module-thesheriff.domain.outlaw.outlaw_factory"><span id="outlaw-factory"></span></span><dl class="class">
 <dt id="thesheriff.domain.outlaw.outlaw_factory.OutlawFactory">
 <em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.outlaw.outlaw_factory.</code><code class="sig-name descname">OutlawFactory</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">email: str</em>, <em class="sig-param">id: Optional[int] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.outlaw.outlaw_factory.OutlawFactory" title="Permalink to this definition">¶</a></dt>
@@ -160,7 +265,7 @@ implementations will behave.</p>
 <dl class="method">
 <dt id="thesheriff.domain.outlaw.outlaw_factory.OutlawFactory.create">
 <em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">email: str</em>, <em class="sig-param">id: Optional[int] = None</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.outlaw.outlaw.Outlaw<a class="headerlink" href="#thesheriff.domain.outlaw.outlaw_factory.OutlawFactory.create" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method create, produces a Outlaw instance.</p>
+<dd><p>Method create, produces an Outlaw instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -184,6 +289,36 @@ implementations will behave.</p>
 <em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.outlaw.repository.outlaw_repository.</code><code class="sig-name descname">OutlawRepository</code><a class="headerlink" href="#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface OutlawRepository, defines how all outlaw repository
 implementations will behave.</p>
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.add">
+<em class="property">abstract </em><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_outlaw: thesheriff.domain.outlaw.outlaw.Outlaw</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.outlaw.outlaw.Outlaw<a class="headerlink" href="#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.all">
+<em class="property">abstract </em><code class="sig-name descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List[thesheriff.domain.outlaw.outlaw.Outlaw]<a class="headerlink" href="#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.get_friends">
+<em class="property">abstract </em><code class="sig-name descname">get_friends</code><span class="sig-paren">(</span><em class="sig-param">outlaw_id: int</em><span class="sig-paren">)</span> &#x2192; List[thesheriff.domain.outlaw.outlaw.Outlaw]<a class="headerlink" href="#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.get_friends" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.of_id">
+<em class="property">abstract </em><code class="sig-name descname">of_id</code><span class="sig-paren">(</span><em class="sig-param">outlaw_id: int</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.outlaw.outlaw.Outlaw<a class="headerlink" href="#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.of_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.remove">
+<em class="property">abstract </em><code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">outlaw_id: int</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.update">
+<em class="property">abstract </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_outlaw: thesheriff.domain.outlaw.outlaw.Outlaw</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -198,7 +333,7 @@ implementations will behave.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>String</em>) – The Raid given name.</p></li>
 <li><p><strong>members</strong> (<em>List</em><em>[</em><a class="reference internal" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a><em>]</em>) – List of Outlaws invited to the Raid.</p></li>
-<li><p><strong>sheriff</strong> (<em>Sheriff</em>) – The Raid organizer.</p></li>
+<li><p><strong>sheriff</strong> (<a class="reference internal" href="#thesheriff.domain.outlaw.sheriff.Sheriff" title="thesheriff.domain.outlaw.sheriff.Sheriff"><em>Sheriff</em></a>) – The Raid organizer.</p></li>
 <li><p><strong>gang</strong> (<a class="reference internal" href="#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang"><em>Gang</em></a>) – Gang where the raid is organized.</p></li>
 <li><p><strong>location</strong> (<em>String</em>) – Restaurant location.</p></li>
 <li><p><strong>date</strong> (<em>datetime.datetime</em>) – Date and time when the raid happens.</p></li>
@@ -229,7 +364,7 @@ implementations will behave.</p>
 <dd><p>Method could_finish.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>If each member has rated the Raid.</p>
+<dd class="field-odd"><p>Whether each member has rated the Raid.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>Bool</p>
@@ -240,10 +375,10 @@ implementations will behave.</p>
 <dl class="method">
 <dt id="thesheriff.domain.raid.raid.Raid.join">
 <code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param">outlaw: thesheriff.domain.outlaw.outlaw.Outlaw</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.raid.raid.Raid.join" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method join, joins an Outlaw into a Gang.</p>
+<dd><p>Method join, joins an Outlaw into a Raid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>outlaw</strong> (<a class="reference internal" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a>) – The Outlaw joining this Gang.</p>
+<dd class="field-odd"><p><strong>outlaw</strong> (<a class="reference internal" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a>) – The Outlaw joining this Raid.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>No value returned.</p>
@@ -269,7 +404,7 @@ implementations will behave.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>String</em>) – Outlaw’s given name.</p></li>
 <li><p><strong>members</strong> (<em>List</em><em>[</em><a class="reference internal" href="#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a><em>]</em>) – Outlaws invited to raid.</p></li>
-<li><p><strong>sheriff</strong> (<em>Sheriff</em>) – The Outlaw organizing the Raid.</p></li>
+<li><p><strong>sheriff</strong> (<a class="reference internal" href="#thesheriff.domain.outlaw.sheriff.Sheriff" title="thesheriff.domain.outlaw.sheriff.Sheriff"><em>Sheriff</em></a>) – The Outlaw organizing the Raid.</p></li>
 <li><p><strong>gang</strong> (<a class="reference internal" href="#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang"><em>Gang</em></a>) – Gang this Raid is organized for.</p></li>
 <li><p><strong>location</strong> (<em>String</em>) – Location of the raid.</p></li>
 <li><p><strong>date</strong> (<em>datetime.datetime</em>) – Raid’s date and time.</p></li>
@@ -292,6 +427,57 @@ implementations will behave.</p>
 <em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.raid.repository.raid_repository.</code><code class="sig-name descname">RaidRepository</code><a class="headerlink" href="#thesheriff.domain.raid.repository.raid_repository.RaidRepository" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface RaidRepository, defines how all raid repository
 implementations will behave.</p>
+<dl class="method">
+<dt id="thesheriff.domain.raid.repository.raid_repository.RaidRepository.add">
+<em class="property">abstract </em><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_raid: thesheriff.domain.raid.raid.Raid</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.domain.raid.repository.raid_repository.RaidRepository.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.raid.repository.raid_repository.RaidRepository.of_id">
+<em class="property">abstract </em><code class="sig-name descname">of_id</code><span class="sig-paren">(</span><em class="sig-param">raid_id: int</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.domain.raid.repository.raid_repository.RaidRepository.of_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="thesheriff.domain.raid.repository.raid_repository.RaidRepository.update">
+<em class="property">abstract </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_raid: thesheriff.domain.raid.raid.Raid</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.raid.repository.raid_repository.RaidRepository.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="mail">
+<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-thesheriff.domain.mail.mail"><span id="id4"></span></span><dl class="class">
+<dt id="thesheriff.domain.mail.mail.Mail">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.mail.mail.</code><code class="sig-name descname">Mail</code><a class="headerlink" href="#thesheriff.domain.mail.mail.Mail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class Mail implements all contents for email notifications.</p>
+<dl class="method">
+<dt id="thesheriff.domain.mail.mail.Mail.mail_invite_friend">
+<code class="sig-name descname">mail_invite_friend</code><span class="sig-paren">(</span><em class="sig-param">sender: str</em>, <em class="sig-param">receiver: str</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.domain.mail.mail.Mail.mail_invite_friend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method mail_invite_friend builds the email body for sending
+invitations to join The Sheriff.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sender</strong> (<em>String</em>) – FROM address on the email.</p></li>
+<li><p><strong>receiver</strong> (<em>String</em>) – TO address on the email.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.domain.mail.notifier.mail_notifier"></span><dl class="class">
+<dt id="thesheriff.domain.mail.notifier.mail_notifier.MailNotifier">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.domain.mail.notifier.mail_notifier.</code><code class="sig-name descname">MailNotifier</code><a class="headerlink" href="#thesheriff.domain.mail.notifier.mail_notifier.MailNotifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface MailNotifier, defines how all mail notifier
+implementations will behave.</p>
+<dl class="method">
+<dt id="thesheriff.domain.mail.notifier.mail_notifier.MailNotifier.send">
+<em class="property">abstract </em><code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">mail: thesheriff.domain.mail.mail.Mail</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.domain.mail.notifier.mail_notifier.MailNotifier.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -326,6 +512,7 @@ implementations will behave.</p>
 <li class="toctree-l2"><a class="reference internal" href="#gang">Gang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#outlaw">Outlaw</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#raid">Raid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mail">Mail</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>

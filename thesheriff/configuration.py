@@ -16,7 +16,8 @@ from thesheriff.infrastructure.repository.mysql_outlaw_repository import \
     MySQLOutlawRepository
 from thesheriff.infrastructure.repository.mysql_raid_repository import \
     MySQLRaidRepository
-from thesheriff.infrastructure.mail.smtp_mail_notifier import SMTPMailNotifier
+from thesheriff.infrastructure.notifier.smtp_mail_notifier import \
+    SMTPMailNotifier
 
 METADATA = MetaData()
 

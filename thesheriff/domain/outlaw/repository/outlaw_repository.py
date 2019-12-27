@@ -13,7 +13,7 @@ class OutlawRepository(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def add(self, new_outlaw: Outlaw) -> int:
+    def add(self, new_outlaw: Outlaw) -> Outlaw:
         pass
 
     @abc.abstractmethod
@@ -25,5 +25,9 @@ class OutlawRepository(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def all(self) -> [Outlaw]:
+    def get_friends(self, outlaw_id: int) -> List[Outlaw]:
+        pass
+
+    @abc.abstractmethod
+    def all(self) -> List[Outlaw]:
         pass

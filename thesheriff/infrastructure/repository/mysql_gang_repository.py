@@ -64,13 +64,13 @@ class MySQLGangRepository(GangRepository):
             gangs.append(gang)
         return gangs
 
-    def add(self, new_gang: Gang) -> NoReturn:
+    def add(self, new_gang: Gang) -> Gang:
         """Method add persists a new Gang to MySQL.
 
         :param new_gang: Object with the new Gang details.
         :type new_gang: Gang
-        :return: No returned value.
-        :rtype: NoReturn
+        :return: The persisted Gang.
+        :rtype: Gang
         """
         # FIXME(all): Use GangFactory to return the new Gang
         query = self.__gang_table.insert()\
@@ -78,7 +78,7 @@ class MySQLGangRepository(GangRepository):
         result = self.__connection.execute(query)
         id = result.lastrowid
         new_gang.id = id
-        return id
+        return new_gang
 
     def update(self, mod_gang: Gang) -> NoReturn:
         """Method update modifies existing Gang.

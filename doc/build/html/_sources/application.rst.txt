@@ -64,6 +64,10 @@ Outlaw
 Raid
 ----
 
+.. _create_raid:
+.. module:: thesheriff.application.raid.create_raid
+.. autoclass:: CreateRaid
+   :members:
 .. _end_raid:
 .. module:: thesheriff.application.raid.end_raid
 .. autoclass:: EndRaid

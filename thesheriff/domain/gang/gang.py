@@ -21,10 +21,7 @@ class Gang:
         self.members = list()
         self.created_raids = 0
         self.owner_id = owner_id
-        if not id:
-            self.id = None
-        else:
-            self.id = id
+        self.id = id
 
         if self.name is None:
             raise Exception('Gang name required')

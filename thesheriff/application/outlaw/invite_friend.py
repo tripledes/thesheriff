@@ -8,7 +8,7 @@ from typing import NoReturn
 class InviteFriend:
     """Class InviteFriend implements the invite a friend use case.
 
-    :param mail_notifier: Repository managing the Gang domain entities.
+    :param mail_notifier: Notifier object to handle email notifications.
     :type mail_notifier: MailNotifier
     """
 

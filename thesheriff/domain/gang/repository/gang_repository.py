@@ -13,7 +13,11 @@ class GangRepository(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def add(self, new_gang: Gang) -> int:
+    def all(self) -> List[Gang]:
+        pass
+
+    @abc.abstractmethod
+    def add(self, new_gang: Gang) -> Gang:
         pass
 
     @abc.abstractmethod
@@ -22,8 +26,4 @@ class GangRepository(abc.ABC):
 
     @abc.abstractmethod
     def remove(self, gang_id: int) -> NoReturn:
-        pass
-
-    @abc.abstractmethod
-    def all(self) -> List[Gang]:
         pass

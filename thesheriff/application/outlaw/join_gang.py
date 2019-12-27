@@ -27,7 +27,7 @@ class JoinGang:
     def execute(self, request: JoinGangRequest) -> NoReturn:
         """execute is the actual action of the Join Gang use case.
 
-        :param request: Request holding for joining a Gang.
+        :param request: Request holding details for joining a Gang.
         :type request: JoinGangRequest
         :return: No value returned.
         :rtype: NoReturn

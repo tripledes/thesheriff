@@ -1,5 +1,10 @@
-import json
+"""
+thesheriff.infrastructure.controllers.gang_controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+This module implements the RESTful part of the Gang use cases.
+
+"""
 import inject
 from flask import Blueprint, jsonify, Response, request
 

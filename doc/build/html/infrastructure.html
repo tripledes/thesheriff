@@ -37,7 +37,10 @@
 thesheriff.infrastructure module.</p>
 <div class="section" id="controllers">
 <h2>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-thesheriff.infrastructure.controllers.gang_controller"><span id="gang-controller"></span></span><dl class="function">
+<span class="target" id="module-thesheriff.infrastructure.controllers.gang_controller"><span id="gang-controller"></span></span><div class="section" id="thesheriff-infrastructure-controllers-gang-controller">
+<h3>thesheriff.infrastructure.controllers.gang_controller<a class="headerlink" href="#thesheriff-infrastructure-controllers-gang-controller" title="Permalink to this headline">¶</a></h3>
+<p>This module implements the RESTful part of the Gang use cases.</p>
+<dl class="function">
 <dt id="thesheriff.infrastructure.controllers.gang_controller.gang_controller">
 <code class="sig-prename descclassname">thesheriff.infrastructure.controllers.gang_controller.</code><code class="sig-name descname">gang_controller</code><span class="sig-paren">(</span><em class="sig-param">join_gang: thesheriff.application.outlaw.join_gang.JoinGang</em>, <em class="sig-param">create_gang: thesheriff.application.outlaw.create_gang.CreateGang</em>, <em class="sig-param">list_gangs: thesheriff.application.gang.list_gangs.ListGangs</em><span class="sig-paren">)</span> &#x2192; flask.blueprints.Blueprint<a class="headerlink" href="#thesheriff.infrastructure.controllers.gang_controller.gang_controller" title="Permalink to this definition">¶</a></dt>
 <dd><p>gang_controller holds the blueprint for all gang routes.</p>
@@ -107,6 +110,7 @@ thesheriff.infrastructure module.</p>
 </ul>
 </dd></dl>
 
+</div>
 <span class="target" id="module-thesheriff.infrastructure.controllers.outlaw_controller"><span id="outlaw-controller"></span></span><div class="section" id="thesheriff-infrastructure-controllers-outlaw-controller">
 <h3>thesheriff.infrastructure.controllers.outlaw_controller<a class="headerlink" href="#thesheriff-infrastructure-controllers-outlaw-controller" title="Permalink to this headline">¶</a></h3>
 <p>This module implements the RESTful part of the Outlaw use cases.</p>
@@ -208,7 +212,7 @@ thesheriff.infrastructure module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>create_raid</strong> (<em>CreateRaid</em>) – CreateRaid use case implementation.</p></li>
+<li><p><strong>create_raid</strong> (<a class="reference internal" href="application.html#thesheriff.application.raid.create_raid.CreateRaid" title="thesheriff.application.raid.create_raid.CreateRaid"><em>CreateRaid</em></a>) – CreateRaid use case implementation.</p></li>
 <li><p><strong>rate_raid</strong> (<a class="reference internal" href="application.html#thesheriff.application.outlaw.rate_raid.RateRaid" title="thesheriff.application.outlaw.rate_raid.RateRaid"><em>RateRaid</em></a>) – RateRaid use case implementation.</p></li>
 </ul>
 </dd>
@@ -273,17 +277,17 @@ thesheriff.infrastructure module.</p>
 </dl>
 <dl class="method">
 <dt id="thesheriff.infrastructure.repository.mysql_gang_repository.MySQLGangRepository.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_gang: thesheriff.domain.gang.gang.Gang</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_gang_repository.MySQLGangRepository.add" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_gang: thesheriff.domain.gang.gang.Gang</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.gang.gang.Gang<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_gang_repository.MySQLGangRepository.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method add persists a new Gang to MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>new_gang</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang"><em>Gang</em></a>) – Object with the new Gang details.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>No returned value.</p>
+<dd class="field-even"><p>The persisted Gang.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>NoReturn</p>
+<dd class="field-odd"><p><a class="reference internal" href="domain.html#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang">Gang</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -370,17 +374,17 @@ thesheriff.infrastructure module.</p>
 </dl>
 <dl class="method">
 <dt id="thesheriff.infrastructure.repository.mysql_outlaw_repository.MySQLOutlawRepository.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_outlaw: thesheriff.domain.outlaw.outlaw.Outlaw</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_outlaw_repository.MySQLOutlawRepository.add" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_outlaw: thesheriff.domain.outlaw.outlaw.Outlaw</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.outlaw.outlaw.Outlaw<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_outlaw_repository.MySQLOutlawRepository.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method add persists a new Outlaw to MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>new_outlaw</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw"><em>Outlaw</em></a>) – Object with the new Outlaw details</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>No returned value.</p>
+<dd class="field-even"><p>The persisted Outlaw.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>NoReturn</p>
+<dd class="field-odd"><p><a class="reference internal" href="domain.html#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw">Outlaw</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -497,7 +501,7 @@ thesheriff.infrastructure module.</p>
 
 <dl class="method">
 <dt id="thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.of_id">
-<code class="sig-name descname">of_id</code><span class="sig-paren">(</span><em class="sig-param">raid_id: int</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.outlaw.outlaw.Outlaw<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.of_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">of_id</code><span class="sig-paren">(</span><em class="sig-param">raid_id: int</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.of_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method of_id searches for an Raid matching raid_id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -515,11 +519,32 @@ thesheriff.infrastructure module.</p>
 <dl class="method">
 <dt id="thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">mod_raid: thesheriff.domain.raid.raid.Raid</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.infrastructure.repository.mysql_raid_repository.MySQLRaidRepository.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method update updates an existing Raid.
-:param mod_raid: Object with the Raid information
-:type mod_raid: Raid.
-:return: NoReturn.</p>
+<dd><p>Method update updates an existing Raid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mod_raid</strong> (<em>Raid.</em>) – Object with the Raid information</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No returned value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>NoReturn</p>
+</dd>
+</dl>
 </dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="notifiers">
+<h2>Notifiers<a class="headerlink" href="#notifiers" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-thesheriff.infrastructure.notifier.smtp_mail_notifier"><span id="smtp-mail-notifier"></span></span><dl class="class">
+<dt id="thesheriff.infrastructure.notifier.smtp_mail_notifier.SMTPMailNotifier">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.infrastructure.notifier.smtp_mail_notifier.</code><code class="sig-name descname">SMTPMailNotifier</code><a class="headerlink" href="#thesheriff.infrastructure.notifier.smtp_mail_notifier.SMTPMailNotifier" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="thesheriff.infrastructure.notifier.smtp_mail_notifier.SMTPMailNotifier.send">
+<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">mail</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.infrastructure.notifier.smtp_mail_notifier.SMTPMailNotifier.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -555,6 +580,7 @@ thesheriff.infrastructure module.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Sheriff Infrastructure</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#controllers">Controllers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#repositories">Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notifiers">Notifiers</a></li>
 </ul>
 </li>
 </ul>

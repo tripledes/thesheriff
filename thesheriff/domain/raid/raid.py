@@ -58,15 +58,15 @@ class Raid:
     def could_finish(self) -> bool:
         """Method could_finish.
 
-        :return: If each member has rated the Raid.
+        :return: Whether each member has rated the Raid.
         :rtype: Bool
         """
         return len(self.rates) == len(self.members)
 
     def join(self, outlaw: Outlaw) -> NoReturn:
-        """Method join, joins an Outlaw into a Gang.
+        """Method join, joins an Outlaw into a Raid.
 
-        :param outlaw: The Outlaw joining this Gang.
+        :param outlaw: The Outlaw joining this Raid.
         :type outlaw: Outlaw
         :return: No value returned.
         :rtype: NoReturn

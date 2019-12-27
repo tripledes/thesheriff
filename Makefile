@@ -17,5 +17,7 @@ tests:
 purge:
 	docker-compose rm -f || true
 	docker rmi thesheriff/thesheriff || true
+docs:
+	make -C doc clean html
 
 .PHONY: build clean lint purge run tests

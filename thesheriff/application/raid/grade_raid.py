@@ -14,7 +14,7 @@ class GradeRaid:
         self.__outlaw_repository = outlaw_repository
 
     def execute(self, raid: Raid) -> float:
-        """execute is the actual action of the Grade Raid use case.
+        """execute is the actual action of the Grade a Raid use case.
 
         :param raid: The Raid entity to be graded.
         :type raid: Raid

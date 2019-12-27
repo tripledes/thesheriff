@@ -1,8 +1,6 @@
-CRITERIAS = 4
-
-
 class Score:
     """Score implements the score type for Raids.
+
     :param food_quantity: score for the amount of food
     :type food_quantity: float.
     :param food_quality: score for the quality of food
@@ -21,12 +19,15 @@ class Score:
         self.__food_quality = food_quality
         self.__service_quality = service_quality
         self.__price = price
+        self.__criterias = 4
 
     def value(self) -> float:
-        """value calculates the average score for an Asalto.
-        :return: float.
+        """value calculates the average score for a Raid.
+
+        :return: The actual score.
+        :rtype: Float
         """
         return (
             self.__food_quantity + self.__food_quality +
             self.__service_quality + self.__price
-        ) / CRITERIAS
+        ) / self.__criterias

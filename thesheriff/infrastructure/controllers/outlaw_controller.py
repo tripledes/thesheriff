@@ -5,8 +5,6 @@ thesheriff.infrastructure.controllers.outlaw_controller
 This module implements the RESTful part of the Outlaw use cases.
 
 """
-import json
-
 import inject
 from flask import Blueprint, jsonify, Response, request
 

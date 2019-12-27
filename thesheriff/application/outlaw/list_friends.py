@@ -19,7 +19,7 @@ class ListFriends:
     def execute(self, outlaw_id) -> List[Outlaw]:
         """execute is the actual action of the List Outlaw's Friends use case.
 
-        :param outlaw_id: ID of the Outlaw performing the action.
+        :param outlaw_id: ID of the Outlaw for which to list friends.
         :type outlaw_id: Integer
         :return: The list of friends.
         :rtype: List[Outlaw]

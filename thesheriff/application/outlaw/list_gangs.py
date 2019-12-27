@@ -5,7 +5,7 @@ from typing import List
 
 
 class ListGangs:
-    """Class ListGangs implements the list gangs use case.
+    """Class ListGangs implements the List Outlaw's Gangs use case.
 
     :param gang_repository: Repository managing the Gang domain entities.
     :type gang_repository: GangRepository

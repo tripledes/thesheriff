@@ -36,7 +36,7 @@ class CreateRaid:
         self.__raid_repository = raid_repository
 
     def execute(self, request: CreateRaidRequest) -> Raid:
-        """execute is the actual action of listing all gangs use case.
+        """execute is the actual action of Create a Raid use case.
 
         :param request: Request object with details for creating a Raid.
         :type request: CreateRaidRequest
@@ -58,7 +58,7 @@ class CreateRaid:
         )
 
         gang.created_raids += 1
-        print("Raid:", raid.__dict__)
+
         return self.__raid_repository.add(raid)
 
     def __get_sheriff_or_fail(self, request: CreateRaidRequest) -> Sheriff:

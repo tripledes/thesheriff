@@ -35,3 +35,11 @@ Repositories
 .. module:: thesheriff.infrastructure.repository.mysql_raid_repository
 .. autoclass:: MySQLRaidRepository
    :members:
+
+Notifiers
+---------
+.. _smtp_mail_notifier:
+.. module:: thesheriff.infrastructure.notifier.smtp_mail_notifier
+.. autoclass:: SMTPMailNotifier
+   :members:
+   :undoc-members:

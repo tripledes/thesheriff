@@ -19,12 +19,10 @@ class CreateGang:
         self.__gang_repository = gang_repository
 
     def execute(self, request: CreateGangRequest) -> Gang:
-        """execute is the actual action of the Raid rating use case.
+        """execute is the actual action of the Create Gang use case.
 
-        :param owner_id: ID of the Outlaw creating the Gang.
-        :type owner_id: Integer.
-        :param name: Given name of the Gang.
-        :type name: String.
+        :param request: Request object holding the Gang details.
+        :type request: CreateGangRequest
         :return: The created Gang.
         :rtype: Gang
         """

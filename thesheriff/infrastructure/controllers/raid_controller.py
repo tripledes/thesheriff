@@ -4,7 +4,6 @@ thesheriff.infrastructure.controllers.raid_controller
 
 This module implements the RESTful part of the Raid use cases.
 """
-
 import inject
 from flask import Blueprint, Response, request, jsonify
 

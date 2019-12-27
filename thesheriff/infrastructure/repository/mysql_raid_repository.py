@@ -31,7 +31,7 @@ class MySQLRaidRepository(RaidRepository):
         self.__raid_table = raid_table
         meta.create_all(self.__connection)
 
-    def of_id(self, raid_id: int) -> Outlaw:
+    def of_id(self, raid_id: int) -> Raid:
         """Method of_id searches for an Raid matching raid_id.
 
         :param raid_id: Id of the Raid to be returned.
@@ -84,9 +84,11 @@ class MySQLRaidRepository(RaidRepository):
 
     def update(self, mod_raid: Raid) -> NoReturn:
         """Method update updates an existing Raid.
+
         :param mod_raid: Object with the Raid information
         :type mod_raid: Raid.
-        :return: NoReturn.
+        :return: No returned value.
+        :rtype: NoReturn
         """
         query = self.__raid_table.update().where(
             self.__raid_table.c.id == mod_raid.id).values(**mod_raid)

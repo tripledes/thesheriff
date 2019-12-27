@@ -13,7 +13,7 @@ class RaidRepository(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def add(self, new_raid: Raid) -> NoReturn:
+    def add(self, new_raid: Raid) -> Raid:
         pass
 
     @abc.abstractmethod

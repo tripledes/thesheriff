@@ -19,7 +19,7 @@ class CreateOutlaw:
         self.__outlaw_repository = outlaw_repository
 
     def execute(self, request: CreateOutlawRequest) -> Outlaw:
-        """execute is the actual action of the Raid rating use case.
+        """execute is the actual action of the Create Outlaw use case.
 
         :param request: Request holding the new Outlaw details.
         :type request: CreateOutlawRequest
