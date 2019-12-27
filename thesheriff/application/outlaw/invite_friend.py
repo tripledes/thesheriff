@@ -1,5 +1,5 @@
 import inject
-from thesheriff.domain.mail.mail import Mail
+from thesheriff.domain.mail.mail_factory import MailFactory
 from thesheriff.domain.mail.notifier.mail_notifier import MailNotifier
 from thesheriff.domain.outlaw.outlaw import Outlaw
 from typing import NoReturn
@@ -26,5 +26,5 @@ class InviteFriend:
         """
         sender = Outlaw.get_email()
         receiver = receiver_mail_address
-        mail = Mail.mail_invite_friend(sender, receiver)
-        self.__mail_notifier.send(mail)
+        mail = MailFactory.mail_invite_friend(sender, receiver)
+        self.__mail_notifier.send(mail=mail)

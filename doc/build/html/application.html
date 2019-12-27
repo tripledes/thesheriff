@@ -38,7 +38,32 @@
 thesheriff.application module.</p>
 <div class="section" id="gang">
 <h2>Gang<a class="headerlink" href="#gang" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-thesheriff.application.gang.list_gangs"><span id="gang-list-gangs"></span></span><span class="target" id="module-thesheriff.application.gang.request.create_gang_request"><span id="create-gang-request"></span></span><dl class="class">
+<span class="target" id="module-thesheriff.application.gang.list_gangs"><span id="gang-list-gangs"></span></span><dl class="class">
+<dt id="thesheriff.application.gang.list_gangs.ListGangs">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.gang.list_gangs.</code><code class="sig-name descname">ListGangs</code><span class="sig-paren">(</span><em class="sig-param">gang_repository: thesheriff.domain.gang.repository.gang_repository.GangRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.gang.list_gangs.ListGangs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class ListGangs implements the list all gangs use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gang_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.gang.repository.gang_repository.GangRepository" title="thesheriff.domain.gang.repository.gang_repository.GangRepository"><em>GangRepository</em></a>) – Repository managing Gang domain entities.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.gang.list_gangs.ListGangs.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List[thesheriff.domain.gang.gang.Gang]<a class="headerlink" href="#thesheriff.application.gang.list_gangs.ListGangs.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of listing all gangs use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>All the stored gangs.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="domain.html#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang">Gang</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.gang.request.create_gang_request"><span id="create-gang-request"></span></span><dl class="class">
 <dt id="thesheriff.application.gang.request.create_gang_request.CreateGangRequest">
 <em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.gang.request.create_gang_request.</code><code class="sig-name descname">CreateGangRequest</code><span class="sig-paren">(</span><em class="sig-param">owner_id: int</em>, <em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.gang.request.create_gang_request.CreateGangRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class JoinGangRequest holds data required to join a Gang.</p>
@@ -69,7 +94,213 @@ thesheriff.application module.</p>
 </div>
 <div class="section" id="outlaw">
 <h2>Outlaw<a class="headerlink" href="#outlaw" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-thesheriff.application.outlaw.create_gang"><span id="create-gang"></span></span><span class="target" id="module-thesheriff.application.outlaw.create_outlaw"><span id="create-outlaw"></span></span><span class="target" id="module-thesheriff.application.outlaw.invite_friend"><span id="invite-friend"></span></span><span class="target" id="module-thesheriff.application.outlaw.join_gang"><span id="join-gang"></span></span><span class="target" id="module-thesheriff.application.outlaw.list_friends"><span id="list-friends"></span></span><span class="target" id="module-thesheriff.application.outlaw.list_gangs"><span id="outlaw-list-gangs"></span></span><span class="target" id="module-thesheriff.application.outlaw.rate_raid"><span id="rate-raid"></span></span><span class="target" id="module-thesheriff.application.outlaw.request.create_outlaw_request"><span id="create-outlaw-request"></span></span><dl class="class">
+<span class="target" id="module-thesheriff.application.outlaw.create_gang"><span id="create-gang"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.create_gang.CreateGang">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.create_gang.</code><code class="sig-name descname">CreateGang</code><span class="sig-paren">(</span><em class="sig-param">gang_repository: thesheriff.domain.gang.repository.gang_repository.GangRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.create_gang.CreateGang" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class CreateGang implements the gang creation use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gang_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.gang.repository.gang_repository.GangRepository" title="thesheriff.domain.gang.repository.gang_repository.GangRepository"><em>GangRepository</em></a>) – Repository managing Gang domain entities.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.outlaw.create_gang.CreateGang.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">request: thesheriff.application.gang.request.create_gang_request.CreateGangRequest</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.gang.gang.Gang<a class="headerlink" href="#thesheriff.application.outlaw.create_gang.CreateGang.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of the Create Gang use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.gang.request.create_gang_request.CreateGangRequest" title="thesheriff.application.gang.request.create_gang_request.CreateGangRequest"><em>CreateGangRequest</em></a>) – Request object holding the Gang details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The created Gang.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="domain.html#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang">Gang</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.create_outlaw"><span id="create-outlaw"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.create_outlaw.CreateOutlaw">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.create_outlaw.</code><code class="sig-name descname">CreateOutlaw</code><span class="sig-paren">(</span><em class="sig-param">outlaw_repository: thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.create_outlaw.CreateOutlaw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class CreateOutlaw implements the Outlaw creation use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outlaw_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository" title="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository"><em>OutlawRepository</em></a>) – Repository managing Outlaw domain entities.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.outlaw.create_outlaw.CreateOutlaw.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">request: thesheriff.application.outlaw.request.create_outlaw_request.CreateOutlawRequest</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.outlaw.outlaw.Outlaw<a class="headerlink" href="#thesheriff.application.outlaw.create_outlaw.CreateOutlaw.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of the Create Outlaw use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.outlaw.request.create_outlaw_request.CreateOutlawRequest" title="thesheriff.application.outlaw.request.create_outlaw_request.CreateOutlawRequest"><em>CreateOutlawRequest</em></a>) – Request holding the new Outlaw details.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The newly created Outlaw.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="domain.html#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw">Outlaw</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.invite_friend"><span id="invite-friend"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.invite_friend.InviteFriend">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.invite_friend.</code><code class="sig-name descname">InviteFriend</code><span class="sig-paren">(</span><em class="sig-param">mail_notifier: thesheriff.domain.mail.notifier.mail_notifier.MailNotifier</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.invite_friend.InviteFriend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class InviteFriend implements the invite a friend use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mail_notifier</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.mail.notifier.mail_notifier.MailNotifier" title="thesheriff.domain.mail.notifier.mail_notifier.MailNotifier"><em>MailNotifier</em></a>) – Notifier object to handle email notifications.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.outlaw.invite_friend.InviteFriend.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">receiver_mail_address</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.invite_friend.InviteFriend.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of the Invite Friend use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>receiver_mail_address</strong> (<em>String</em>) – The address to write on the TO field.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No value returned.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>NoReturn</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.join_gang"><span id="join-gang"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.join_gang.JoinGang">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.join_gang.</code><code class="sig-name descname">JoinGang</code><span class="sig-paren">(</span><em class="sig-param">outlaw_repository: thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository</em>, <em class="sig-param">gang_repository: thesheriff.domain.gang.repository.gang_repository.GangRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.join_gang.JoinGang" title="Permalink to this definition">¶</a></dt>
+<dd><p>JoinGang class implements the Join Gang use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outlaw_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository" title="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository"><em>OutlawRepository</em></a>) – Repository for managing Outlaw entities.</p></li>
+<li><p><strong>gang_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.gang.repository.gang_repository.GangRepository" title="thesheriff.domain.gang.repository.gang_repository.GangRepository"><em>GangRepository</em></a>) – Repository for managing Gang entities.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.outlaw.join_gang.JoinGang.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">request: thesheriff.application.gang.request.join_gang_request.JoinGangRequest</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.application.outlaw.join_gang.JoinGang.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of the Join Gang use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.gang.request.join_gang_request.JoinGangRequest" title="thesheriff.application.gang.request.join_gang_request.JoinGangRequest"><em>JoinGangRequest</em></a>) – Request holding details for joining a Gang.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No value returned.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>NoReturn</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.list_friends"><span id="list-friends"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.list_friends.ListFriends">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.list_friends.</code><code class="sig-name descname">ListFriends</code><span class="sig-paren">(</span><em class="sig-param">outlaw_repository: thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.list_friends.ListFriends" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class ListFriends implements the List Outlaw’s Friends use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outlaw_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository" title="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository"><em>OutlawRepository</em></a>) – Repository managing Outlaw domain entities.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.outlaw.list_friends.ListFriends.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">outlaw_id: int</em><span class="sig-paren">)</span> &#x2192; List[thesheriff.domain.outlaw.outlaw.Outlaw]<a class="headerlink" href="#thesheriff.application.outlaw.list_friends.ListFriends.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of the List Outlaw’s Friends use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outlaw_id</strong> (<em>Integer</em>) – ID of the Outlaw for which to list friends.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list of friends.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.outlaw.Outlaw" title="thesheriff.domain.outlaw.outlaw.Outlaw">Outlaw</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.list_gangs"><span id="outlaw-list-gangs"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.list_gangs.ListGangs">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.list_gangs.</code><code class="sig-name descname">ListGangs</code><span class="sig-paren">(</span><em class="sig-param">gang_repository: thesheriff.domain.gang.repository.gang_repository.GangRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.list_gangs.ListGangs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class ListGangs implements the List Outlaw’s Gangs use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gang_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.gang.repository.gang_repository.GangRepository" title="thesheriff.domain.gang.repository.gang_repository.GangRepository"><em>GangRepository</em></a>) – Repository managing the Gang domain entities.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.outlaw.list_gangs.ListGangs.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">outlaw_id: int</em><span class="sig-paren">)</span> &#x2192; List[thesheriff.domain.gang.gang.Gang]<a class="headerlink" href="#thesheriff.application.outlaw.list_gangs.ListGangs.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of the List Gangs use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outlaw_id</strong> (<em>Integer</em>) – ID of the Outlaw performing the action.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list of gangs.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="domain.html#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang">Gang</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.rate_raid"><span id="rate-raid"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.rate_raid.RateRaid">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.rate_raid.</code><code class="sig-name descname">RateRaid</code><span class="sig-paren">(</span><em class="sig-param">outlaw_repository: thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository</em>, <em class="sig-param">raid_repository: thesheriff.domain.raid.repository.raid_repository.RaidRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.rate_raid.RateRaid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class RateRaid implements the Raid rating use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outlaw_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository" title="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository"><em>OutlawRepository</em></a>) – Repository managing Outlaw domain entities.</p></li>
+<li><p><strong>raid_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.raid.repository.raid_repository.RaidRepository" title="thesheriff.domain.raid.repository.raid_repository.RaidRepository"><em>RaidRepository</em></a>) – Repository managing Raid domain entities.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.outlaw.rate_raid.RateRaid.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">raid_id: int</em>, <em class="sig-param">outlaw_id: int</em>, <em class="sig-param">score: thesheriff.domain.outlaw.score.Score</em><span class="sig-paren">)</span> &#x2192; NoReturn<a class="headerlink" href="#thesheriff.application.outlaw.rate_raid.RateRaid.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of the Raid rating use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raid_id</strong> (<em>Integer</em>) – ID of the Raid to be rated</p></li>
+<li><p><strong>outlaw_id</strong> (<em>Integer</em>) – ID of the Outlaw performing the action.</p></li>
+<li><p><strong>score</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.score.Score" title="thesheriff.domain.outlaw.score.Score"><em>Score</em></a>) – Raid’s score.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No value returned.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>NoReturn</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.request.create_outlaw_request"><span id="create-outlaw-request"></span></span><dl class="class">
 <dt id="thesheriff.application.outlaw.request.create_outlaw_request.CreateOutlawRequest">
 <em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.request.create_outlaw_request.</code><code class="sig-name descname">CreateOutlawRequest</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">email: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.request.create_outlaw_request.CreateOutlawRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class CreateOutlawRequest holds data required to create an Outlaw.</p>
@@ -86,9 +317,41 @@ thesheriff.application module.</p>
 </div>
 <div class="section" id="raid">
 <h2>Raid<a class="headerlink" href="#raid" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-thesheriff.application.raid.create_raid"><span id="create-raid"></span></span><span class="target" id="module-thesheriff.application.raid.end_raid"><span id="end-raid"></span></span><dl class="class">
+<span class="target" id="module-thesheriff.application.raid.create_raid"><span id="create-raid"></span></span><dl class="class">
+<dt id="thesheriff.application.raid.create_raid.CreateRaid">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.raid.create_raid.</code><code class="sig-name descname">CreateRaid</code><span class="sig-paren">(</span><em class="sig-param">outlaw_repository: thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository</em>, <em class="sig-param">gang_repository: thesheriff.domain.gang.repository.gang_repository.GangRepository</em>, <em class="sig-param">raid_repository: thesheriff.domain.raid.repository.raid_repository.RaidRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.raid.create_raid.CreateRaid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class CreateRaid implements the Create Raid use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outlaw_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository" title="thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository"><em>OutlawRepository</em></a>) – Repository managing Outlaw domain entities.</p></li>
+<li><p><strong>gang_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.gang.repository.gang_repository.GangRepository" title="thesheriff.domain.gang.repository.gang_repository.GangRepository"><em>GangRepository</em></a>) – Repository managing Gang domain entities.</p></li>
+<li><p><strong>raid_repository</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.raid.repository.raid_repository.RaidRepository" title="thesheriff.domain.raid.repository.raid_repository.RaidRepository"><em>RaidRepository</em></a>) – Repository managing Raid domain entities.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="thesheriff.application.raid.create_raid.CreateRaid.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">request: thesheriff.application.raid.request.create_raid_request.CreateRaidRequest</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.application.raid.create_raid.CreateRaid.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute is the actual action of Create a Raid use case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.raid.request.create_raid_request.CreateRaidRequest" title="thesheriff.application.raid.request.create_raid_request.CreateRaidRequest"><em>CreateRaidRequest</em></a>) – Request object with details for creating a Raid.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The created Raid.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="domain.html#thesheriff.domain.raid.raid.Raid" title="thesheriff.domain.raid.raid.Raid">Raid</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.raid.end_raid"><span id="end-raid"></span></span><dl class="class">
 <dt id="thesheriff.application.raid.end_raid.EndRaid">
-<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.raid.end_raid.</code><code class="sig-name descname">EndRaid</code><span class="sig-paren">(</span><em class="sig-param">raid_repository: thesheriff.domain.raid.repository.raid_repository.RaidRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.raid.end_raid.EndRaid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.raid.end_raid.</code><code class="sig-name descname">EndRaid</code><span class="sig-paren">(</span><em class="sig-param">mail_notifier: thesheriff.domain.mail.notifier.mail_notifier.MailNotifier</em>, <em class="sig-param">raid_repository: thesheriff.domain.raid.repository.raid_repository.RaidRepository</em>, <em class="sig-param">outlaw_repository: thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.raid.end_raid.EndRaid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class EndRaid implements the End a Raid use case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -116,7 +379,7 @@ thesheriff.application module.</p>
 
 <span class="target" id="module-thesheriff.application.raid.grade_raid"><span id="grade-raid"></span></span><dl class="class">
 <dt id="thesheriff.application.raid.grade_raid.GradeRaid">
-<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.raid.grade_raid.</code><code class="sig-name descname">GradeRaid</code><span class="sig-paren">(</span><em class="sig-param">outlaw_repository: thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.raid.grade_raid.GradeRaid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.raid.grade_raid.</code><code class="sig-name descname">GradeRaid</code><span class="sig-paren">(</span><em class="sig-param">raid_repository: thesheriff.domain.raid.repository.raid_repository.RaidRepository</em>, <em class="sig-param">outlaw_repository: thesheriff.domain.outlaw.repository.outlaw_repository.OutlawRepository</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.raid.grade_raid.GradeRaid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class GradeRaid implements the Grade Raids use case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -125,11 +388,11 @@ thesheriff.application module.</p>
 </dl>
 <dl class="method">
 <dt id="thesheriff.application.raid.grade_raid.GradeRaid.execute">
-<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">raid: thesheriff.domain.raid.raid.Raid</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#thesheriff.application.raid.grade_raid.GradeRaid.execute" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">raid_id: int</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#thesheriff.application.raid.grade_raid.GradeRaid.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>execute is the actual action of the Grade a Raid use case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>raid</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.raid.raid.Raid" title="thesheriff.domain.raid.raid.Raid"><em>Raid</em></a>) – The Raid entity to be graded.</p>
+<dd class="field-odd"><p><strong>raid_id</strong> (<em>Raid id</em>) – Id of Raid entity to be graded.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The raid grade.</p>
@@ -248,7 +511,7 @@ thesheriff.application module.</p>
       &copy;2019, The Sheriff Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

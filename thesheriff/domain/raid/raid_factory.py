@@ -39,4 +39,4 @@ class RaidFactory(Raid):
         :rtype: Raid
         """
         return Raid(
-            name, members, sheriff, gang, location, date, raid_id)
+            name, members, sheriff, gang, location, date, raid_id, rates)

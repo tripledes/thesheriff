@@ -21,6 +21,10 @@ class GangFactory(Gang):
         :return: The created Gang.
         :rtype: Gang
         """
+
+        if name is None:
+            raise Exception('Gang name required')
+
         return Gang(owner_id, name, gang_id)
 
     @staticmethod

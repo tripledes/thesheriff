@@ -13,8 +13,6 @@ from thesheriff.domain.raid.repository.raid_repository import \
 from thesheriff.domain.outlaw.outlaw_factory import OutlawFactory
 from thesheriff.domain.outlaw.sheriff_factory import SheriffFactory
 from thesheriff.domain.gang.gang_factory import GangFactory
-from thesheriff.domain.outlaw.repository.outlaw_repository import \
-    OutlawRepository
 from sqlalchemy import create_engine, MetaData, Table
 from datetime import datetime
 

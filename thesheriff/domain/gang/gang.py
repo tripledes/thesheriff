@@ -23,9 +23,6 @@ class Gang:
         self.owner_id = owner_id
         self.id = gang_id
 
-        if self.name is None:
-            raise Exception('Gang name required')
-
     def members(self) -> list:
         """Method members.
 
@@ -46,3 +43,9 @@ class Gang:
         # Should this be singular? add_member.
         # It depends, if its a list, add_members is correct
         self.members = members
+
+    def score(self):
+        score_gang = 0.0
+        for outlaw in self.members:
+            score_gang += outlaw.score
+        return score_gang

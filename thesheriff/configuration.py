@@ -80,6 +80,6 @@ def configure_inject(application: Flask) -> None:
             application.config['DATABASE_URI'],
             application.config['METADATA'],
             application.config['OUTLAW_TABLE']))
-        binder.bind(MailNotifier, SMTPMailNotifier)
+        binder.bind(MailNotifier, SMTPMailNotifier())
 
     inject.configure(config)

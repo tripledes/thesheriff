@@ -13,7 +13,7 @@ class EndRaidRequest:
 
     def __init__(
         self,
-        raid_id: str,
+        raid_id: int,
         raid_score: float
     ):
         self.raid_id = raid_id
