@@ -68,7 +68,7 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span><span class="p">,</span>
     <span class="nt">&quot;gangs&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;gang1&quot;</span><span class="p">:</span> <span class="p">{},</span>
         <span class="nt">&quot;gang2&quot;</span><span class="p">:</span> <span class="p">{}</span>
@@ -86,8 +86,8 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-    <span class="nt">&quot;gang&quot;</span><span class="p">:</span> <span class="p">{}</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Gang successfully created&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;gang&quot;</span><span class="p">:</span> <span class="p">{}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -101,8 +101,7 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
-    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Gang updated&quot;</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Joined Gang successfully&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -145,8 +144,12 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Outlaw added successfully&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Outlaw created successfully&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;outlaw&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;outlaw 1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;outlaw1@domain.net&quot;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -158,11 +161,19 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="nt">&quot;friends&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;friend1&quot;</span><span class="p">:</span> <span class="p">{},</span>
-        <span class="nt">&quot;friend2&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;friends&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Outlaw1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;outlaw1@domain.net&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Outlaw2&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;outlaw2@domain.net&quot;</span>
+       <span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -174,11 +185,11 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="nt">&quot;gangs&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;gang1&quot;</span><span class="p">:</span> <span class="p">{},</span>
-        <span class="nt">&quot;gang2&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;gangs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;The Band 1&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;The Band 2&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -192,8 +203,7 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation sent&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation sent successfully&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -234,8 +244,8 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Raid added successfully&quot;</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Raid created successfully&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;raid&quot;</span><span class="p">:</span> <span class="p">{}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -249,8 +259,7 @@ thesheriff.infrastructure module.</p>
 </div>
 <p><strong>Response Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
-    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;raid rated successfully&quot;</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Raid rated successfully&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

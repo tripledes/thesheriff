@@ -6,7 +6,6 @@ This module implements the RESTful part of the Raid use cases.
 """
 import inject
 from flask import Blueprint, Response, request, jsonify
-
 from thesheriff.application.outlaw.rate_raid import RateRaid
 from thesheriff.application.raid.create_raid import CreateRaid
 from thesheriff.application.raid.request.create_raid_request import \
@@ -42,8 +41,8 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid) -> Blueprint:
       .. code-block:: json
 
          {
-             "status": 201,
-             "message": "Raid added successfully"
+             "message": "Raid created successfully",
+             "raid": {}
          }
 
     * */<prefix>/outlaw/<int:outlaw_id>/raid/<int:raid_id>/* (PUT)
@@ -61,17 +60,13 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid) -> Blueprint:
       .. code-block:: json
 
          {
-             "status": 204,
-             "message": "raid rated successfully"
+             "message": "Raid rated successfully"
          }
     """
     blueprint_raid = Blueprint('raid', __name__)
 
     @blueprint_raid.route("/raid", methods=['POST'])
     def create_raid_endpoint() -> Response:
-        #     """create_raid registers a Raid
-        #     :return: Response.
-        #     """
         data = request.get_json()
         new_raid = data.get('raid')
         raid_request = CreateRaidRequest(new_raid.get('name'),
@@ -106,7 +101,7 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid) -> Blueprint:
         score = Score(**rate)
         rate_raid.execute(outlaw_id, raid_id, score)
 
-        message = {'status': 204, 'message': 'rated successfully'}
+        message = {'message': 'Raid rated successfully'}
 
         return jsonify(message)
 

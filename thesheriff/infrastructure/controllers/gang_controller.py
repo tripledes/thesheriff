@@ -7,7 +7,6 @@ This module implements the RESTful part of the Gang use cases.
 """
 import inject
 from flask import Blueprint, jsonify, Response, request
-
 from thesheriff.application.gang.list_gangs import ListGangs
 from thesheriff.application.gang.request.create_gang_request import \
     CreateGangRequest
@@ -47,7 +46,7 @@ def gang_controller(
       .. code-block:: json
 
          {
-             "status": 200,
+             "message": "Success",
              "gangs": {
                  "gang1": {},
                  "gang2": {}
@@ -68,8 +67,8 @@ def gang_controller(
       .. code-block:: json
 
          {
-             "status": 201,
-             "gang": {}
+           "message": "Gang successfully created",
+           "gang": {}
          }
     * */<prefix>/gang/<int:gang_id>/join* (PUT)
 
@@ -86,8 +85,7 @@ def gang_controller(
       .. code-block:: json
 
          {
-             "status": 204,
-             "message": "Gang updated"
+             "message": "Joined Gang successfully"
          }
     """
 
@@ -101,7 +99,7 @@ def gang_controller(
 
         join_gang.execute(JoinGangRequest(gang_id, outlaw_id))
 
-        message = {'status': 204, 'message': 'Gang updated'}
+        message = {'message': 'Joined Gang successfully'}
 
         return jsonify(message)
 
@@ -112,7 +110,7 @@ def gang_controller(
             gangs = list()
             for res in results:
                 gangs.append(dict({'id': res.id, 'name': res.name}))
-            message = {'status': 200, 'gangs': gangs}
+            message = {'message': 'Success', 'gangs': gangs}
             return jsonify(message)
 
         data = request.json
@@ -125,7 +123,7 @@ def gang_controller(
         result = dict({'id': gang.id, 'name': gang.name,
                        'owner_id': gang.owner_id})
 
-        message = {'status': 201, 'gang created': result}
+        message = {'message': 'Gang successfully created', gang: result}
 
         return jsonify(message)
 

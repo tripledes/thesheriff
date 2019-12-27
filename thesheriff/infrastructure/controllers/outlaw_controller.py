@@ -7,7 +7,6 @@ This module implements the RESTful part of the Outlaw use cases.
 """
 import inject
 from flask import Blueprint, jsonify, Response, request
-
 from thesheriff.application.outlaw.create_outlaw import CreateOutlaw
 from thesheriff.application.outlaw.invite_friend import InviteFriend
 from thesheriff.application.outlaw.list_friends import ListFriends
@@ -51,8 +50,12 @@ def outlaw_controller(
       .. code-block:: json
 
          {
-             "message": "Outlaw added successfully",
-             "status": 201
+             "message": "Outlaw created successfully",
+             "outlaw": {
+                 "id": 1,
+                 "name": "outlaw 1",
+                 "email": "outlaw1@domain.net"
+             }
          }
 
     * */<prefix>/outlaw/<int:outlaw_id>/friends* (GET)
@@ -68,11 +71,19 @@ def outlaw_controller(
       .. code-block:: json
 
          {
-             "status": 200,
-             "friends": {
-                 "friend1": {},
-                 "friend2": {}
-             }
+             "message": "Success",
+             "friends": [
+                 {
+                     "id": 1,
+                     "name": "Outlaw1",
+                     "email": "outlaw1@domain.net"
+                 },
+                 {
+                     "id": 2,
+                     "name": "Outlaw2",
+                     "email": "outlaw2@domain.net"
+                }
+             ]
          }
     * */<prefix>/outlaw/<int:outlaw_id>/gangs* (GET)
 
@@ -87,11 +98,11 @@ def outlaw_controller(
       .. code-block:: json
 
          {
-             "status": 200,
-             "gangs": {
-                 "gang1": {},
-                 "gang2": {}
-             }
+             "message": "Success",
+             "gangs": [
+                 {"id": 1, "name": "The Band 1"},
+                 {"id": 2, "name": "The Band 2"}
+             ]
          }
 
     * */<prefix>/outlaw/invite_friend/* (POST)
@@ -109,33 +120,12 @@ def outlaw_controller(
       .. code-block:: json
 
          {
-             "message": "Invitation sent",
-             "status": 201
+             "message": "Invitation sent successfully"
          }
     """
     blueprint_outlaw = Blueprint('outlaw', __name__)
 
-    @blueprint_outlaw.route('/outlaw/<int:outlaw_id>/friends', methods=['GET'])
-    def get_friends_endpoint(outlaw_id: int) -> Response:
-        friends = list_friends.execute(outlaw_id)
-
-        friends_json = json.dumps(friends)
-
-        message = {'status': 200, 'friends': friends_json}
-
-        return jsonify(message)
-
-    @blueprint_outlaw.route('/outlaw/<int:outlaw_id>/gangs', methods=['GET'])
-    def get_gangs_endpoint(outlaw_id: int) -> Response:
-        outlaw_gangs = list_gangs.execute(outlaw_id)
-
-        gangs_json = json.dumps(outlaw_gangs)
-
-        message = {'status': 200, 'gangs': gangs_json}
-
-        return jsonify(message)
-
-    @blueprint_outlaw.route('/outlaw/', methods=['POST'])
+    @blueprint_outlaw.route('/outlaw', methods=['POST'])
     def create_outlaw_endpoint() -> Response:
         data = request.get_json()
         # TODO(all): if outlaw is None we should return an HTTP error
@@ -147,7 +137,33 @@ def outlaw_controller(
         result = dict({'id': outlaw.id, 'name': outlaw.name,
                        'email': outlaw.email})
 
-        message = {'status': 201, 'outlaw created': result}
+        message = {'message': 'Outlaw created successfully', 'outlaw': result}
+
+        return jsonify(message)
+
+    @blueprint_outlaw.route('/outlaw/<int:outlaw_id>/friends', methods=['GET'])
+    def get_friends_endpoint(outlaw_id: int) -> Response:
+        friends = list_friends.execute(outlaw_id)
+        result = list()
+        for friend in friends:
+            result.append(
+                {'id': friend.id, 'name': friend.name}
+            )
+
+        message = {'message': "Success", 'friends': result}
+
+        return jsonify(message)
+
+    @blueprint_outlaw.route('/outlaw/<int:outlaw_id>/gangs', methods=['GET'])
+    def get_gangs_endpoint(outlaw_id: int) -> Response:
+        outlaw_gangs = list_gangs.execute(outlaw_id)
+        result = list()
+        for gang in outlaw_gangs:
+            result.append(
+                {'id': gang.id, 'name': gang.name}
+            )
+
+        message = {'message': 'Success', 'gangs': result}
 
         return jsonify(message)
 
@@ -156,7 +172,7 @@ def outlaw_controller(
         data = request.get_json()
         mail_address = data.get('receiver_mail_address')
         invite_friend.execute(mail_address)
-        message = {'status': 201, 'message': 'Invitation sent'}
+        message = {'message': 'Invitation sent successfully'}
         return jsonify(message)
 
     return blueprint_outlaw
