@@ -1,9 +1,3 @@
-The Sheriff
-==========================
-
-This part of the documentation is intended to birefly introduce
-The Sheriff application.
-
 Introduction
 ==========================
 
@@ -44,6 +38,9 @@ how to test the application and the tools needed for it.
     - **The Sheriff Aplication**
     - **The Sheriff Domain**
     - **The Sheriff Infraestructure**
+
+- **Tools**: Explanation of the technologies used to make the infrastructure work, the relations they have in the design
+with other classes and an analysis of the impact of modifying every technology used in the project.
 
 - **API Documentation**: To check the information on a specific function, class, or method.
 

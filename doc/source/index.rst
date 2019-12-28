@@ -45,6 +45,12 @@ Here we put our domain classes (Outlaw, Gang and Raid) containing all pertinent 
 
 Contains the REST API endpoints and MySQL repositories
 
+Tools
+=====
+
+.. toctree::
+    tools
+
 The API Documentation
 =====================
 
