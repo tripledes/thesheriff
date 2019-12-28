@@ -61,25 +61,22 @@ The Sheriff application.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="design-hexagonal-architecture">
-<h1>Design - Hexagonal Architecture<a class="headerlink" href="#design-hexagonal-architecture" title="Permalink to this headline">¶</a></h1>
-<p>Missing explanation of why we choose this architecture</p>
-<ul class="simple">
-<li><p>The Sheriff Application</p></li>
+<div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#hexagonal-architecture">Hexagonal Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#the-sheriff-design">The Sheriff Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="design.html#domain">Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design.html#application">Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design.html#infrastructure">Infrastructure</a></li>
 </ul>
-<p>Application contains the main use cases identified by the team and also auxiliary use cases:
-List gangs, create a gang, create an outlaw, invite a friend, join a gang, list friends, list gangs, rate the raid and
-send notifications.
-On this layer we also put the request classes, that are created on the controller, containing all necessary
-information to execute the use cases</p>
-<ul class="simple">
-<li><p>The Sheriff Domain</p></li>
+</li>
 </ul>
-<p>Here we put our domain classes (Outlaw, Gang and Raid) containing all pertinent business logic and the factory classes.</p>
-<ul class="simple">
-<li><p>The Sheriff Infraestructure</p></li>
+</li>
 </ul>
-<p>Contains the REST API endpoints and MySQL repositories</p>
+</div>
 </div>
 <div class="section" id="tools">
 <h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
@@ -156,6 +153,9 @@ this part of the documentation is for you.</p>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">The Sheriff Usage</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
 </ul>
 <ul>
@@ -205,7 +205,7 @@ this part of the documentation is for you.</p>
       &copy;2019, The Sheriff Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

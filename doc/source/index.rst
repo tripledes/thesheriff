@@ -25,25 +25,11 @@ Here's all you need to run and test The Sheriff application.
 .. toctree::
     usage
 
-Design - Hexagonal Architecture
-===============================
-Missing explanation of why we choose this architecture
+Design
+======
 
-- The Sheriff Application
-
-Application contains the main use cases identified by the team and also auxiliary use cases:
-List gangs, create a gang, create an outlaw, invite a friend, join a gang, list friends, list gangs, rate the raid and
-send notifications.
-On this layer we also put the request classes, that are created on the controller, containing all necessary
-information to execute the use cases
-
-- The Sheriff Domain
-
-Here we put our domain classes (Outlaw, Gang and Raid) containing all pertinent business logic and the factory classes.
-
-- The Sheriff Infraestructure
-
-Contains the REST API endpoints and MySQL repositories
+.. toctree::
+   design
 
 Tools
 =====
