@@ -44,6 +44,7 @@ raid_table = Table('raids', METADATA,
                    Column('name', Text, nullable=False),
                    Column('location', Text, nullable=False),
                    Column('members', Text, nullable=False),
+                   Column('rates', Text),
                    Column('date', DateTime, nullable=False))
 
 

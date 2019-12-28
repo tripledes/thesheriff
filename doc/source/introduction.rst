@@ -32,7 +32,7 @@ Document Contents
 In all the other sections basically it is going to be explained the next information:
 
 - **Functionality - The Sheriff usage**: How to run the application, how to run the code static analysis,
-how to test the application and the tools needed for it.
+  how to test the application and the tools needed for it.
 
 - **Design - Hexagonal architecture**: How the project is designed.
     - **The Sheriff Aplication**
@@ -40,7 +40,7 @@ how to test the application and the tools needed for it.
     - **The Sheriff Infraestructure**
 
 - **Tools**: Explanation of the technologies used to make the infrastructure work, the relations they have in the design
-with other classes and an analysis of the impact of modifying every technology used in the project.
+  with other classes and an analysis of the impact of modifying every technology used in the project.
 
 - **API Documentation**: To check the information on a specific function, class, or method.
 

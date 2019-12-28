@@ -11,7 +11,7 @@ class Sheriff(Outlaw):
         :return: No returned value.
         :rtype: NoReturn.
         """
-        self.score += score
+        self.score += float(score)
 
     def get_score(self) -> float:
         """Method get_score access to the current Sheriff's score.

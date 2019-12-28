@@ -22,7 +22,7 @@ class CreateRaidRequest:
     def __init__(
         self,
         name: str,
-        date: datetime,
+        date: str,
         location: str,
         gang_id: int,
         sheriff_id: int,

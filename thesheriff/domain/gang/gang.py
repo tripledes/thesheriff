@@ -8,12 +8,12 @@ class Gang:
     :type owner_id: Integer
     :param name: Given name of the Gang.
     :type name: String
-    :param id: Optional, Gang Id.
-    :type id: Integer
+    :param gang_id: Optional, Gang Id.
+    :type gang_id: Integer
     """
 
     def __init__(
-        self, owner_id: int, name: str, id: Optional[int] = None
+        self, owner_id: int, name: str, gang_id: Optional[int] = None
     ):
         # TODO(all)
         # Verify owner_id is of an existing outlaw
@@ -21,7 +21,7 @@ class Gang:
         self.members = list()
         self.created_raids = 0
         self.owner_id = owner_id
-        self.id = id
+        self.id = gang_id
 
         if self.name is None:
             raise Exception('Gang name required')

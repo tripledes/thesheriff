@@ -21,10 +21,11 @@ class GradeRaid:
         :return: The raid grade.
         :rtype: Float
         """
-        grade = 0
-        total = 0
-        divider = len(raid.rates)
-        if divider > 0:
+        grade = 0.0
+        total = 0.0
+        divider = float(len(raid.rates))
+        print("divider:", divider)
+        if divider > 0.0:
             for rate in raid.rates:
                 total += rate
 

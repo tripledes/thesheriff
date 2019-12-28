@@ -15,7 +15,6 @@ from thesheriff.domain.gang.gang_factory import GangFactory
 from thesheriff.domain.outlaw.repository.outlaw_repository import \
     OutlawRepository
 from sqlalchemy import create_engine, MetaData, Table
-import sys
 
 
 class MySQLRaidRepository(RaidRepository):
@@ -44,20 +43,27 @@ class MySQLRaidRepository(RaidRepository):
         query = self.__raid_table.select().where(
             self.__raid_table.c.id == raid_id)
         result = self.__connection.execute(query)
+
         row = result.fetchone()
-        members = self.__split_outlaws_ids(row.members)
-        outlaws = self.__create_outlaws_from_ids(members)
-        # gang = GangFactory.create()
-        # create outlaws
+        members = self.__split_outlaw_ids(row.members)
+        outlaws = self.__create_outlaw_from_ids(members)
+        gang = GangFactory.create_with_id(row.gang_id)
+        rates = None
+
+        if row.rates:
+            rates = self.__split_rates(row.rates)
+
+        # TODO:
         # create Sheriff
         return RaidFactory.create(
-            id=result.get('id'),
-            name=result.get('name'),
-            outlaws=outlaws,
-            sheriff=result.get('sheriff_id'),
-            gang=result.get('gang_id'),
-            location=result.get('location'),
-            date=result.get('date')
+            raid_id=row.id,
+            name=row.name,
+            members=outlaws,
+            sheriff=None,
+            gang=gang,
+            location=row.location,
+            date=row.date,
+            rates=rates
         )
 
     def add(self, new_raid: Raid) -> Raid:
@@ -69,7 +75,7 @@ class MySQLRaidRepository(RaidRepository):
         :rtype: Raid
         """
 
-        outlaw_ids = self.__join_outlaw_ids(new_raid.outlaws)
+        outlaw_ids = self.__join_outlaw_ids(new_raid.members)
         query = self.__raid_table.insert().values(
             sheriff_id=new_raid.sheriff.id,
             gang_id=new_raid.gang.id,
@@ -94,19 +100,44 @@ class MySQLRaidRepository(RaidRepository):
             self.__raid_table.c.id == mod_raid.id).values(**mod_raid)
         self.__connection.execute(query)
 
+    def update_rates(self, raid: Raid) -> NoReturn:
+        """Method update_rates, specialized update that handles rates
+        transformation before running the actual update.
+
+        :param raid: Raid to be rated.
+        :type raid: Raid
+        :return: No returned value.
+        :rtype: NoReturn
+        """
+        # TODO(tripledes): Add justification for this method
+        # to the documentation
+        string_rates = self.__join_rates(raid.rates)
+        query = self.__raid_table.update().where(
+            self.__raid_table.c.id == raid.id).values({'rates': string_rates})
+        self.__connection.execute(query)
+
     def __join_outlaw_ids(self, outlaws: List[Outlaw]) -> str:
         ids = [str(outlaw.id) for outlaw in outlaws]
         return ','.join(ids)
 
     def __split_outlaw_ids(self, outlaws: str) -> List[int]:
         ids = outlaws.split(',')
-        return [int(id) for id in ids]
+        return [int(outlaw_id) for outlaw_id in ids]
 
-    def __create_outlaw_from_ids(self, members: list) -> List[Outlaw]:
-        # results = list()
-        #  for member in members:
-        #     results.append(
-        #         OutlawFactory.create(
-        #         )
-        #     )
-        pass
+    def __join_rates(self, rates: List[float]) -> str:
+        stringified = [str(rate) for rate in rates]
+        return ','.join(stringified)
+
+    def __split_rates(self, rates: str) -> List[float]:
+        split_rates = rates.split(",")
+        return [float(rate) for rate in split_rates]
+
+    def __create_outlaw_from_ids(self, member_ids: list) -> List[Outlaw]:
+        results = list()
+        for member_id in member_ids:
+            results.append(
+                OutlawFactory.create_with_id(
+                    member_id
+                )
+            )
+        return results

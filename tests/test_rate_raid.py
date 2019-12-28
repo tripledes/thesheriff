@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from tests.mocks.mock_raid_repository import MockRaidRepository
 from tests.mocks.mock_outlaw_repository import MockOutlawRepository
 from thesheriff.application.outlaw.rate_raid import RateRaid
@@ -21,7 +19,7 @@ def test_rate_raid():
     raid_repository = MockRaidRepository()
     raid = Raid(
         "very nice restaurant", [],
-        sheriff, gang, "Barcelona", datetime.now()
+        sheriff, gang, "Barcelona", "2019-12-31 23:59:00"
     )
     raid_repository.add(raid)
 

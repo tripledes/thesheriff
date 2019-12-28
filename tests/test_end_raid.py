@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from tests.mocks.mock_raid_repository import MockRaidRepository
 from thesheriff.application.raid.end_raid import EndRaid
 from thesheriff.application.raid.request.end_raid_request import EndRaidRequest
@@ -18,9 +16,9 @@ def test_end_raid():
     gang.add_members(outlaws)
     raid = Raid(
         "amazing raid", outlaws, Sheriff("2", "email", 1), gang,
-        "street 1, 05", date=datetime.now()
+        "street 1, 05", date="2019-12-31 23:59:00"
     )
-
+    raid.rates = list()
     raid.add_rate(10)
     raid.add_rate(9)
 
@@ -43,12 +41,12 @@ def test_raid_can_not_be_ended_throws_exception():
     gang.add_members(outlaws)
     raid = Raid(
         "amazing raid", outlaws, Sheriff("2", "email", 1), gang,
-        "street 1, 05", date=datetime.now()
+        "street 1, 05", date="2019-12-31 23:59:00"
     )
 
     raid.join(outlaw=outlaw1)
     raid.join(outlaw=outlaw2)
-
+    raid.rates = list()
     raid.add_rate(10)
 
     raid_repository.add(raid)

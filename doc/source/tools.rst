@@ -116,12 +116,13 @@ persistence patterns.
 In *The Sheriff*, it has let the application to persist all the information dealt in the concrete use case.
 
 The libraries used are:
+
 - *Create_engine* to enable the connection to the MySQL repositories.
 
 - *MetaData* to share this object type to many SQL repositories.
 
-- *Table* to abstract the way to deal with the SQL repositories. It allows to deal with Object Collections
-as if they were tables.
+- *Table* to abstract the way to deal with the SQL repositories.
+  It allows to deal with Object Collections as if they were tables.
 
 Reference website:
 `SQLAlchemy <https://www.sqlalchemy.org/>`_

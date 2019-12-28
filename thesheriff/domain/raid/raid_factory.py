@@ -13,7 +13,9 @@ class RaidFactory(Raid):
     @staticmethod
     def create(
         name: str, members: List[Outlaw], sheriff: Sheriff,
-        gang: Gang, location: str, date: datetime, id: Optional[int] = None
+        gang: Gang, location: str, date: datetime,
+        raid_id: Optional[int] = None,
+        rates: Optional[List[float]] = list()
     ) -> Raid:
         """Method create, produces a Raid instance.
 
@@ -29,10 +31,12 @@ class RaidFactory(Raid):
         :type location: String
         :param date: Raid's date and time.
         :type date: datetime.datetime
-        :param id: Optional, Raid's Id.
-        :type id: Integer
+        :param raid_id: Optional, Raid's Id.
+        :type raid_id: Integer
+        :param rates: Optional, list with assigned rates.
+        :type: rates: List[float]
         :return: The produced Raid.
         :rtype: Raid
         """
         return Raid(
-            name, location, sheriff, gang, date, id, outlaws)
+            name, members, sheriff, gang, location, date, raid_id)

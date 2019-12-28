@@ -1,5 +1,6 @@
 from thesheriff.domain.raid.raid import Raid
 from thesheriff.domain.raid.repository.raid_repository import RaidRepository
+from typing import List
 
 
 class MockRaidRepository(RaidRepository):
@@ -12,3 +13,6 @@ class MockRaidRepository(RaidRepository):
 
     def update(self, raid: Raid):
         self.raid = raid
+
+    def update_rates(self, raid: Raid):
+        pass

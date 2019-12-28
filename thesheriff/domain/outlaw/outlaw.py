@@ -1,4 +1,4 @@
-from ..gang.gang import Gang
+from thesheriff.domain.gang.gang import Gang
 from typing import NoReturn, Optional, List
 
 
@@ -9,12 +9,14 @@ class Outlaw:
     :type name: String
     :param email: Outlaw's email address.
     :type email: String
-    :param id: Optional, Outlaw Id.
-    :type id: Integer
+    :param outlaw_id: Optional, Outlaw Id.
+    :type outlaw_id: Integer
     """
 
-    def __init__(self, name: str, email: str, id: Optional[int] = None):
-        self.id = id
+    def __init__(
+        self, name: str, email: str, outlaw_id: Optional[int] = None
+    ):
+        self.id = outlaw_id
         self.name = name
         self.email = email
         self.raids = list()

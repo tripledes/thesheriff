@@ -42,10 +42,7 @@ class RateRaid:
 
         if outlaw:
             raid.add_rate(score.value())
-            # TODO(all): do we really want to persist the score? I guess we do.
-            # If so, we'd need to re-add the update method and arrive to
-            # consensus on how to really make the update, e.g.: raid_id,
-            # dict({'score': value})
-            # Something like the above example would make the update way
-            # easier to handle.
-            self.__raid_repository.update(raid)
+            self.__raid_repository.update_rates(raid)
+            return
+
+        raise Exception("No outlaw found with Id", outlaw_id)

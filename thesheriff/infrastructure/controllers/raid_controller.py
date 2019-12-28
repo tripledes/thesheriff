@@ -95,11 +95,11 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid) -> Blueprint:
         :return: Flask Response.
         :rtype: Response
         """
-        data = request.json
+        data = request.get_json()
         outlaw_id = data.get('outlaw_id')
         rate = data.get('rate')
         score = Score(**rate)
-        rate_raid.execute(outlaw_id, raid_id, score)
+        rate_raid.execute(raid_id, outlaw_id, score)
 
         message = {'message': 'Raid rated successfully'}
 

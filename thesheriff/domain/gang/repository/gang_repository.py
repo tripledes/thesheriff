@@ -1,5 +1,5 @@
 import abc
-from ...gang.gang import Gang
+from thesheriff.domain.gang.gang import Gang
 from typing import NoReturn, List
 
 
