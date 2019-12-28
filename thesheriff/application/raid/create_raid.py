@@ -1,5 +1,8 @@
-import inject
 from datetime import datetime
+from typing import List
+
+import inject
+
 from thesheriff.application.raid.request.create_raid_request import \
     CreateRaidRequest
 from thesheriff.domain.gang.gang import Gang
@@ -8,9 +11,9 @@ from thesheriff.domain.outlaw.outlaw import Outlaw
 from thesheriff.domain.outlaw.repository.outlaw_repository \
     import OutlawRepository
 from thesheriff.domain.outlaw.sheriff import Sheriff
+from thesheriff.domain.outlaw.sheriff_factory import SheriffFactory
 from thesheriff.domain.raid.raid import Raid, DEFAULT_DATETIME_FORMAT
 from thesheriff.domain.raid.repository.raid_repository import RaidRepository
-from typing import List
 
 
 class CreateRaid:
@@ -66,7 +69,7 @@ class CreateRaid:
         if not outlaw:
             raise Exception('Sheriff with id: {0} does not exist.'
                             .format(request.sheriff_id))
-        sheriff = Sheriff(outlaw.name, outlaw.email, outlaw.id)
+        sheriff = SheriffFactory.create(outlaw)
         return sheriff
 
     def __get_gang_or_fail(self, request: CreateRaidRequest) -> Gang:

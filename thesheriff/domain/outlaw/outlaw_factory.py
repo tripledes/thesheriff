@@ -14,6 +14,8 @@ class OutlawFactory(Outlaw):
         :type name: String
         :param email: Outlaw's email.
         :type email: String
+        :param id: Outlaw's id (optional)
+        :type id: Optional[int]
         :return: The produced Outlaw.
         :rtype: Outlaw
         """
