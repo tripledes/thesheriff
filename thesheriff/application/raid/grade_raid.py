@@ -24,7 +24,6 @@ class GradeRaid:
         grade = 0.0
         total = 0.0
         divider = float(len(raid.rates))
-        print("divider:", divider)
         if divider > 0.0:
             for rate in raid.rates:
                 total += rate

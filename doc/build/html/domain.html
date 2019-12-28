@@ -371,7 +371,7 @@ implementations will behave.</p>
 <li><p><strong>sheriff</strong> (<a class="reference internal" href="#thesheriff.domain.outlaw.sheriff.Sheriff" title="thesheriff.domain.outlaw.sheriff.Sheriff"><em>Sheriff</em></a>) – The Raid organizer.</p></li>
 <li><p><strong>gang</strong> (<a class="reference internal" href="#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang"><em>Gang</em></a>) – Gang where the raid is organized.</p></li>
 <li><p><strong>location</strong> (<em>String</em>) – Restaurant location.</p></li>
-<li><p><strong>date</strong> (<em>datetime.datetime</em>) – Date and time when the raid happens.</p></li>
+<li><p><strong>date</strong> (<em>String</em>) – Date and time when the raid happens.</p></li>
 <li><p><strong>raid_id</strong> (<em>Integer</em>) – Optional, Raid Id.</p></li>
 <li><p><strong>rates</strong> – Optional, list with assigned rates.</p></li>
 </ul>
@@ -436,7 +436,7 @@ implementations will behave.</p>
 <dd><p>Class RaidFactory produces Raids.</p>
 <dl class="method">
 <dt id="thesheriff.domain.raid.raid_factory.RaidFactory.create">
-<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name: str, members: List[thesheriff.domain.outlaw.outlaw.Outlaw], sheriff: thesheriff.domain.outlaw.sheriff.Sheriff, gang: thesheriff.domain.gang.gang.Gang, location: str, date: datetime.datetime, raid_id: Optional[int] = None, rates: Optional[List[float]] = []</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.domain.raid.raid_factory.RaidFactory.create" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name: str, members: List[thesheriff.domain.outlaw.outlaw.Outlaw], sheriff: thesheriff.domain.outlaw.sheriff.Sheriff, gang: thesheriff.domain.gang.gang.Gang, location: str, date: str, raid_id: Optional[int] = None, rates: Optional[List[float]] = []</em><span class="sig-paren">)</span> &#x2192; thesheriff.domain.raid.raid.Raid<a class="headerlink" href="#thesheriff.domain.raid.raid_factory.RaidFactory.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method create, produces a Raid instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -446,7 +446,7 @@ implementations will behave.</p>
 <li><p><strong>sheriff</strong> (<a class="reference internal" href="#thesheriff.domain.outlaw.sheriff.Sheriff" title="thesheriff.domain.outlaw.sheriff.Sheriff"><em>Sheriff</em></a>) – The Outlaw organizing the Raid.</p></li>
 <li><p><strong>gang</strong> (<a class="reference internal" href="#thesheriff.domain.gang.gang.Gang" title="thesheriff.domain.gang.gang.Gang"><em>Gang</em></a>) – Gang this Raid is organized for.</p></li>
 <li><p><strong>location</strong> (<em>String</em>) – Location of the raid.</p></li>
-<li><p><strong>date</strong> (<em>datetime.datetime</em>) – Raid’s date and time.</p></li>
+<li><p><strong>date</strong> (<em>String</em>) – Raid’s date and time.</p></li>
 <li><p><strong>raid_id</strong> (<em>Integer</em>) – Optional, Raid’s Id.</p></li>
 <li><p><strong>rates</strong> – Optional, list with assigned rates.</p></li>
 </ul>

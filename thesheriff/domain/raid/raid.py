@@ -19,7 +19,7 @@ class Raid:
     :param location: Restaurant location.
     :type location: String
     :param date: Date and time when the raid happens.
-    :type date: datetime.datetime
+    :type date: String
     :param raid_id: Optional, Raid Id.
     :type raid_id: Integer
     :param rates: Optional, list with assigned rates.

@@ -8,7 +8,7 @@ class CreateRaidRequest:
     :param name: Raid's given name.
     :type name: String
     :param date: Date and time for the Raid.
-    :type date: datetime.datetime
+    :type date: String
     :param location: Location of the Raid.
     :type location: String
     :param gang_id: Id of the Gang where the Raid is being organized.

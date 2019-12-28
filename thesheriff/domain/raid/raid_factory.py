@@ -13,7 +13,7 @@ class RaidFactory(Raid):
     @staticmethod
     def create(
         name: str, members: List[Outlaw], sheriff: Sheriff,
-        gang: Gang, location: str, date: datetime,
+        gang: Gang, location: str, date: str,
         raid_id: Optional[int] = None,
         rates: Optional[List[float]] = list()
     ) -> Raid:
@@ -30,7 +30,7 @@ class RaidFactory(Raid):
         :param location: Location of the raid.
         :type location: String
         :param date: Raid's date and time.
-        :type date: datetime.datetime
+        :type date: String
         :param raid_id: Optional, Raid's Id.
         :type raid_id: Integer
         :param rates: Optional, list with assigned rates.

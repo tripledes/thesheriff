@@ -11,10 +11,12 @@ from thesheriff.domain.raid.raid_factory import RaidFactory
 from thesheriff.domain.raid.repository.raid_repository import \
     RaidRepository
 from thesheriff.domain.outlaw.outlaw_factory import OutlawFactory
+from thesheriff.domain.outlaw.sheriff_factory import SheriffFactory
 from thesheriff.domain.gang.gang_factory import GangFactory
 from thesheriff.domain.outlaw.repository.outlaw_repository import \
     OutlawRepository
 from sqlalchemy import create_engine, MetaData, Table
+from datetime import datetime
 
 
 class MySQLRaidRepository(RaidRepository):
@@ -52,17 +54,18 @@ class MySQLRaidRepository(RaidRepository):
 
         if row.rates:
             rates = self.__split_rates(row.rates)
+        dt_str = datetime.strftime(row.date, Raid.DEFAULT_DATETIME_FORMAT)
+        outlaw = OutlawFactory.create_with_id(row.sheriff_id)
+        sheriff = SheriffFactory.create(outlaw)
 
-        # TODO:
-        # create Sheriff
         return RaidFactory.create(
             raid_id=row.id,
             name=row.name,
             members=outlaws,
-            sheriff=None,
+            sheriff=sheriff,
             gang=gang,
             location=row.location,
-            date=row.date,
+            date=dt_str,
             rates=rates
         )
 
