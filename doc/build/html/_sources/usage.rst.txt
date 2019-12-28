@@ -34,7 +34,7 @@ Validating use cases
      $ curl localhost:5000/api/v1/outlaw/ -X POST \
        --data @examples/json/create_outlaw.json \
        -H 'Content-Type: application/json'
-     {"message":"Outlaw added successfully","status":201}
+      {"message": "Outlaw created successfully", "outlaw": {"id": "1", "name": "Outlaw", "email": "outlaw@yopmail.com"}}
 
 - Create a Gang
 
@@ -43,7 +43,7 @@ Validating use cases
      $ curl localhost:5000/api/v1/gang/ -X POST \
        --data @examples/json/create_gang.json \
        -H 'Content-Type: application/json'
-     {"name": "The best gang", "members": [], "created_raids": 0, "owner_id": 1, "id": 1}
+     {"message": "Gang created successfully", "gang": {"name": "The best gang", "members": [], "created_raids": 0, "owner_id": 1, "id": 1}}
 
 - Create a Raid
 
@@ -59,7 +59,7 @@ Validating use cases
   .. code-block:: console
 
      $ curl localhost:5000/api/v1/gang
-     {"gangs":[{"id":1,"name":"The best gang"},{"id":2,"name":"The best gang"}],"status":201}
+     {"message":"Sucess", "gangs":[{"id":1,"name":"The best gang"},{"id":2,"name":"The best gang"}]}
 
 Development Requirements
 ------------------------

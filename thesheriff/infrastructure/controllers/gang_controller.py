@@ -7,6 +7,7 @@ This module implements the RESTful part of the Gang use cases.
 """
 import inject
 from flask import Blueprint, jsonify, Response, request
+
 from thesheriff.application.gang.list_gangs import ListGangs
 from thesheriff.application.gang.request.create_gang_request import \
     CreateGangRequest
@@ -103,16 +104,17 @@ def gang_controller(
 
         return jsonify(message)
 
-    @blueprint_gang.route('/gang', methods=['GET', 'POST'])
-    def create_gang_endpoint() -> Response:
-        if request.method == 'GET':
-            results = list_gangs.execute()
-            gangs = list()
-            for res in results:
-                gangs.append(dict({'id': res.id, 'name': res.name}))
-            message = {'message': 'Success', 'gangs': gangs}
-            return jsonify(message)
+    @blueprint_gang.route('/gang', methods=['GET'])
+    def list_gangs_endpoint() -> Response:
+        results = list_gangs.execute()
+        gangs = list()
+        for res in results:
+            gangs.append(dict({'id': res.id, 'name': res.name}))
+        message = {'message': 'Success', 'gangs': gangs}
+        return jsonify(message)
 
+    @blueprint_gang.route('/gang', methods=['POST'])
+    def create_gang_endpoint() -> Response:
         data = request.json
         new_gang = data.get('gang')
 
@@ -123,7 +125,7 @@ def gang_controller(
         result = dict({'id': gang.id, 'name': gang.name,
                        'owner_id': gang.owner_id})
 
-        message = {'message': 'Gang successfully created', gang: result}
+        message = {'message': 'Gang successfully created', 'gang': result}
 
         return jsonify(message)
 

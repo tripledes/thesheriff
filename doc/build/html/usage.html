@@ -63,7 +63,7 @@ of the unit tests.</p></li>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/outlaw/ -X POST <span class="se">\</span>
   --data @examples/json/create_outlaw.json <span class="se">\</span>
   -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
-<span class="go">{&quot;message&quot;:&quot;Outlaw added successfully&quot;,&quot;status&quot;:201}</span>
+<span class="go"> {&quot;message&quot;: &quot;Outlaw created successfully&quot;, &quot;outlaw&quot;: {&quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Outlaw&quot;, &quot;email&quot;: &quot;outlaw@yopmail.com&quot;}}</span>
 </pre></div>
 </div>
 </li>
@@ -71,7 +71,7 @@ of the unit tests.</p></li>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang/ -X POST <span class="se">\</span>
   --data @examples/json/create_gang.json <span class="se">\</span>
   -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
-<span class="go">{&quot;name&quot;: &quot;The best gang&quot;, &quot;members&quot;: [], &quot;created_raids&quot;: 0, &quot;owner_id&quot;: 1, &quot;id&quot;: 1}</span>
+<span class="go">{&quot;message&quot;: &quot;Gang created successfully&quot;, &quot;gang&quot;: {&quot;name&quot;: &quot;The best gang&quot;, &quot;members&quot;: [], &quot;created_raids&quot;: 0, &quot;owner_id&quot;: 1, &quot;id&quot;: 1}}</span>
 </pre></div>
 </div>
 </li>
@@ -85,7 +85,7 @@ of the unit tests.</p></li>
 </li>
 <li><p>List all Gangs</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang
-<span class="go">{&quot;gangs&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;The best gang&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;The best gang&quot;}],&quot;status&quot;:201}</span>
+<span class="go">{&quot;message&quot;:&quot;Sucess&quot;, &quot;gangs&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;The best gang&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;The best gang&quot;}]}</span>
 </pre></div>
 </div>
 </li>
@@ -125,6 +125,7 @@ of the unit tests.</p></li>
 <h3>Navigation</h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">The Sheriff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#introduction">Introduction</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Sheriff Usage</a><ul>
@@ -182,7 +183,7 @@ of the unit tests.</p></li>
       &copy;2019, The Sheriff Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
