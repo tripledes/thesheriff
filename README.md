@@ -5,7 +5,7 @@
 ## Index
 
 * Documentation
-  * [Online](https://thesheriff.rtd.io)
+  * [Online](http://thesheriff.rtfd.io)
   * Offline:
     Open a web browser and point it to file:///path/to/thesheriff/root/directory/doc/build/html/index.html
 * [Usage](https://thesheriff.readthedocs.io/en/latest/usage.html)
