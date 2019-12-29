@@ -62,6 +62,53 @@ Validating use cases
      $ curl localhost:5000/api/v1/gang
      {"message":"Sucess", "gangs":[{"id":1,"name":"The best gang"},{"id":2,"name":"The best gang"}]}
 
+Tests
+-----
+
+This section is strongly related to the previous one. To validate the use cases, there have been
+developed a set of unit tests. These tests can be found in *tests* folder, in the root.
+
+The available tests are:
+
+- Create gang test
+
+- Create outlaw test
+
+- Create raid test
+
+- End raid test
+
+- List gangs test (from gang)
+
+- Grade raid test
+
+- Invite friends test
+
+- Join gang test
+
+- List friends test
+
+- List gangs test (from outlaw)
+
+- Rate raid test
+
+These tests use the next mocked objects (depending on the use case):
+
+- Mock gang repository
+
+- Mock mail notifier
+
+- Mock outlaw repository
+
+- Mock raid repository
+
+In general, these unit tests trigger a specific use case, injecting to it a mock repository or notifier,
+and passing it specific information through a request object.
+These mock repositories are necessary to hard-code information that should be received through
+these interfaces. This information is needed to fulfill the intended functionality or to conclude that
+the software is working properly.
+Finally, depending of which value is returned after executing the use case, the test pass or not.
+
 Development Requirements
 ------------------------
 

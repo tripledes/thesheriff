@@ -14,6 +14,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conclusions" href="conclusion.html" />
     <link rel="prev" title="The Sheriff Infrastructure" href="infrastructure.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -91,6 +92,38 @@ of the unit tests.</p></li>
 </li>
 </ul>
 </div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>This section is strongly related to the previous one. To validate the use cases, there have been
+developed a set of unit tests. These tests can be found in <em>tests</em> folder, in the root.</p>
+<p>The available tests are:</p>
+<ul class="simple">
+<li><p>Create gang test</p></li>
+<li><p>Create outlaw test</p></li>
+<li><p>Create raid test</p></li>
+<li><p>End raid test</p></li>
+<li><p>List gangs test (from gang)</p></li>
+<li><p>Grade raid test</p></li>
+<li><p>Invite friends test</p></li>
+<li><p>Join gang test</p></li>
+<li><p>List friends test</p></li>
+<li><p>List gangs test (from outlaw)</p></li>
+<li><p>Rate raid test</p></li>
+</ul>
+<p>These tests use the next mocked objects (depending on the use case):</p>
+<ul class="simple">
+<li><p>Mock gang repository</p></li>
+<li><p>Mock mail notifier</p></li>
+<li><p>Mock outlaw repository</p></li>
+<li><p>Mock raid repository</p></li>
+</ul>
+<p>In general, these unit tests trigger a specific use case, injecting to it a mock repository or notifier,
+and passing it specific information through a request object.
+These mock repositories are necessary to hard-code information that should be received through
+these interfaces. This information is needed to fulfill the intended functionality or to conclude that
+the software is working properly.
+Finally, depending of which value is returned after executing the use case, the test pass or not.</p>
+</div>
 <div class="section" id="development-requirements">
 <h2>Development Requirements<a class="headerlink" href="#development-requirements" title="Permalink to this headline">¶</a></h2>
 <p>To hack on the application, the following tools are required:</p>
@@ -141,9 +174,13 @@ of the unit tests.</p></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Sheriff Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#runtime-requirements">Runtime Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#validating-use-cases">Validating use cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests">Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#development-requirements">Development Requirements</a></li>
 </ul>
 </li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusions</a></li>
 </ul>
 
 
@@ -158,6 +195,7 @@ of the unit tests.</p></li>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="infrastructure.html" title="previous chapter">The Sheriff Infrastructure</a></li>
+      <li>Next: <a href="conclusion.html" title="next chapter">Conclusions</a></li>
   </ul></li>
 </ul>
 </div>
