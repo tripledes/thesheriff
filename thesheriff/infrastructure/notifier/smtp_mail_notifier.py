@@ -1,6 +1,5 @@
 import smtplib
 import ssl
-
 from thesheriff.domain.mail.mail import Mail
 from thesheriff.domain.mail.mail_factory import MailFactory
 from thesheriff.domain.mail.notifier.mail_notifier import MailNotifier

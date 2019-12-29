@@ -1,7 +1,5 @@
 import abc
-
 from thesheriff.domain.mail.mail import Mail
-from thesheriff.domain.mail.mail_factory import MailFactory
 
 
 class MailNotifier(abc.ABC):

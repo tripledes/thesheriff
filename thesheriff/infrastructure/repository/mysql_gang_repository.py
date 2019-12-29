@@ -72,7 +72,6 @@ class MySQLGangRepository(GangRepository):
         :return: The persisted Gang.
         :rtype: Gang
         """
-        # FIXME(all): Use GangFactory to return the new Gang
         query = self.__gang_table.insert()\
             .values(owner_id=new_gang.owner_id, name=new_gang.name)
         result = self.__connection.execute(query)

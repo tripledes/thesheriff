@@ -8,17 +8,13 @@ class OutlawRepository(abc.ABC):
     implementations will behave.
     """
 
-    def __init__(self):
-        self.__outlaw = None
-
     @abc.abstractmethod
     def of_id(self, outlaw_id: int) -> Outlaw:
-        return self.__outlaw
+        pass
 
     @abc.abstractmethod
     def add(self, new_outlaw: Outlaw) -> Outlaw:
-        self.__outlaw = new_outlaw
-        return self.__outlaw
+        pass
 
     @abc.abstractmethod
     def update(self, mod_outlaw: Outlaw) -> NoReturn:

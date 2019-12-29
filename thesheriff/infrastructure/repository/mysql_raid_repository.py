@@ -22,6 +22,10 @@ class MySQLRaidRepository(RaidRepository):
 
     :param database_uri: URI for connecting to MySQL
     :type database_uri: String
+    :param meta: MetaData object shared across all MySQL repositories.
+    :type meta: sqlalchemy.MetaData
+    :param outlaw_table: Table object, represents the Raid table in MySQL.
+    :type outlaw_table: sqlalchemy.Table
     """
 
     def __init__(self, database_uri: str, meta: MetaData, raid_table: Table):
@@ -38,8 +42,6 @@ class MySQLRaidRepository(RaidRepository):
         :return: The Raid matching raid_id.
         :rtype: Raid
         """
-        # FIXME(all) need to create Gang and List[Outlaw]
-        # for returning a complete Raid
         query = self.__raid_table.select().where(
             self.__raid_table.c.id == raid_id)
         result = self.__connection.execute(query)
@@ -110,7 +112,7 @@ class MySQLRaidRepository(RaidRepository):
         :return: No returned value.
         :rtype: NoReturn
         """
-        # TODO(tripledes): Add justification for this method
+        # TODO(all): Add justification for this method
         # to the documentation
         string_rates = self.__join_rates(raid.rates)
         query = self.__raid_table.update().where(
