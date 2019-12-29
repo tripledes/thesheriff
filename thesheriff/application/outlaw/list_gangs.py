@@ -1,4 +1,7 @@
 import inject
+
+from thesheriff.application.outlaw.request.list_gangs_request import \
+    ListGangsRequest
 from thesheriff.domain.gang.gang import Gang
 from thesheriff.domain.gang.repository.gang_repository import GangRepository
 from typing import List
@@ -15,11 +18,11 @@ class ListGangs:
     def __init__(self, gang_repository: GangRepository):
         self.__gang_repository = gang_repository
 
-    def execute(self, outlaw_id: int) -> List[Gang]:
+    def execute(self, request: ListGangsRequest) -> List[Gang]:
         """execute is the actual action of the List Gangs use case.
 
-        :param outlaw_id: ID of the Outlaw performing the action.
-        :type outlaw_id: Integer
+        :param request: request object holding data to perform the action.
+        :type request: ListGangsRequest
         :return: The list of gangs.
         :rtype: List[Gang]
         """
@@ -29,7 +32,7 @@ class ListGangs:
 
         for gang in all_gangs:
             for outlaw in gang.members:
-                if outlaw_id == outlaw.id:
+                if request.outlaw_id == outlaw.id:
                     gangs.append(gang)
 
         return gangs

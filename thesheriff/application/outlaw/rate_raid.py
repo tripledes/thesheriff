@@ -1,5 +1,8 @@
 import inject
 from typing import NoReturn
+
+from thesheriff.application.raid.request.rate_raid_request import \
+    RateRaidRequest
 from thesheriff.domain.raid.repository.raid_repository import RaidRepository
 from thesheriff.domain.outlaw.repository.outlaw_repository import \
     OutlawRepository
@@ -24,25 +27,21 @@ class RateRaid:
         self.__outlaw_repository = outlaw_repository
 
     def execute(
-            self, raid_id: int, outlaw_id: int, score: Score
+            self, request: RateRaidRequest
     ) -> NoReturn:
         """execute is the actual action of the Raid rating use case.
 
-        :param raid_id: ID of the Raid to be rated
-        :type raid_id: Integer
-        :param outlaw_id: ID of the Outlaw performing the action.
-        :type outlaw_id: Integer
-        :param score: Raid's score.
-        :type score: Score
+        :param request: the RateRaidRequest holding all the data
+        :type request: RateRaidRequest
         :return: No value returned.
         :rtype: NoReturn
         """
-        outlaw = self.__outlaw_repository.of_id(outlaw_id)
-        raid = self.__raid_repository.of_id(raid_id)
+        outlaw = self.__outlaw_repository.of_id(request.outlaw_id)
+        raid = self.__raid_repository.of_id(request.raid_id)
 
         if outlaw:
-            raid.add_rate(score.value())
+            raid.add_rate(request.score.value())
             self.__raid_repository.update_rates(raid)
             return
 
-        raise Exception("No outlaw found with Id", outlaw_id)
+        raise Exception("No outlaw found with Id", request.outlaw_id)

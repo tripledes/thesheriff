@@ -11,25 +11,25 @@ class MailFactory:
     APPLICATION_MAIL = "thesheriff321123@gmail.com"
 
     @staticmethod
-    def mail_invite_friend(sender: str, receiver: str) -> Mail:
+    def mail_invite_friend(sender_mail: str, receiver_mail: str) -> Mail:
         """Method mail_invite_friend builds the email body for sending
         invitations to join The Sheriff.
 
-        :param sender: FROM address on the email.
-        :type sender: String
-        :param receiver: TO address on the email.
-        :type receiver: String
+        :param sender_mail: FROM address on the email.
+        :type sender_mail: String
+        :param receiver_mail: TO address on the email.
+        :type receiver_mail: String
         """
-        if not sender:
+        if not sender_mail:
             raise Exception('User address needed to send an invitation')
-        if not receiver:
+        if not receiver_mail:
             raise Exception('Destination address needed to send an invitation')
 
-        content = "Hello dear " + str(receiver) + "!\n " \
+        content = "Hello dear " + str(receiver_mail) + "!\n " \
             "Do you want to join this awesome game?" + \
             "Come on!"
 
-        return Mail(sender=sender, receiver=receiver, content=content)
+        return Mail(sender_mail, receiver_mail, content)
 
     @staticmethod
     def mail_raid_finished(raid: Raid, raid_score: int) -> Mail:

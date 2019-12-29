@@ -1,5 +1,7 @@
 import inject
 
+from thesheriff.application.raid.request.grade_raid_request import \
+    GradeRaidRequest
 from thesheriff.domain.outlaw.repository.outlaw_repository import \
     OutlawRepository
 from thesheriff.domain.raid.repository.raid_repository import RaidRepository
@@ -18,15 +20,15 @@ class GradeRaid:
         self.__raid_repository = raid_repository
         self.__outlaw_repository = outlaw_repository
 
-    def execute(self, raid_id: int) -> float:
+    def execute(self, request: GradeRaidRequest) -> float:
         """execute is the actual action of the Grade a Raid use case.
 
-        :param raid_id: Id of Raid entity to be graded.
-        :type raid_id: Raid id
+        :param request: Id of Raid entity to be graded.
+        :type request: a GradeRaidRequest
         :return: The raid grade.
         :rtype: Float
         """
-        raid = self.__raid_repository.of_id(raid_id=raid_id)
+        raid = self.__raid_repository.of_id(request.raid_id)
 
         grade = 0.0
         total = 0.0

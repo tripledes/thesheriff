@@ -13,6 +13,10 @@ from thesheriff.application.raid.grade_raid import GradeRaid
 from thesheriff.application.raid.request.create_raid_request import \
     CreateRaidRequest
 from thesheriff.application.raid.request.end_raid_request import EndRaidRequest
+from thesheriff.application.raid.request.grade_raid_request import \
+    GradeRaidRequest
+from thesheriff.application.raid.request.rate_raid_request import \
+    RateRaidRequest
 from thesheriff.domain.outlaw.score import Score
 
 
@@ -125,7 +129,7 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid,
         outlaw_id = data.get('outlaw_id')
         rate = data.get('rate')
         score = Score(**rate)
-        rate_raid.execute(raid_id, outlaw_id, score)
+        rate_raid.execute(RateRaidRequest(raid_id, outlaw_id, score))
 
         message = {'message': 'Raid rated successfully'}
 
@@ -143,11 +147,8 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid,
         :rtype: Response
         """
 
-        grade = grade_raid.execute(raid_id)
-
-        end_raid_request = EndRaidRequest(raid_id, grade)
-
-        score_result = end_raid.execute(end_raid_request)
+        grade = grade_raid.execute(GradeRaidRequest(raid_id))
+        score_result = end_raid.execute(EndRaidRequest(raid_id, grade))
 
         message = {'message': 'raid finished successfully',
                    'score': score_result}

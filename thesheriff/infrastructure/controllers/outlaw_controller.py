@@ -13,6 +13,12 @@ from thesheriff.application.outlaw.list_friends import ListFriends
 from thesheriff.application.outlaw.list_gangs import ListGangs
 from thesheriff.application.outlaw.request.create_outlaw_request import \
     CreateOutlawRequest
+from thesheriff.application.outlaw.request.invite_friend_request import \
+    InviteFriendRequest
+from thesheriff.application.outlaw.request.list_friends_request import \
+    ListFriendsRequest
+from thesheriff.application.outlaw.request.list_gangs_request import \
+    ListGangsRequest
 
 
 @inject.autoparams()
@@ -111,7 +117,7 @@ def outlaw_controller(
 
       .. code-block:: console
 
-         $ curl localhost:5000/api/<version>/outlaw/invite_friend/ \\
+         $ curl localhost:5000/api/<version>/outlaw/1/invite_friend/ \\
             -X POST --data @examples/json/invite_friend.json \\
             -H 'Content-Type: application/json'
 
@@ -143,7 +149,7 @@ def outlaw_controller(
 
     @blueprint_outlaw.route('/outlaw/<int:outlaw_id>/friends', methods=['GET'])
     def get_friends_endpoint(outlaw_id: int) -> Response:
-        friends = list_friends.execute(outlaw_id)
+        friends = list_friends.execute(ListFriendsRequest(outlaw_id))
         result = list()
         for friend in friends:
             result.append(
@@ -156,7 +162,7 @@ def outlaw_controller(
 
     @blueprint_outlaw.route('/outlaw/<int:outlaw_id>/gangs', methods=['GET'])
     def get_gangs_endpoint(outlaw_id: int) -> Response:
-        outlaw_gangs = list_gangs.execute(outlaw_id)
+        outlaw_gangs = list_gangs.execute(ListGangsRequest(outlaw_id))
         result = list()
         for gang in outlaw_gangs:
             result.append(
@@ -167,11 +173,12 @@ def outlaw_controller(
 
         return jsonify(message)
 
-    @blueprint_outlaw.route("/outlaw/invite_friend/", methods=['POST'])
-    def invite_friend_endpoint() -> Response:
+    @blueprint_outlaw.route("/outlaw/<int:outlaw_id>/invite_friend/",
+                            methods=['POST'])
+    def invite_friend_endpoint(outlaw_id: int) -> Response:
         data = request.get_json()
         mail_address = data.get('receiver_mail_address')
-        invite_friend.execute(mail_address)
+        invite_friend.execute(InviteFriendRequest(outlaw_id, mail_address))
         message = {'message': 'Invitation sent successfully'}
         return jsonify(message)
 

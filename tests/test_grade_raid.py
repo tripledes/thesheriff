@@ -1,10 +1,11 @@
 from tests.mocks.mock_outlaw_repository import MockOutlawRepository
 from tests.mocks.mock_raid_repository import MockRaidRepository
 from thesheriff.application.raid.grade_raid import GradeRaid
+from thesheriff.application.raid.request.grade_raid_request import \
+    GradeRaidRequest
 from thesheriff.domain.gang.gang import Gang
-from thesheriff.domain.raid.raid import Raid
-from thesheriff.domain.outlaw.outlaw import Outlaw
 from thesheriff.domain.outlaw.sheriff import Sheriff
+from thesheriff.domain.raid.raid import Raid
 
 
 def test_grade_raid():
@@ -27,7 +28,8 @@ def test_grade_raid():
 
     outlaw_repository = MockOutlawRepository()
 
-    result = GradeRaid(raid_repository, outlaw_repository).execute(1)
+    request = GradeRaidRequest(raid_id=1)
+    result = GradeRaid(raid_repository, outlaw_repository).execute(request)
 
     assert 8.5 == result
     assert 30.5 == sheriff.get_score()
