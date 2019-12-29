@@ -11,6 +11,7 @@
 * [Usage](https://thesheriff.readthedocs.io/en/latest/usage.html)
 * [Technologies](https://thesheriff.readthedocs.io/en/latest/technologies.html)
 * [Design](https://thesheriff.readthedocs.io/en/latest/design.html)
+* [Development methodology](https://thesheriff.readthedocs.io/en/latest/methodology.html)
 * [API Documentation](https://thesheriff.readthedocs.io/en/latest/index.html#api-documentation)
 * [Code](thesheriff/)
 * [Tests](tests/)
