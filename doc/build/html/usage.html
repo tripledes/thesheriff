@@ -14,8 +14,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Design" href="design.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" />
+    <link rel="prev" title="The Sheriff Infrastructure" href="infrastructure.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -34,21 +33,22 @@
             
   <div class="section" id="the-sheriff-usage">
 <h1>The Sheriff Usage<a class="headerlink" href="#the-sheriff-usage" title="Permalink to this headline">¶</a></h1>
-<p>The project includes a <em>Makefile</em> with the following targets:</p>
-<ul class="simple">
-<li><p><strong>run</strong>: cleans previously built images and runs the stack,
-the application and the DB.</p></li>
-<li><p><strong>lint</strong>: runs <em>pycodestyle</em> over the <em>thesheriff</em> directory
-and reports any linting problems on the code.</p></li>
-<li><p><strong>tests</strong>: runs <em>pytest</em> and reports the results
-of the unit tests.</p></li>
-</ul>
 <div class="section" id="runtime-requirements">
 <h2>Runtime Requirements<a class="headerlink" href="#runtime-requirements" title="Permalink to this headline">¶</a></h2>
 <p>To run and validate the application locally, the following tools are required:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a></p></li>
 <li><p><a class="reference external" href="https://curl.haxx.se/">Curl</a></p></li>
+<li><p><a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a></p></li>
+</ul>
+<p>The project includes a <em>Makefile</em> with the following targets:</p>
+<ul class="simple">
+<li><p><strong>run</strong>: cleans previously built images and runs the stack,
+the application and the DB.</p></li>
+<li><p><strong>lint</strong>: runs <em>pycodestyle</em> over the <em>thesheriff</em> and tests directories,
+and reports any linting problems on the code.</p></li>
+<li><p><strong>tests</strong>: runs <em>pytest</em> and reports the results
+of the unit tests.</p></li>
 </ul>
 </div>
 <div class="section" id="validating-use-cases">
@@ -126,6 +126,17 @@ of the unit tests.</p></li>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">The Sheriff Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">The Sheriff Domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>
+</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Sheriff Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#runtime-requirements">Runtime Requirements</a></li>
@@ -133,17 +144,6 @@ of the unit tests.</p></li>
 <li class="toctree-l2"><a class="reference internal" href="#development-requirements">Development Requirements</a></li>
 </ul>
 </li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="application.html">The Sheriff Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="domain.html">The Sheriff Domain</a></li>
-<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>
 </ul>
 
 
@@ -157,8 +157,7 @@ of the unit tests.</p></li>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
-      <li>Next: <a href="design.html" title="next chapter">Design</a></li>
+      <li>Previous: <a href="infrastructure.html" title="previous chapter">The Sheriff Infrastructure</a></li>
   </ul></li>
 </ul>
 </div>

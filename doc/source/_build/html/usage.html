@@ -14,8 +14,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The Sheriff Infrastructure" href="infrastructure.html" />
-    <link rel="prev" title="Welcome to The Sheriff’s documentation!" href="index.html" />
+    <link rel="prev" title="The Sheriff Infrastructure" href="infrastructure.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -34,35 +33,63 @@
             
   <div class="section" id="the-sheriff-usage">
 <h1>The Sheriff Usage<a class="headerlink" href="#the-sheriff-usage" title="Permalink to this headline">¶</a></h1>
-<p>The project includes a <em>Makefile</em> with the following targets:</p>
-<ul class="simple">
-<li><p><strong>run</strong>: cleans previously built images and runs the stack,
-the application and the DB.</p></li>
-<li><p><strong>lint</strong>: runs <em>pycodestyle</em> over the <em>thesheriff</em> directory
-and reports any linting problems on the code.</p></li>
-<li><p><strong>tests</strong>: runs <em>pytest</em> and reports the results
-of the unit tests.</p></li>
-</ul>
 <div class="section" id="runtime-requirements">
 <h2>Runtime Requirements<a class="headerlink" href="#runtime-requirements" title="Permalink to this headline">¶</a></h2>
 <p>To run and validate the application locally, the following tools are required:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a></p></li>
 <li><p><a class="reference external" href="https://curl.haxx.se/">Curl</a></p></li>
+<li><p><a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a></p></li>
+</ul>
+<p>The project includes a <em>Makefile</em> with the following targets:</p>
+<ul class="simple">
+<li><p><strong>run</strong>: cleans previously built images and runs the stack,
+the application and the DB.</p></li>
+<li><p><strong>lint</strong>: runs <em>pycodestyle</em> over the <em>thesheriff</em> and tests directories,
+and reports any linting problems on the code.</p></li>
+<li><p><strong>tests</strong>: runs <em>pytest</em> and reports the results
+of the unit tests.</p></li>
 </ul>
 </div>
 <div class="section" id="validating-use-cases">
 <h2>Validating use cases<a class="headerlink" href="#validating-use-cases" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Create an Outlaw</p></li>
-</ul>
-<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/outlaw/ -X POST <span class="se">\</span>
-     --data @examples/json/create_outlaw.json -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
-<span class="go">{&quot;message&quot;:&quot;Outlaw added successfully&quot;,&quot;status&quot;:201}</span>
+<ul>
+<li><p>Start the stack</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make run
 </pre></div>
-</td></tr></table></div>
+</div>
+</li>
+<li><p>Create an Outlaw</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/outlaw/ -X POST <span class="se">\</span>
+  --data @examples/json/create_outlaw.json <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<span class="go"> {&quot;message&quot;: &quot;Outlaw created successfully&quot;, &quot;outlaw&quot;: {&quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Outlaw&quot;, &quot;email&quot;: &quot;outlaw@yopmail.com&quot;}}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a Gang</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang/ -X POST <span class="se">\</span>
+  --data @examples/json/create_gang.json <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+<span class="go">{&quot;message&quot;: &quot;Gang created successfully&quot;, &quot;gang&quot;: {&quot;name&quot;: &quot;The best gang&quot;, &quot;members&quot;: [], &quot;created_raids&quot;: 0, &quot;owner_id&quot;: 1, &quot;id&quot;: 1}}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a Raid</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl http://localhost:5000/api/v1/raid -X POST <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+  --data @examples/json/create_raid.json
+<span class="go">  {&quot;message&quot;:&quot;Raid created successfully&quot;,&quot;raid&quot;:{&quot;id&quot;:1,&quot;name&quot;:&quot;Asalto 1&quot;}}</span>
+</pre></div>
+</div>
+</li>
+<li><p>List all Gangs</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang
+<span class="go">{&quot;message&quot;:&quot;Sucess&quot;, &quot;gangs&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;The best gang&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;The best gang&quot;}]}</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 <div class="section" id="development-requirements">
 <h2>Development Requirements<a class="headerlink" href="#development-requirements" title="Permalink to this headline">¶</a></h2>
@@ -83,6 +110,9 @@ of the unit tests.</p></li>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
 <h1 class="logo"><a href="index.html">The Sheriff</a></h1>
 
 
@@ -93,6 +123,20 @@ of the unit tests.</p></li>
 
 
 <h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">The Sheriff Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">The Sheriff Domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>
+</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Sheriff Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#runtime-requirements">Runtime Requirements</a></li>
@@ -100,9 +144,6 @@ of the unit tests.</p></li>
 <li class="toctree-l2"><a class="reference internal" href="#development-requirements">Development Requirements</a></li>
 </ul>
 </li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>
 </ul>
 
 
@@ -116,8 +157,7 @@ of the unit tests.</p></li>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to The Sheriff’s documentation!</a></li>
-      <li>Next: <a href="infrastructure.html" title="next chapter">The Sheriff Infrastructure</a></li>
+      <li>Previous: <a href="infrastructure.html" title="previous chapter">The Sheriff Infrastructure</a></li>
   </ul></li>
 </ul>
 </div>

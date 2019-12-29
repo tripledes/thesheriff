@@ -15,7 +15,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="The Sheriff Domain" href="domain.html" />
-    <link rel="prev" title="Tools" href="tools.html" />
+    <link rel="prev" title="Technologies" href="technologies.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -35,7 +35,7 @@
   <div class="section" id="module-thesheriff.application">
 <span id="the-sheriff-application"></span><span id="application"></span><h1>The Sheriff Application<a class="headerlink" href="#module-thesheriff.application" title="Permalink to this headline">¶</a></h1>
 <p>This part of the documentation covers all interfaces on
-thesheriff.application module.</p>
+<em>thesheriff.application</em> module.</p>
 <div class="section" id="gang">
 <h2>Gang<a class="headerlink" href="#gang" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="module-thesheriff.application.gang.list_gangs"><span id="gang-list-gangs"></span></span><dl class="class">
@@ -168,7 +168,7 @@ thesheriff.application module.</p>
 <dd><p>execute is the actual action of the Invite Friend use case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> (<em>InviteFriendRequest</em>) – The address to write on the TO field.</p>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.outlaw.request.invite_friend_request.InviteFriendRequest" title="thesheriff.application.outlaw.request.invite_friend_request.InviteFriendRequest"><em>InviteFriendRequest</em></a>) – The address to write on the TO field.</p>
 </dd>
 <dt class="field-even">Return mail</dt>
 <dd class="field-even"><p>Mail.</p>
@@ -227,7 +227,7 @@ thesheriff.application module.</p>
 <dd><p>execute is the actual action of the List Outlaw’s Friends use case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> (<em>ListFriendsRequest</em>) – object holding the data to retrieve outlaw’s friends.</p>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.outlaw.request.list_friends_request.ListFriendsRequest" title="thesheriff.application.outlaw.request.list_friends_request.ListFriendsRequest"><em>ListFriendsRequest</em></a>) – object holding the data to retrieve outlaw’s friends.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The list of friends.</p>
@@ -255,7 +255,7 @@ thesheriff.application module.</p>
 <dd><p>execute is the actual action of the List Gangs use case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> (<em>ListGangsRequest</em>) – request object holding data to perform the action.</p>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.outlaw.request.list_gangs_request.ListGangsRequest" title="thesheriff.application.outlaw.request.list_gangs_request.ListGangsRequest"><em>ListGangsRequest</em></a>) – request object holding data to perform the action.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The list of gangs.</p>
@@ -286,7 +286,7 @@ thesheriff.application module.</p>
 <dd><p>execute is the actual action of the Raid rating use case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> (<em>RateRaidRequest</em>) – the RateRaidRequest holding all the data</p>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.raid.request.rate_raid_request.RateRaidRequest" title="thesheriff.application.raid.request.rate_raid_request.RateRaidRequest"><em>RateRaidRequest</em></a>) – the RateRaidRequest holding all the data</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>No value returned.</p>
@@ -309,6 +309,43 @@ thesheriff.application module.</p>
 <li><p><strong>name</strong> (<em>String</em>) – Outlaw’s given name.</p></li>
 <li><p><strong>email</strong> (<em>String</em>) – Outlaw’s email.</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.request.invite_friend_request"><span id="invite-friend-request"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.request.invite_friend_request.InviteFriendRequest">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.request.invite_friend_request.</code><code class="sig-name descname">InviteFriendRequest</code><span class="sig-paren">(</span><em class="sig-param">outlaw_id: int</em>, <em class="sig-param">mail_address_receiver: str</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.request.invite_friend_request.InviteFriendRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class InviteFriendRequest holds data required to invite an Outlaw’s
+friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outlaw_id</strong> (<em>int</em>) – Outlaw’s id.</p></li>
+<li><p><strong>mail_address_receiver</strong> (<em>str</em>) – friend’s email</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.request.list_friends_request"><span id="list-friends-request"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.request.list_friends_request.ListFriendsRequest">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.request.list_friends_request.</code><code class="sig-name descname">ListFriendsRequest</code><span class="sig-paren">(</span><em class="sig-param">outlaw_id: int</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.request.list_friends_request.ListFriendsRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class ListFriendsRequest holds data required to get Outlaw’s friends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outlaw_id</strong> (<em>int</em>) – Outlaw’s id.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.outlaw.request.list_gangs_request"><span id="outlaw-list-gangs-request"></span></span><dl class="class">
+<dt id="thesheriff.application.outlaw.request.list_gangs_request.ListGangsRequest">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.outlaw.request.list_gangs_request.</code><code class="sig-name descname">ListGangsRequest</code><span class="sig-paren">(</span><em class="sig-param">outlaw_id: int</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.outlaw.request.list_gangs_request.ListGangsRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class ListGangsRequest holds data required to get Outlaw’s gangs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outlaw_id</strong> (<em>int</em>) – Outlaw’s id.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -363,7 +400,7 @@ thesheriff.application module.</p>
 <dd><p>execute is the actual action of the End a Raid use case.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> (<em>EndRaidRequest</em>) – Request holding the Raid details to be ended.</p>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#thesheriff.application.raid.request.end_raid_request.EndRaidRequest" title="thesheriff.application.raid.request.end_raid_request.EndRaidRequest"><em>EndRaidRequest</em></a>) – Request holding the Raid details to be ended.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Message with scores.</p>
@@ -422,6 +459,46 @@ thesheriff.application module.</p>
 </dl>
 </dd></dl>
 
+<span class="target" id="module-thesheriff.application.raid.request.end_raid_request"><span id="end-raid-request"></span></span><dl class="class">
+<dt id="thesheriff.application.raid.request.end_raid_request.EndRaidRequest">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.raid.request.end_raid_request.</code><code class="sig-name descname">EndRaidRequest</code><span class="sig-paren">(</span><em class="sig-param">raid_id: int</em>, <em class="sig-param">raid_score: float</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.raid.request.end_raid_request.EndRaidRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class EndRaidRequest holds data required to end a Raid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raid_id</strong> (<em>Integer</em>) – Id of the Raid to be ended.</p></li>
+<li><p><strong>raid_score</strong> (<em>Float</em>) – Score assigned to the Raid.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.raid.request.grade_raid_request"><span id="grade-raid-request"></span></span><dl class="class">
+<dt id="thesheriff.application.raid.request.grade_raid_request.GradeRaidRequest">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.raid.request.grade_raid_request.</code><code class="sig-name descname">GradeRaidRequest</code><span class="sig-paren">(</span><em class="sig-param">raid_id: int</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.raid.request.grade_raid_request.GradeRaidRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class GradeRaidRequest holds data required to grade a Raid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raid_id</strong> (<em>Integer</em>) – Id of the Raid to be ended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-thesheriff.application.raid.request.rate_raid_request"><span id="rate-raid-request"></span></span><dl class="class">
+<dt id="thesheriff.application.raid.request.rate_raid_request.RateRaidRequest">
+<em class="property">class </em><code class="sig-prename descclassname">thesheriff.application.raid.request.rate_raid_request.</code><code class="sig-name descname">RateRaidRequest</code><span class="sig-paren">(</span><em class="sig-param">raid_id: int</em>, <em class="sig-param">outlaw_id: int</em>, <em class="sig-param">score: thesheriff.domain.outlaw.score.Score</em><span class="sig-paren">)</span><a class="headerlink" href="#thesheriff.application.raid.request.rate_raid_request.RateRaidRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class RateRaidRequest holds data required to rate a Raid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raid_id</strong> (<em>Integer</em>) – Id of the Raid to be ended.</p></li>
+<li><p><strong>outlaw_id</strong> (<em>Integer</em>) – Id of the Outlaw performing the rate.</p></li>
+<li><p><strong>score</strong> (<a class="reference internal" href="domain.html#thesheriff.domain.outlaw.score.Score" title="thesheriff.domain.outlaw.score.Score"><em>Score</em></a>) – the Outlaw’s score rating.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 
@@ -449,13 +526,10 @@ thesheriff.application module.</p>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">The Sheriff Usage</a></li>
-</ul>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Sheriff Application</a><ul>
@@ -466,6 +540,9 @@ thesheriff.application module.</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="domain.html">The Sheriff Domain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">The Sheriff Usage</a></li>
 </ul>
 
 
@@ -479,7 +556,7 @@ thesheriff.application module.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="tools.html" title="previous chapter">Tools</a></li>
+      <li>Previous: <a href="technologies.html" title="previous chapter">Technologies</a></li>
       <li>Next: <a href="domain.html" title="next chapter">The Sheriff Domain</a></li>
   </ul></li>
 </ul>

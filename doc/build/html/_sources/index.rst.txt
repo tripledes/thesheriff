@@ -3,42 +3,42 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to The Sheriff's documentation!
-=======================================
+=================================
+Welcome to The Sheriff's Project!
+=================================
 
-
+The Sheriff Documentation
+=========================
 
 Introduction
-============
+------------
 
 This part of the documentation is intended to birefly introduce
 The Sheriff application.
 
 .. toctree::
+   :maxdepth: 2
+
    introduction
 
-Functionality - Application usage
-=================================
-
-Here's all you need to run and test The Sheriff application.
-
-.. toctree::
-    usage
-
 Design
-======
+------
 
 .. toctree::
+   :maxdepth: 2
+
    design
 
-Tools
-=====
+Technologies
+------------
 
 .. toctree::
-    tools
+   :maxdepth: 2
 
-The API Documentation
-=====================
+   technologies
+
+API Documentation
+-----------------
 
 If you are looking for information on a specific function, class, or method,
 this part of the documentation is for you.
@@ -49,3 +49,14 @@ this part of the documentation is for you.
    application
    domain
    infrastructure
+
+
+Functionality - Application usage
+=================================
+
+Here's all you need to run and test The Sheriff application.
+
+.. toctree::
+   :maxdepth: 2
+
+   usage

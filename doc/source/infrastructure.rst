@@ -5,7 +5,7 @@ The Sheriff Infrastructure
 .. module:: thesheriff.infrastructure
 
 This part of the documentation covers all interfaces on
-thesheriff.infrastructure module.
+*thesheriff.infrastructure* package.
 
 Controllers
 -----------
@@ -13,12 +13,15 @@ Controllers
 .. _gang_controller:
 .. automodule:: thesheriff.infrastructure.controllers.gang_controller
    :members:
+   :undoc-members:
 .. _outlaw_controller:
 .. automodule:: thesheriff.infrastructure.controllers.outlaw_controller
    :members:
+   :undoc-members:
 .. _raid_controller:
 .. automodule:: thesheriff.infrastructure.controllers.raid_controller
    :members:
+   :undoc-members:
 
 Repositories
 ------------
@@ -27,14 +30,17 @@ Repositories
 .. module:: thesheriff.infrastructure.repository.mysql_gang_repository
 .. autoclass:: MySQLGangRepository
    :members:
+   :undoc-members:
 .. _mysql_outlaw_repository:
 .. module:: thesheriff.infrastructure.repository.mysql_outlaw_repository
 .. autoclass:: MySQLOutlawRepository
    :members:
+   :undoc-members:
 .. _mysql_raid_repository:
 .. module:: thesheriff.infrastructure.repository.mysql_raid_repository
 .. autoclass:: MySQLRaidRepository
    :members:
+   :undoc-members:
 
 Notifiers
 ---------

@@ -1,15 +1,6 @@
 The Sheriff Usage
 =================
 
-The project includes a *Makefile* with the following targets:
-
-- **run**: cleans previously built images and runs the stack,
-  the application and the DB.
-- **lint**: runs *pycodestyle* over the *thesheriff* directory
-  and reports any linting problems on the code.
-- **tests**: runs *pytest* and reports the results
-  of the unit tests.
-
 Runtime Requirements
 --------------------
 
@@ -17,6 +8,16 @@ To run and validate the application locally, the following tools are required:
 
 - `Docker Compose <https://docs.docker.com/compose/>`_
 - `Curl <https://curl.haxx.se/>`_
+- `GNU Make <https://www.gnu.org/software/make/>`_
+
+The project includes a *Makefile* with the following targets:
+
+- **run**: cleans previously built images and runs the stack,
+  the application and the DB.
+- **lint**: runs *pycodestyle* over the *thesheriff* and tests directories,
+  and reports any linting problems on the code.
+- **tests**: runs *pytest* and reports the results
+  of the unit tests.
 
 Validating use cases
 --------------------

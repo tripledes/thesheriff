@@ -14,8 +14,8 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tools" href="tools.html" />
-    <link rel="prev" title="The Sheriff Usage" href="usage.html" />
+    <link rel="next" title="Technologies" href="technologies.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -35,65 +35,90 @@
   <div class="section" id="design">
 <h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="_images/thesheriff_class_diagram.png"><img alt="class diagram example" src="_images/thesheriff_class_diagram.png" style="width: 900.0px; height: 450.0px;" /></a>
-<p>In the design stage of <em>The Sheriff</em> application, it was figured out that the best architecture style to start
-building the project was the <strong>Hexagonal Architecture</strong>.</p>
+<p>In the design stage of <em>The Sheriff</em> application, it was figured out that
+the best architecture style to start building the project was
+the <strong>Hexagonal Architecture</strong>.</p>
 <p>This decision was taken for three main reasons:</p>
 <ul class="simple">
-<li><p>Is the one and only style practiced in class. (The others will be taught in other subjects in the future)</p></li>
-<li><p>The requirements of the application can be easily split in different layers: Use cases are very clear, model objects can be easily distinguished and finally is mentioned that there will have to be used some mail and database services that can be located in an outer layer.</p></li>
-<li><p>It is easy to maintain due to the aforementioned modularity and because of this outer layer named infrastructure can be replaced in an straightforward way.</p></li>
+<li><p>Is the one and only style practiced in class.
+(The others will be taught in other subjects in the future)</p></li>
+<li><p>The requirements of the application can be easily split in different layers:
+Use cases are very clear, model objects can be easily distinguished
+and finally is mentioned that there will have to be used some mail
+and database services that can be located in an outer layer.</p></li>
+<li><p>It is easy to maintain due to the aforementioned modularity
+and because of this outer layer named infrastructure can be
+replaced in an straightforward way.</p></li>
 </ul>
-<p>Effectively, in the next lines is going to be explained what exactly is this architecture. Later, the design decisions
-and the patterns taken, and finally, some problems that have forced the team to, at least, discuss their initial approach.</p>
+<p>Effectively, in the next lines is going to be explained what exactly
+is this architecture. Later, the design decisions and the patterns
+taken, and finally, some problems that have forced the team
+to, at least, discuss their initial approach.</p>
 <div class="section" id="hexagonal-architecture">
 <h2>Hexagonal Architecture<a class="headerlink" href="#hexagonal-architecture" title="Permalink to this headline">¶</a></h2>
-<p>The <em>Hexagonal Architecture</em> is a software architectural style that allows the developer to easily distinguish between
-the outer and the inner part of the software, using three main layers: <strong>Infrastructure, Application and Domain</strong> (ordered
+<p>The <em>Hexagonal Architecture</em> is a software architectural style
+that allows the developer to easily distinguish between
+the outer and the inner part of the software, using three
+main layers: <strong>Infrastructure, Application and Domain</strong> (ordered
 from the external to the internal part).</p>
 <p>The external part, the Infrastructure, is basically formed by the
 <strong>User’s Interface, database and messaging servies</strong>.</p>
-<p>In the middle layer, the Application, is basically formed by the application <strong>use cases</strong>.</p>
-<p>In the inner layer, the Domain, there are basically model <strong>objects</strong>, the concept representation of the business.</p>
-<p>This organisation allows for a higher level of <strong>isolation, testability,</strong> and <strong>control</strong> over the code.
-Each layer of the application has a strict set of responsibilities and requirements.
-This <strong>separates</strong> the <strong>logic</strong> and the <strong>functionality</strong>, and shows how those layers should interact with each other.</p>
-<p>In the next lines it is going to be explained how concretely in <em>The Sheriff</em> application this architecture has been
-managed.</p>
+<p>In the middle layer, the Application, is basically formed
+by the application <strong>use cases</strong>.</p>
+<p>In the inner layer, the Domain, there are basically model <strong>objects</strong>,
+the concept representation of the business.</p>
+<p>This organisation allows for a higher level of <strong>isolation, testability,</strong>
+and <strong>control</strong> over the code. Each layer of the application has a strict
+set of responsibilities and requirements. This <strong>separates</strong> the <strong>logic</strong>
+and the <strong>functionality</strong>, and shows how those layers should interact
+with each other.</p>
+<p>In the next lines it is going to be explained how concretely in <em>The Sheriff</em>
+application this architecture has been managed.</p>
 </div>
 <div class="section" id="the-sheriff-design">
 <h2>The Sheriff Design<a class="headerlink" href="#the-sheriff-design" title="Permalink to this headline">¶</a></h2>
-<p>After analysing <em>The Sheriff</em> requirements, the first task to be done was to define the concept of the application,
-so the design of the Domain. Later, the next task was to identify the use cases in the Application layer and finally
-create the Infrastructure and decide the technologies used.</p>
+<p>After analysing <em>The Sheriff</em> requirements, the first task to be done
+was to define the concept of the application, so the design of the Domain.
+Later, the next task was to identify the use cases in the Application layer
+and finally create the Infrastructure and decide the technologies used.</p>
 <p>Let’s start with the domain.</p>
 <div class="section" id="domain">
 <h3>Domain<a class="headerlink" href="#domain" title="Permalink to this headline">¶</a></h3>
-<p>Here there were designed the main domain classes: <strong>Outlaw</strong>, <strong>Gang</strong> and <strong>Raid</strong>.
-This classes contain all pertinent business logic: <strong>variables</strong> that define the object and <strong>methods</strong> that access these
-variables and also do some basic logic related to its concept.</p>
+<p>Here there were designed the main domain entities: <strong>Outlaw</strong>, <strong>Gang</strong>
+and <strong>Raid</strong>. This classes contain all pertinent business logic: <strong>variables</strong>
+that define the object and <strong>methods</strong> that access these variables and also
+do some basic logic related to its concept.</p>
 <p>Above see the example of the <strong>Gang</strong> class:</p>
-<a class="reference internal image-reference" href="_images/gang_object.png"><img alt="Gang class example" src="_images/gang_object.png" style="width: 900.0px; height: 450.0px;" /></a>
-<p>The next design pattern to add would be a creational pattern. It was desired to abstract the creation of these
-objects defined before, so there were created <strong>factories</strong> for every domain class that would have a
-<strong>create factory method</strong>.</p>
-<a class="reference internal image-reference" href="_images/gang_factory.png"><img alt="Gang Factory example" src="_images/gang_factory.png" style="width: 500.0px; height: 187.5px;" /></a>
-<p>Finally, again for every model object, it was designed an interface named <strong>“repository”</strong> class, where it will be
-located all the methods to implement the <strong>contracts</strong>. These repositories are very important because will be the
-classes that will be injected in the pertinent use cases (Application) and also implemented in Infrastructure.</p>
-<p>Along the project there were several discussions about which kind of objects should return some methods defined in these
-repositories and also in the domain classes.</p>
-<a class="reference internal image-reference" href="_images/gang_repository.png"><img alt="Gang Factory example" src="_images/gang_repository.png" style="width: 900.0px; height: 450.0px;" /></a>
-<p>In this point it was identified that some concepts were not being taken into account.
-Later on, in the middle of the project’s live, we would discover that we should add new classes to fulfill some use cases.</p>
-<p>Due to the requirements related with create/end raids we would discover that we needed an extra sub-class of Outlaw named <strong>Sheriff</strong>,
-an outlaw with extra features. This Sheriff, regarding the raid, would need some attributes grouped in another class named
-<strong>Score</strong>.
-Finally, regarding domain, due to the use case of sending notifications that would bring us to send emails, it was
-designed a class named <strong>Mail</strong> (with its <strong>Factory</strong> and <strong>Notifier</strong>).</p>
+<a class="reference internal image-reference" href="_images/gang_object.png"><img alt="Gang class example" class="align-center" src="_images/gang_object.png" style="width: 291.5px; height: 198.0px;" /></a>
+<p>The next design pattern to add would be a creational pattern. It was
+desired to abstract the creation of these objects defined before,
+so there were created <strong>factories</strong> for every domain entity that would
+have a <strong>create factory method</strong>.</p>
+<a class="reference internal image-reference" href="_images/gang_factory.png"><img alt="Gang Factory example" class="align-center" src="_images/gang_factory.png" style="width: 289.6px; height: 102.0px;" /></a>
+<p>Finally, again for every model object, it was designed a <strong>“repository”</strong>
+interface, where it will be located all the methods to implement
+the <strong>contracts</strong>. These repositories are very important because
+these will be the classes that will be injected in the pertinent use cases
+(Application) and also implemented in Infrastructure.</p>
+<p>During the design of the infrastructure repositories and the domain entities,
+there were several discussions about which kind of objects
+some of their implemented methods should return.</p>
+<a class="reference internal image-reference" href="_images/gang_repository.png"><img alt="Gang Factory example" class="align-center" src="_images/gang_repository.png" style="width: 286.40000000000003px; height: 196.0px;" /></a>
+<p>At this point it was identified that some concepts were not being
+taken into account. Later on, in the middle of the project’s life,
+we discovered that we had to add new classes to fulfill some use cases.</p>
+<p>Due to the requirements related with create/end raids we discovered
+that we needed an Outlaw derived class named <strong>Sheriff</strong>, an outlaw with
+extra features. This Sheriff, regarding the raid, would need some attributes
+grouped in another class named <strong>Score</strong> for rating the raids. Finally,
+regarding domain, due to the use case of sending notifications that would
+bring us to send notifications by email, a class named <strong>Mail</strong> was designed
+(with its <strong>Factory</strong> and <strong>Notifier</strong>).</p>
 </div>
 <div class="section" id="application">
 <h3>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h3>
-<p>Application contains the main <strong>use cases</strong> identified by the team and also auxiliary use cases:</p>
+<p>Application contains the main <strong>use cases</strong> identified by the team
+and also some complementary ones:</p>
 <ul class="simple">
 <li><p>List gangs</p></li>
 <li><p>Create gang</p></li>
@@ -108,13 +133,17 @@ designed a class named <strong>Mail</strong> (with its <strong>Factory</strong> 
 <li><p>End raid</p></li>
 <li><p>Send notifications</p></li>
 </ul>
-<p>This use cases generally contain <strong>injected</strong> the pertinent <strong>repositories</strong> and have an <strong>execute</strong> method to trigger the use case.
-There were several discussions about to unify or separate use cases (concretely those that refer to do some actions in the raid).
+<p>These use cases generally contain <strong>injected</strong> their <strong>collaborators</strong> and have
+an <strong>execute</strong> method to trigger the action of the use case they implement.
+There were several discussions about to unify or separate use cases
+(concretely those that refer to do some actions in the raid).
 Finally, the solution was to separate them and trigger them separately too.</p>
-<a class="reference internal image-reference" href="_images/gang_use_case.png"><img alt="Gang use case example" src="_images/gang_use_case.png" style="width: 450.0px; height: 225.0px;" /></a>
-<p>In this layer it was also designed an approach to deal with the information received from the endpoint.
-The <strong>Request</strong> classes, located in the controller, were created to abstract the needed information to execute the pertinent
-use case in an outer class, to ease the SRP.</p>
+<a class="reference internal image-reference" href="_images/gang_use_case.png"><img alt="Gang use case example" class="align-center" src="_images/gang_use_case.png" style="width: 355.5px; height: 106.0px;" /></a>
+<p>In this layer it was also designed an approach to deal with the information
+received from the endpoint. The <strong>Request</strong> classes, located in the controller,
+were created to abstract the needed information to execute the pertinent
+use case in an outer class, to ease
+the <abbr title="Single Responsibility Principle">SRP</abbr>.</p>
 <p>The Requests classes are:</p>
 <ul class="simple">
 <li><p>Join Gang Request</p></li>
@@ -124,18 +153,24 @@ use case in an outer class, to ease the SRP.</p>
 <li><p>Rate Raid Request</p></li>
 <li><p>End Raid Request</p></li>
 </ul>
-<a class="reference internal image-reference" href="_images/request_snippet.png"><img alt="Request Object example" src="_images/request_snippet.png" style="width: 900.0px; height: 450.0px;" /></a>
+<a class="reference internal image-reference" href="_images/request_snippet.png"><img alt="Request Object example" class="align-center" src="_images/request_snippet.png" style="width: 407.4px; height: 250.2px;" /></a>
 </div>
 <div class="section" id="infrastructure">
 <h3>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h3>
-<p>Infrastructure contains the REST API endpoints and MySQL repositories.</p>
-<p>These endpoints are triggered in <strong>controllers</strong> that have <strong>injected</strong> the proper <strong>use cases</strong> to achieve the needed information
-and <strong>invoke</strong> these pertinent use cases (see the image above, focusing on the GangController).</p>
-<p>The MySQL repositories implement the contracts stated by the domain. See the image below to see an example:</p>
-<a class="reference internal image-reference" href="_images/sql_gang_repo.png"><img alt="sql repo example" src="_images/sql_gang_repo.png" style="width: 900.0px; height: 450.0px;" /></a>
-<p>To fulfill the use cases that implied to send an email, it was added also the <strong>SMTP Mail Notifier</strong>.</p>
-<p>All the problems dealt in this section were which technologies choose, and all this information is in the
-next section, all oriented to see the Infrastructure details.</p>
+<p>Infrastructure contains the <abbr title="Representational State Transfer Application Programming Interface">RESTful API</abbr> endpoints and MySQL
+repositories.</p>
+<p>These endpoints are triggered within the <strong>controllers</strong> that have <strong>injected</strong>
+their required <strong>use cases</strong> as collaborators to achieve the needed
+functionality and <strong>invoke</strong> these pertinent use cases
+(see the image above, focusing on the GangController).</p>
+<p>The MySQL repositories implement the contracts defined by the domain
+interfaces. Take the following image as an example:</p>
+<a class="reference internal image-reference" href="_images/sql_gang_repo.png"><img alt="MySQL repository example" class="align-center" src="_images/sql_gang_repo.png" style="width: 258.59999999999997px; height: 150.0px;" /></a>
+<p>To fulfill the use cases that implied to send a notification,
+<strong>SMTP Mail Notifier</strong> was also included as collaborator.</p>
+<p>All the problems dealt with in this package were which technologies
+to choose, and all this information can be found in the
+next section, which focuses on Infrastructure details.</p>
 </div>
 </div>
 </div>
@@ -163,28 +198,23 @@ next section, all oriented to see the Infrastructure details.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">The Sheriff Usage</a></li>
-</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Design</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#hexagonal-architecture">Hexagonal Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-sheriff-design">The Sheriff Design</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#domain">Domain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#application">Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#infrastructure">Infrastructure</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-sheriff-design">The Sheriff Design</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="application.html">The Sheriff Application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="domain.html">The Sheriff Domain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">The Sheriff Usage</a></li>
 </ul>
 
 
@@ -198,8 +228,8 @@ next section, all oriented to see the Infrastructure details.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="usage.html" title="previous chapter">The Sheriff Usage</a></li>
-      <li>Next: <a href="tools.html" title="next chapter">Tools</a></li>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="technologies.html" title="next chapter">Technologies</a></li>
   </ul></li>
 </ul>
 </div>

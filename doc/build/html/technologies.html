@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Technologies &#8212; The Sheriff 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Sheriff Application" href="application.html" />
+    <link rel="prev" title="Design" href="design.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="technologies">
+<h1>Technologies<a class="headerlink" href="#technologies" title="Permalink to this headline">¶</a></h1>
+<p>This section is intended to explain the technologies used in <strong>The Sheriff</strong>
+to implement the <strong>infrastructure</strong> details of the application.</p>
+<p>These tools are found within the <em>Infrastructure</em> layer
+of the <em>Hexagonal Architecture</em>, and they have relation with other classes
+located in the <em>Domain</em> layer. These relations are created by implementing
+the defined <strong>contracts</strong>, and these are detailed in the last point
+of this section. Besides, an impact analysis of what would happen
+if a technology is switched by another one, in order to analyse
+the modularity of the system.</p>
+<div class="section" id="gnu-make">
+<h2>GNU Make<a class="headerlink" href="#gnu-make" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a> helped the team not having
+to deal with long commands and tooling details, through out the use of
+few targets on the <em>Makefile</em>, found at the root of the project, the team
+could easily run linting tests, unit tests, start the whole stack, etc.</p>
+</div>
+<div class="section" id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.docker.com/">Docker</a> is used for delivery means. Docker
+is a container runtime, that helped the team to have a cross-platform way
+of running, testing and validating the application without the potential
+problems of cross-platform development.</p>
+<p><em>The Sheriff</em> application is built as a container image that includes all
+its dependencies and defines the command to start the application.</p>
+<p>For the persistance of the application, MariaDB has been selected,
+also used as a container, it didn’t need any modification, just configuring.</p>
+<p><em>The Sheriff</em> container image is built using <em>Dockerfile.thesheriff</em> file,
+found at the root of the repository.</p>
+<p>For glueing both continers, <a class="reference external" href="https://docs.docker.com/compose/">docker compose</a>
+was our tool of choice for its declarative approach and flexibility.</p>
+<p>Docker compose allowed the team to configure both containers as a single stack,
+declared in the <em>docker-compose.yml</em>.</p>
+<p><em>The Sheriff</em> configuration looks like:</p>
+<a class="reference internal image-reference" href="_images/Docker.png"><img alt="Docker configuration" class="align-center" src="_images/Docker.png" style="width: 640.0px; height: 360.0px;" /></a>
+<p>Docker and docker compose allows the application to have a huge modularity.
+If anytime the client wants to change any configuration on the stack, it’s just
+a matter of changing settings in the <em>docker-compose.yml</em> file.</p>
+<p>Summarizing, Docker has been chosen for:</p>
+<ul class="simple">
+<li><p>Its <strong>modularity</strong>.</p></li>
+<li><p><strong>Cross-platform</strong> capabilities.</p></li>
+<li><p>Its <strong>flexibility</strong>.</p></li>
+</ul>
+<p>In brief, both tools helped the team saving time in configuring the development
+environment and deciding the delivery method.</p>
+</div>
+<div class="section" id="curl">
+<h2>Curl<a class="headerlink" href="#curl" title="Permalink to this headline">¶</a></h2>
+<p>Curl is an open source application used in command line or script
+to interact with websites.</p>
+<p>In <em>The Sheriff</em>, <em>curl</em> is used to interact with <em>Controllers</em>,
+on the <em>Infrastructure</em> layer.</p>
+<p>Curl lets the user to provide information and trigger the desired
+application use case.</p>
+<p>For example, to create an outlaw, the user should write in the command line:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>$ curl localhost:5000/api/&lt;version&gt;/outlaw/ \</dt><dd><p>-X POST –data &#64;examples/json/create_outlaw.json \
+-H ‘Content-Type: application/json’</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>This use case triggering will be done posting a concrete JSON contents
+in the specified URL.</p>
+<p>Summarizing, Curl has been chosen to:</p>
+<ul class="simple">
+<li><p>For easily <strong>Allowing communication</strong> between the <strong>user</strong>
+and the <strong>application</strong> (specifically in this direction).</p></li>
+</ul>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>Python is an open source programming language, friendly to use, easy to learn,
+and extensible with a lot of available third-party libraries.</p>
+<p><em>The Sheriff</em> application has been programmed in <em>Python</em>.</p>
+<p>Basically, it has been chosen mostly due to its <em>low learning curve</em>
+and its wide range <em>third-party libraries</em>. The following sections detailed
+the chosen third-party libraries and their use in the infrastructure package.</p>
+<p>If at anytime the client desires to change this technology, the application
+would be <strong>very compromised</strong>, at some point that we will have to change
+all the logic of the application (including the whole
+infrastructure implementation).</p>
+</div>
+<div class="section" id="flask">
+<h2>Flask<a class="headerlink" href="#flask" title="Permalink to this headline">¶</a></h2>
+<p>Flask is a web application micro framework. Being <em>micro</em> it gives
+the developer the freedom to choose the libraries desired to implement the
+web-application without imposing much on the model or architecture.</p>
+<p>In <em>The Sheriff, *Flask</em>, serves the purpose of implementing the controllers,
+defining routes (or REST endpoints) through the concept of <em>Blueprints</em>,
+so each domain entity has its own controller with its own set of routes,
+getting the data, where needed, using JSON and posted using curl. From each
+endpoint the associated use case/s are invoked and the use case flow starts.</p>
+<p>Summarizing, Flask has been used for:</p>
+<ul class="simple">
+<li><p><em>Blueprints</em> to define routes and the way to invoke use cases
+with their required data.</p></li>
+<li><p><em>Flask Responses</em> and <em>Requests</em> returned and dispatched
+to control the flow in several endpoints.</p></li>
+<li><p><em>Jsonify</em> to deliver JSON bodies, within the Response object,
+back to the user interacting with an endpoint.</p></li>
+</ul>
+</div>
+<div class="section" id="sqlalchemy">
+<h2>SQLAlchemy<a class="headerlink" href="#sqlalchemy" title="Permalink to this headline">¶</a></h2>
+<p>SQLAlchemy is a Python SQL toolkit. It allows the developer to use
+in a friendly way the SQL database through persistence patterns.</p>
+<p>In <em>The Sheriff</em>, it has let the application to persist all
+the information dealt with in the domain entities.</p>
+<p>SQLAlchemy has been used for:</p>
+<ul class="simple">
+<li><p>Ease of interacting with a SQL Database.</p></li>
+<li><p>Abstraction from the SQL engine itself, allowing to replace the engine
+with just defining the appropriated connection string.</p></li>
+<li><p>Table creation, using its <em>MetaData</em> object, shared among all repositories,
+allows to create relationships that are taken care for transparently.</p></li>
+</ul>
+</div>
+<div class="section" id="smtplib">
+<h2>Smtplib<a class="headerlink" href="#smtplib" title="Permalink to this headline">¶</a></h2>
+<p>The smtplib module is an SMTP client implementation to send mails to any
+Internet machine with an SMTP service. It uses RFC 821 (Simple Mail
+Transfer Protocol) and RFC 1869 (SMTP Service Extensions).</p>
+<p>In <em>The Sheriff</em> is the library used to send email notifications with
+the information required for the application, according the use case
+that triggers the action.</p>
+</div>
+<div class="section" id="contracts">
+<h2>Contracts<a class="headerlink" href="#contracts" title="Permalink to this headline">¶</a></h2>
+<p>These aforementioned technologies are implemented in infrastructure
+classes. These classes implement the <em>contracts</em> or interfaces defined
+in the Domain layer.</p>
+<p>Taking a look in the class diagram, it can be observed
+all the contracts in <em>The Sheriff</em>.</p>
+<a class="reference internal image-reference" href="_images/the_sheriff_class_diagram.png"><img alt="Class diagram to show contracts" src="_images/the_sheriff_class_diagram.png" style="width: 948.8000000000001px; height: 748.0px;" /></a>
+<p>Zooming in to the Infrastructure layer, it can be seen
+the implementation of these interfaces:</p>
+<a class="reference internal image-reference" href="_images/the_sheriff_class_diagram_zoom_contracts.png"><img alt="Class diagram to show the implemented contracts" class="align-center" src="_images/the_sheriff_class_diagram_zoom_contracts.png" style="width: 467.59999999999997px; height: 519.4px;" /></a>
+<p>In conclusion, to fulfill all the actions contained, for example,
+in the “XXXX_Raid” use case, the use case will lead to call
+a method in the <em>RaidRepository</em> and implementation in found
+in the <em>MySQLRaidRepository</em>.</p>
+<p>And this conclusion can be extended for the rest of the classes
+seen in the last diagram.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.docker.com/">Docker</a></p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a></p></li>
+<li><p><a class="reference external" href="https://curl.haxx.se/">Curl</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/smtplib.html">Smtplib</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/">Python</a></p></li>
+<li><p><a class="reference external" href="https://www.palletsprojects.com/p/flask/">Flask</a></p></li>
+<li><p><a class="reference external" href="https://www.sqlalchemy.org/">SQLAlchemy</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/smtplib.html">Smtplib</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">The Sheriff</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Technologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gnu-make">GNU Make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#curl">Curl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flask">Flask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sqlalchemy">SQLAlchemy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smtplib">Smtplib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contracts">Contracts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">The Sheriff Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">The Sheriff Domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">The Sheriff Infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">The Sheriff Usage</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://github.com/tripledes/thesheriff">🚀 Github</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="design.html" title="previous chapter">Design</a></li>
+      <li>Next: <a href="application.html" title="next chapter">The Sheriff Application</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, The Sheriff Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/technologies.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
