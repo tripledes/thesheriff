@@ -41,3 +41,9 @@ features.
 That being said about Python and its frameworks, the team still found Python
 easy to use, which helped into prototyping a 
 :abbr:`MVP (Minimum Viable Product)` quickly and without much overhead.
+
+Last but not least some functionality is still pending to work properly and
+due lack of time we prefer to focus on documentation and sumarize decisions
+taken during the development. So you could find a couple of FIXME within the
+code and even non-closed issues in github in order to not lose the track of those
+future enhancements.
