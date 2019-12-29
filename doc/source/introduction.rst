@@ -42,7 +42,7 @@ the following points:
   - *The Sheriff Domain package*
   - *The Sheriff Infrastructure package*
 
-- **Tools**: Details of the technologies used to make the infrastructure
+- **Technologies**: Details of the technologies used to make the infrastructure
   to work, the relations they have in the design with other classes
   and an analysis of the impact of modifying every technology used
   in the project.

@@ -37,6 +37,14 @@ Technologies
 
    technologies
 
+Development methodology
+-----------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   methodology
+
 API Documentation
 -----------------
 

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Conclusions &#8212; The Sheriff 1.0.0 documentation</title>
+    <title>Development Methodology &#8212; The Sheriff 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,7 +14,8 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="The Sheriff Usage" href="usage.html" />
+    <link rel="next" title="The Sheriff Application" href="application.html" />
+    <link rel="prev" title="Technologies" href="technologies.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,43 +32,40 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="conclusions">
-<h1>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h1>
-<p>The next paragraphs will contain a small summary of the lessons
-learned in the project, comments about the development, acquired
-knowledge and a evaluation of the product.</p>
-<p>The first consideration commented between those who form
-<em>The Sheriff Team</em> is that we didn’t expect to deliver something
-that was going to work in this short period of time.
-We were frightened of the fact that we had to deliver a project
-from scratch in less than two months.
-Now that tests are passing and we have a final code organised
-and clean, we are very proud of the achieved result.</p>
-<p>The second consideration is that <em>The Sheriff Team</em> is formed
-by people with very different work experience in the programming world.
-Taking this into account, we consider that all of us, every one
-in his own level, has learnt a lot and has had the opportunity to
-apply the concepts learnt in class. Mostly in design concepts, but also
-in how to build a correct infrastructure, the level of knowledge of every
-one has grown a lot.</p>
-<p>Given the different background of the team members, selecting technologies
-was a bit of a challenge, specially the programming language. The team
-settled for Python, for its lower learning curve, but it did bring its own
-set of tradeoffs. For instance, Python is not strongly typed, though since
-some versions it allows to define the types of the data being used, it’s
-still not strongly enforced.</p>
-<p>After dealing with Python tradeoffs, we had to pick libraries, at this point
-the team realized that most of the available frameworks forced some concepts
-that the architecture selected would just be impossible. So the team settled
-for using <em>Flask</em> and <em>SQLAlchemy Core</em> (<strong>no ORM</strong>), both brought some ease
-to the development without getting in the way of the architecture. Finally,
-a dependency injection package was required because without using the whole
-frameworks, that part was left for the team to implement. Luckily, another
-small third-party library was found <em>inject</em>, which provided the required
-features.</p>
-<p>That being said about Python and its frameworks, the team still found Python
-easy to use, which helped into prototyping a
-<abbr title="Minimum Viable Product">MVP</abbr> quickly and without much overhead.</p>
+  <div class="section" id="development-methodology">
+<h1>Development Methodology<a class="headerlink" href="#development-methodology" title="Permalink to this headline">¶</a></h1>
+<p>The team tried to follow an Scrum-like approach to organize the application
+development. The following tools were used to help them out:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com">GitHub</a></p>
+<ul>
+<li><p><strong>GitHub</strong> has been used as <a class="reference external" href="https://github.com/tripledes/thesheriff">code repository</a>,
+for managing the <a class="reference external" href="https://github.com/tripledes/thesheriff/projects">project</a> and
+its <a class="reference external" href="https://github.com/tripledes/thesheriff/projects/1">task</a>,
+keep track of <a class="reference external" href="https://github.com/tripledes/thesheriff/issues?utf8=%E2%9C%93&amp;q=is%3Aissue">issues</a>
+and review <a class="reference external" href="https://github.com/tripledes/thesheriff/pulls?utf8=%E2%9C%93&amp;q=is%3Apr">code changes</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://travis-ci.org">Travis CI</a></p>
+<ul>
+<li><p><strong>Travis CI</strong> provided a free platform where to run the tests,
+specially when sending changes to the code repository as it
+was configured to test pull requests and merges into the master branch.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://readthedocs.org">ReadTheDocs</a></p>
+<ul>
+<li><p><strong>ReadTheDocs</strong> is a documentation platform, which provides free accounts
+and integrates with <strong>GitHub</strong> through the use of webhooks, so on each
+commit to master the documentation is rebuilt and <a class="reference external" href="http://thesheriff.rtd.io">published</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://hangouts.google.com/">Google Hangouts</a></p>
+<ul>
+<li><p>Google Hangouts was mainly used for remote meetings.</p></li>
+</ul>
+</li>
+</ul>
 </div>
 
 
@@ -99,8 +97,8 @@ easy to use, which helped into prototyping a
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="methodology.html">Development Methodology</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development Methodology</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="application.html">The Sheriff Application</a></li>
@@ -110,8 +108,8 @@ easy to use, which helped into prototyping a
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">The Sheriff Usage</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Conclusions</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusions</a></li>
 </ul>
 
 
@@ -125,7 +123,8 @@ easy to use, which helped into prototyping a
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="usage.html" title="previous chapter">The Sheriff Usage</a></li>
+      <li>Previous: <a href="technologies.html" title="previous chapter">Technologies</a></li>
+      <li>Next: <a href="application.html" title="next chapter">The Sheriff Application</a></li>
   </ul></li>
 </ul>
 </div>
@@ -159,7 +158,7 @@ easy to use, which helped into prototyping a
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/conclusion.rst.txt"
+      <a href="_sources/methodology.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

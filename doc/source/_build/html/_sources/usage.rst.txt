@@ -23,6 +23,10 @@ The project includes a *Makefile* with the following targets:
 Validating use cases
 --------------------
 
+To run a complete validation of all the working use cases, a *validate.sh*
+script has been included in the root of the project, it creates
+the required objects and show the results.
+
 - Start the stack
 
   .. code-block:: console
@@ -157,9 +161,9 @@ after executing the use case, the test pass or not.
 Development Requirements
 ------------------------
 
-To hack on the application, the following tools are required:
+To hack on the application, besides the tools on listed on runtime section
+above, the following ones are required:
 
 - `Python >= 3.8 <https://www.python.org>`_
 - `pipenv <https://pipenv.readthedocs.io/en/latest/>`_
-- `GNU make <https://www.gnu.org/software/make/>`_
 - `Git <https://git-scm.com/>`_
