@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import List
 
 import inject
@@ -49,7 +48,6 @@ class CreateRaid:
         sheriff = self.__get_sheriff_or_fail(request)
         gang = self.__get_gang_or_fail(request)
         outlaws = self.__get_outlaws_or_fail(request)
-        # date = datetime.strptime(request.date, DEFAULT_DATETIME_FORMAT)
 
         raid = Raid(
             request.name,

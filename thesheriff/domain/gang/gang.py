@@ -15,8 +15,7 @@ class Gang:
     def __init__(
         self, owner_id: int, name: str, gang_id: Optional[int] = None
     ):
-        # TODO(all)
-        # Verify owner_id is of an existing outlaw
+        # FIXME: Verify owner_id is of an existing outlaw
         self.name = name
         self.members = list()
         self.created_raids = 0
@@ -39,9 +38,6 @@ class Gang:
         :return: No value returned.
         :rtype: NoReturn
         """
-        # TODO(all)
-        # Should this be singular? add_member.
-        # It depends, if its a list, add_members is correct
         self.members = members
 
     def score(self):

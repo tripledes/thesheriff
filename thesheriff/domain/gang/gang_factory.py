@@ -1,5 +1,6 @@
-from thesheriff.domain.gang.gang import Gang
 from typing import Optional
+
+from thesheriff.domain.gang.gang import Gang
 
 
 class GangFactory(Gang):
@@ -8,7 +9,7 @@ class GangFactory(Gang):
 
     @staticmethod
     def create(
-        owner_id: int, name: str, gang_id: Optional[int] = None
+            owner_id: int, name: str, gang_id: Optional[int] = None
     ) -> Gang:
         """Method create, produces a Gang instance.
 
@@ -36,4 +37,4 @@ class GangFactory(Gang):
         :return: The created Gang.
         :rtype: Gang
         """
-        return Gang("", "", gang_id)
+        return Gang(None, "", gang_id)

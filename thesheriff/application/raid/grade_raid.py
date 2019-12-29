@@ -40,7 +40,8 @@ class GradeRaid:
             grade = total / divider
             raid.sheriff.update_score(grade)
 
-            # FIXME update sheriff score on db
+            # FIXME check to update the sheriff's score on db
+            # Still not working, We leave it as is right now due lack of time
             # self.__outlaw_repository.update(raid.sheriff)
 
         return grade
