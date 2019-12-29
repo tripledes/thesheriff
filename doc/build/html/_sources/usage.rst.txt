@@ -25,7 +25,17 @@ Validating use cases
 
 To run a complete validation of all the working use cases, a *validate.sh*
 script has been included in the root of the project, it creates
-the required objects and show the results.
+the required objects and show the results, to run the automated validation
+please do as follows:
+
+.. code-block:: console
+
+  $ bash validate.sh
+
+The output informs at any point of the actions being taken and prints
+the results.
+
+For manually running the validation, here are the steps to take:
 
 - Start the stack
 
