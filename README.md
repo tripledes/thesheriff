@@ -5,13 +5,13 @@
 ## Index
 
 * Documentation
-  * [Online](https://thesheriff.rtd.org)
+  * [Online](https://thesheriff.rtd.io)
   * Offline:
     Open a web browser and point it to file:///path/to/thesheriff/root/directory/doc/build/html/index.html
 * [Usage](https://thesheriff.rtd,irg/en/latest/usage.html)
-* [Technologies](https://thesheriff.rtd.org/en/latest/technologies.html)
-* [Design](https://thesheriff.rtd.org/en/latest/design.html)
-* [API Documentation](https://thesheriff.rtd.org/en/latest/index.html#api-documentation)
+* [Technologies](https://thesheriff.rtd.io/en/latest/technologies.html)
+* [Design](https://thesheriff.rtd.io/en/latest/design.html)
+* [API Documentation](https://thesheriff.rtd.io/en/latest/index.html#api-documentation)
 * [Code](thesheriff/)
 * [Tests](tests/)
 * [Makefile](Makefile)
