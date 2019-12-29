@@ -50,7 +50,7 @@ class MySQLRaidRepository(RaidRepository):
         members = self.__split_outlaw_ids(row.members)
         outlaws = self.__create_outlaw_from_ids(members)
         gang = GangFactory.create_with_id(row.gang_id)
-        rates = None
+        rates = list()
 
         if row.rates:
             rates = self.__split_rates(row.rates)

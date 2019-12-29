@@ -195,9 +195,9 @@
 </pre></div>
 </div>
 </li>
-<li><p><em>/&lt;prefix&gt;/outlaw/invite_friend/</em> (POST)</p>
+<li><p><em>/&lt;prefix&gt;/outlaw/invite_friend</em> (POST)</p>
 <p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/invite_friend/ <span class="se">\</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/invite_friend <span class="se">\</span>
    -X POST --data @examples/json/invite_friend.json <span class="se">\</span>
    -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </pre></div>
@@ -238,9 +238,9 @@
 </dl>
 <p>Implements the following routes:</p>
 <ul>
-<li><p><em>/&lt;prefix&gt;/raid/</em> (POST)</p>
+<li><p><em>/&lt;prefix&gt;/raid</em> (POST)</p>
 <p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/raid/ <span class="se">\</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/raid <span class="se">\</span>
    -X POST --data @examples/json/create_raid.json <span class="se">\</span>
    -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </pre></div>
@@ -253,9 +253,9 @@
 </pre></div>
 </div>
 </li>
-<li><p><em>/&lt;prefix&gt;/outlaw/&lt;int:outlaw_id&gt;/raid/&lt;int:raid_id&gt;/</em> (PUT)</p>
+<li><p><em>/&lt;prefix&gt;/raid/&lt;int:raid_id&gt;/rate</em> (PUT)</p>
 <p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/raid/1 <span class="se">\</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/raid/1/rate <span class="se">\</span>
     -X PUT --data @examples/json/rate_raid.json <span class="se">\</span>
     -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </pre></div>
@@ -687,7 +687,7 @@ transformation before running the actual update.</p>
       &copy;2019, The Sheriff Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

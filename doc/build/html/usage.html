@@ -50,10 +50,14 @@ the application and the DB.</p></li>
 and reports any linting problems on the code.</p></li>
 <li><p><strong>tests</strong>: runs <em>pytest</em> and reports the results
 of the unit tests.</p></li>
+<li><p><strong>docs</strong></p></li>
 </ul>
 </div>
 <div class="section" id="validating-use-cases">
 <h2>Validating use cases<a class="headerlink" href="#validating-use-cases" title="Permalink to this headline">¶</a></h2>
+<p>To run a complete validation of all the working use cases, a <em>validate.sh</em>
+script has been included in the root of the project, it creates
+the required objects and show the results.</p>
 <ul>
 <li><p>Start the stack</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make run
@@ -61,18 +65,20 @@ of the unit tests.</p></li>
 </div>
 </li>
 <li><p>Create an Outlaw</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/outlaw/ -X POST <span class="se">\</span>
-  --data @examples/json/create_outlaw.json <span class="se">\</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/outlaw -X POST <span class="se">\</span>
+  --data @examples/json/create_outlaw_1.json <span class="se">\</span>
   -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
-<span class="go"> {&quot;message&quot;: &quot;Outlaw created successfully&quot;, &quot;outlaw&quot;: {&quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Outlaw&quot;, &quot;email&quot;: &quot;outlaw@yopmail.com&quot;}}</span>
+
+<span class="go"> {&quot;message&quot;:&quot;Outlaw created successfully&quot;,&quot;outlaw&quot;:{&quot;email&quot;:&quot;reallybad@yopmail.com&quot;,&quot;id&quot;:1,&quot;name&quot;:&quot;The bad one&quot;}}</span>
 </pre></div>
 </div>
 </li>
 <li><p>Create a Gang</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang/ -X POST <span class="se">\</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang -X POST <span class="se">\</span>
   --data @examples/json/create_gang.json <span class="se">\</span>
   -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
-<span class="go">{&quot;message&quot;: &quot;Gang created successfully&quot;, &quot;gang&quot;: {&quot;name&quot;: &quot;The best gang&quot;, &quot;members&quot;: [], &quot;created_raids&quot;: 0, &quot;owner_id&quot;: 1, &quot;id&quot;: 1}}</span>
+
+<span class="go"> {&quot;gang&quot;:{&quot;id&quot;:1,&quot;name&quot;:&quot;The best gang&quot;,&quot;owner_id&quot;:&quot;1&quot;},&quot;message&quot;:&quot;Gang successfully created&quot;}</span>
 </pre></div>
 </div>
 </li>
@@ -80,13 +86,48 @@ of the unit tests.</p></li>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl http://localhost:5000/api/v1/raid -X POST <span class="se">\</span>
   -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
   --data @examples/json/create_raid.json
-<span class="go">  {&quot;message&quot;:&quot;Raid created successfully&quot;,&quot;raid&quot;:{&quot;id&quot;:1,&quot;name&quot;:&quot;Asalto 1&quot;}}</span>
+
+<span class="go"> {&quot;message&quot;:&quot;Raid created successfully&quot;,&quot;raid&quot;:{&quot;id&quot;:1,&quot;name&quot;:&quot;Raid 1&quot;}}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Rate a Raid</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/raid/1/rate -X PUT <span class="se">\</span>
+  --data @examples/json/rate_raid.json <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+
+<span class="go"> {&quot;message&quot;:&quot;Raid rated successfully&quot;}</span>
+</pre></div>
+</div>
+</li>
+<li><p>End a Raid</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/raid/1/end <span class="se">\</span>
+  -X PUT -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+
+<span class="go"> {&quot;message&quot;:&quot;raid finished successfully&quot;,&quot;score&quot;:&quot;Gang&#39;s score: 0.0. Sheriff&#39;s score on raid &#39;Raid 1&#39;: 6.625&quot;}</span>
 </pre></div>
 </div>
 </li>
 <li><p>List all Gangs</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/gang
-<span class="go">{&quot;message&quot;:&quot;Sucess&quot;, &quot;gangs&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;The best gang&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;The best gang&quot;}]}</span>
+
+<span class="go"> {&quot;gangs&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;The best gang&quot;}],&quot;message&quot;:&quot;Success&quot;}</span>
+</pre></div>
+</div>
+</li>
+<li><p>List Outlaw Gangs</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/outlaw/1/gangs
+
+<span class="go"> {&quot;gangs&quot;:[],&quot;message&quot;:&quot;Success&quot;}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Invite a Friend</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/v1/outlaw/1/invite_friend <span class="se">\</span>
+  -X POST --data @examples/json/invite_friend.json <span class="se">\</span>
+  -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+
+<span class="go"> {&quot;message&quot;:&quot;Invitation sent successfully&quot;}</span>
 </pre></div>
 </div>
 </li>
@@ -94,8 +135,9 @@ of the unit tests.</p></li>
 </div>
 <div class="section" id="tests">
 <h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
-<p>This section is strongly related to the previous one. To validate the use cases, there have been
-developed a set of unit tests. These tests can be found in <em>tests</em> folder, in the root.</p>
+<p>This section is strongly related to the previous one. To validate
+the use cases, there have been developed a set of unit tests.
+These tests can be found in <em>tests</em> folder, in the root.</p>
 <p>The available tests are:</p>
 <ul class="simple">
 <li><p>Create gang test</p></li>
@@ -117,20 +159,22 @@ developed a set of unit tests. These tests can be found in <em>tests</em> folder
 <li><p>Mock outlaw repository</p></li>
 <li><p>Mock raid repository</p></li>
 </ul>
-<p>In general, these unit tests trigger a specific use case, injecting to it a mock repository or notifier,
-and passing it specific information through a request object.
-These mock repositories are necessary to hard-code information that should be received through
-these interfaces. This information is needed to fulfill the intended functionality or to conclude that
-the software is working properly.
-Finally, depending of which value is returned after executing the use case, the test pass or not.</p>
+<p>In general, these unit tests trigger a specific use case, injecting
+to it a mock repository or notifier, and passing it specific
+information through a request object.
+These mock repositories are necessary to hard-code information that
+should be received through these interfaces. This information is needed
+to fulfill the intended functionality or to conclude that the software
+is working properly. Finally, depending of which value is returned
+after executing the use case, the test pass or not.</p>
 </div>
 <div class="section" id="development-requirements">
 <h2>Development Requirements<a class="headerlink" href="#development-requirements" title="Permalink to this headline">¶</a></h2>
-<p>To hack on the application, the following tools are required:</p>
+<p>To hack on the application, besides the tools on listed on runtime section
+above, the following ones are required:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.python.org">Python &gt;= 3.8</a></p></li>
 <li><p><a class="reference external" href="https://pipenv.readthedocs.io/en/latest/">pipenv</a></p></li>
-<li><p><a class="reference external" href="https://www.gnu.org/software/make/">GNU make</a></p></li>
 <li><p><a class="reference external" href="https://git-scm.com/">Git</a></p></li>
 </ul>
 </div>
@@ -225,7 +269,7 @@ Finally, depending of which value is returned after executing the use case, the 
       &copy;2019, The Sheriff Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -18,9 +18,14 @@ The project includes a *Makefile* with the following targets:
   and reports any linting problems on the code.
 - **tests**: runs *pytest* and reports the results
   of the unit tests.
+- **docs**
 
 Validating use cases
 --------------------
+
+To run a complete validation of all the working use cases, a *validate.sh*
+script has been included in the root of the project, it creates
+the required objects and show the results.
 
 - Start the stack
 
@@ -32,19 +37,21 @@ Validating use cases
 
   .. code-block:: console
 
-     $ curl localhost:5000/api/v1/outlaw/ -X POST \
-       --data @examples/json/create_outlaw.json \
-       -H 'Content-Type: application/json'
-      {"message": "Outlaw created successfully", "outlaw": {"id": "1", "name": "Outlaw", "email": "outlaw@yopmail.com"}}
+    $ curl localhost:5000/api/v1/outlaw -X POST \
+      --data @examples/json/create_outlaw_1.json \
+      -H 'Content-Type: application/json'
+
+     {"message":"Outlaw created successfully","outlaw":{"email":"reallybad@yopmail.com","id":1,"name":"The bad one"}}
 
 - Create a Gang
 
   .. code-block:: console
 
-     $ curl localhost:5000/api/v1/gang/ -X POST \
-       --data @examples/json/create_gang.json \
-       -H 'Content-Type: application/json'
-     {"message": "Gang created successfully", "gang": {"name": "The best gang", "members": [], "created_raids": 0, "owner_id": 1, "id": 1}}
+    $ curl localhost:5000/api/v1/gang -X POST \
+      --data @examples/json/create_gang.json \
+      -H 'Content-Type: application/json'
+
+     {"gang":{"id":1,"name":"The best gang","owner_id":"1"},"message":"Gang successfully created"}
 
 - Create a Raid
 
@@ -53,20 +60,60 @@ Validating use cases
     $ curl http://localhost:5000/api/v1/raid -X POST \
       -H 'Content-Type: application/json' \
       --data @examples/json/create_raid.json
-      {"message":"Raid created successfully","raid":{"id":1,"name":"Asalto 1"}}
+
+     {"message":"Raid created successfully","raid":{"id":1,"name":"Raid 1"}}
+
+- Rate a Raid
+
+  .. code-block:: console
+
+    $ curl localhost:5000/api/v1/raid/1/rate -X PUT \
+      --data @examples/json/rate_raid.json \
+      -H 'Content-Type: application/json'
+
+     {"message":"Raid rated successfully"}
+
+- End a Raid
+
+  .. code-block:: console
+
+    $ curl localhost:5000/api/v1/raid/1/end \
+      -X PUT -H 'Content-Type: application/json'
+
+     {"message":"raid finished successfully","score":"Gang's score: 0.0. Sheriff's score on raid 'Raid 1': 6.625"}
 
 - List all Gangs
 
   .. code-block:: console
 
-     $ curl localhost:5000/api/v1/gang
-     {"message":"Sucess", "gangs":[{"id":1,"name":"The best gang"},{"id":2,"name":"The best gang"}]}
+    $ curl localhost:5000/api/v1/gang
+
+     {"gangs":[{"id":1,"name":"The best gang"}],"message":"Success"}
+
+- List Outlaw Gangs
+
+  .. code-block:: console
+
+    $ curl localhost:5000/api/v1/outlaw/1/gangs
+
+     {"gangs":[],"message":"Success"}
+
+- Invite a Friend
+
+  .. code-block:: console
+
+   $ curl localhost:5000/api/v1/outlaw/1/invite_friend \
+     -X POST --data @examples/json/invite_friend.json \
+     -H 'Content-Type: application/json'
+
+    {"message":"Invitation sent successfully"}
 
 Tests
 -----
 
-This section is strongly related to the previous one. To validate the use cases, there have been
-developed a set of unit tests. These tests can be found in *tests* folder, in the root.
+This section is strongly related to the previous one. To validate
+the use cases, there have been developed a set of unit tests.
+These tests can be found in *tests* folder, in the root.
 
 The available tests are:
 
@@ -102,19 +149,21 @@ These tests use the next mocked objects (depending on the use case):
 
 - Mock raid repository
 
-In general, these unit tests trigger a specific use case, injecting to it a mock repository or notifier,
-and passing it specific information through a request object.
-These mock repositories are necessary to hard-code information that should be received through
-these interfaces. This information is needed to fulfill the intended functionality or to conclude that
-the software is working properly.
-Finally, depending of which value is returned after executing the use case, the test pass or not.
+In general, these unit tests trigger a specific use case, injecting
+to it a mock repository or notifier, and passing it specific
+information through a request object.
+These mock repositories are necessary to hard-code information that
+should be received through these interfaces. This information is needed
+to fulfill the intended functionality or to conclude that the software
+is working properly. Finally, depending of which value is returned
+after executing the use case, the test pass or not.
 
 Development Requirements
 ------------------------
 
-To hack on the application, the following tools are required:
+To hack on the application, besides the tools on listed on runtime section
+above, the following ones are required:
 
 - `Python >= 3.8 <https://www.python.org>`_
 - `pipenv <https://pipenv.readthedocs.io/en/latest/>`_
-- `GNU make <https://www.gnu.org/software/make/>`_
 - `Git <https://git-scm.com/>`_

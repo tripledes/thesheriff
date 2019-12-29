@@ -111,13 +111,13 @@ def outlaw_controller(
              ]
          }
 
-    * */<prefix>/outlaw/invite_friend/* (POST)
+    * */<prefix>/outlaw/invite_friend* (POST)
 
       **Request Example:**
 
       .. code-block:: console
 
-         $ curl localhost:5000/api/<version>/outlaw/1/invite_friend/ \\
+         $ curl localhost:5000/api/<version>/outlaw/1/invite_friend \\
             -X POST --data @examples/json/invite_friend.json \\
             -H 'Content-Type: application/json'
 
@@ -173,7 +173,7 @@ def outlaw_controller(
 
         return jsonify(message)
 
-    @blueprint_outlaw.route("/outlaw/<int:outlaw_id>/invite_friend/",
+    @blueprint_outlaw.route("/outlaw/<int:outlaw_id>/invite_friend",
                             methods=['POST'])
     def invite_friend_endpoint(outlaw_id: int) -> Response:
         data = request.get_json()

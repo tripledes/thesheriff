@@ -38,13 +38,13 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid,
 
     Implements the following routes:
 
-    * */<prefix>/raid/* (POST)
+    * */<prefix>/raid* (POST)
 
       **Request Example:**
 
       .. code-block:: console
 
-         $ curl localhost:5000/api/<version>/raid/ \\
+         $ curl localhost:5000/api/<version>/raid \\
             -X POST --data @examples/json/create_raid.json \\
             -H 'Content-Type: application/json'
 
@@ -57,13 +57,13 @@ def raid_controller(create_raid: CreateRaid, rate_raid: RateRaid,
              "raid": {}
          }
 
-    * */<prefix>/outlaw/<int:outlaw_id>/raid/<int:raid_id>/* (PUT)
+    * */<prefix>/raid/<int:raid_id>/rate* (PUT)
 
       **Request Example:**
 
       .. code-block:: console
 
-         $ curl localhost:5000/api/<version>/outlaw/1/raid/1 \\
+         $ curl localhost:5000/api/<version>/raid/1/rate \\
              -X PUT --data @examples/json/rate_raid.json \\
              -H 'Content-Type: application/json'
 

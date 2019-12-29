@@ -195,9 +195,9 @@
 </pre></div>
 </div>
 </li>
-<li><p><em>/&lt;prefix&gt;/outlaw/invite_friend/</em> (POST)</p>
+<li><p><em>/&lt;prefix&gt;/outlaw/invite_friend</em> (POST)</p>
 <p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/invite_friend/ <span class="se">\</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/invite_friend <span class="se">\</span>
    -X POST --data @examples/json/invite_friend.json <span class="se">\</span>
    -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </pre></div>
@@ -238,9 +238,9 @@
 </dl>
 <p>Implements the following routes:</p>
 <ul>
-<li><p><em>/&lt;prefix&gt;/raid/</em> (POST)</p>
+<li><p><em>/&lt;prefix&gt;/raid</em> (POST)</p>
 <p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/raid/ <span class="se">\</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/raid <span class="se">\</span>
    -X POST --data @examples/json/create_raid.json <span class="se">\</span>
    -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </pre></div>
@@ -253,9 +253,9 @@
 </pre></div>
 </div>
 </li>
-<li><p><em>/&lt;prefix&gt;/outlaw/&lt;int:outlaw_id&gt;/raid/&lt;int:raid_id&gt;/</em> (PUT)</p>
+<li><p><em>/&lt;prefix&gt;/raid/&lt;int:raid_id&gt;/rate</em> (PUT)</p>
 <p><strong>Request Example:</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/outlaw/1/raid/1 <span class="se">\</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:5000/api/&lt;version&gt;/raid/1/rate <span class="se">\</span>
     -X PUT --data @examples/json/rate_raid.json <span class="se">\</span>
     -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
 </pre></div>
@@ -505,7 +505,11 @@
 <dd><p>MySQLRaidRepository implements persistence for Raid on MySQL.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>database_uri</strong> (<em>String</em>) – URI for connecting to MySQL</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>database_uri</strong> (<em>String</em>) – URI for connecting to MySQL</p></li>
+<li><p><strong>meta</strong> (<em>sqlalchemy.MetaData</em>) – MetaData object shared across all MySQL repositories.</p></li>
+<li><p><strong>outlaw_table</strong> (<em>sqlalchemy.Table</em>) – Table object, represents the Raid table in MySQL.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="method">
@@ -622,7 +626,7 @@ transformation before running the actual update.</p>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="application.html">The Sheriff Application</a></li>
@@ -636,6 +640,9 @@ transformation before running the actual update.</p>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">The Sheriff Usage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusions</a></li>
 </ul>
 
 
@@ -680,7 +687,7 @@ transformation before running the actual update.</p>
       &copy;2019, The Sheriff Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

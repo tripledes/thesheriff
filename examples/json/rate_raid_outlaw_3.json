@@ -1,0 +1,9 @@
+{
+  "outlaw_id": 3,
+  "rate": {
+    "food_quantity": 7,
+    "food_quality": 6,
+    "service_quality": 5,
+    "price": 8.5
+  }
+}

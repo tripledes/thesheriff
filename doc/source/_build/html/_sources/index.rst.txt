@@ -60,3 +60,13 @@ Here's all you need to run and test The Sheriff application.
    :maxdepth: 2
 
    usage
+
+Conclusions
+===========
+
+Small section about the lessons learned after the project.
+
+.. toctree::
+   :maxdepth: 2
+
+   conclusion
